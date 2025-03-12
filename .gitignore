@@ -1,3 +1,6 @@
 env_*/
 __pycache__/
 *.ipynb_checkpoints/
+env_*/
+__pycache__/
+*.ipynb_checkpoints/
