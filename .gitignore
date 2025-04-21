@@ -1,0 +1,7 @@
+env_*/
+__pycache__/
+*.ipynb_checkpoints/
+
+data/raw/*.cwa
+data/preprocessed/*.h5
+data/features/*.npy
