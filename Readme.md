@@ -1,9 +1,16 @@
 # Project : MSc Thesis - Large-scale accelerometer data analysis for iRBD classification
-Author : Sara Maria Guijarro (s184484)
-Supervisor : Dr. Andreas Brink-Kjaer (DTU Health Tech)
+**Author** : Sara Maria Guijarro (s184484)
+**Supervisor** : Dr. Andreas Brink-Kjaer (DTU Health Tech)
 
+---
 
-# Project files structure
+## Overview
+
+This repository contains the complete implementation of my Master's thesis project, which focuses on detecting Idiopathic REM Sleep Behavior Disorder (iRBD) from wrist-worn accelerometer data using self-supervised learning and deep learning techniques.
+
+---
+
+## Project Files Structure
 iRBD-detection/
 ├── Readme.md    # Main project documentation
 ├── .gitignore    # Git ignore file
@@ -52,3 +59,26 @@ iRBD-detection/
         ├── feature_volcano_plot.png                     # Volcano plot: effect size vs statistical significance
         ├── top_discriminative_features.png              # Bar chart of most discriminative features
         └── top_features_group_comparison.png            # Box plots comparing top features between groups
+
+
+---
+
+## Technologies Used
+
+- **Python 3.x**
+- **PyTorch** - Deep learning framework for LSTM implementation
+- **SSL-Wearables** - Self-supervised learning for wearable sensor data
+- **Pandas & NumPy** - Data manipulation and numerical computing
+- **Scikit-learn** - Machine learning utilities and evaluation metrics
+- **Matplotlib & Seaborn** - Data visualization
+
+---
+
+## Pipeline Overview
+
+1. **Preprocessing**: Convert raw accelerometer data (.cwa) to clean, night-segmented HDF5 files
+2. **Feature Extraction**: Apply self-supervised learning to extract meaningful representations
+3. **Statistical Analysis**: Validate feature discriminative power between groups
+4. **LSTM Classification**: Train and evaluate deep learning model for iRBD detection
+
+---
