@@ -1,6 +1,6 @@
 # Project : MSc Thesis - Large-scale accelerometer data analysis for iRBD classification
-**Author** : Sara Maria Guijarro (s184484)  
-**Supervisor** : Dr. Andreas Brink-Kjaer (DTU Health Tech)
+Author : Sara Maria Guijarro (s184484)  
+Supervisor : Dr. Andreas Brink-Kjaer (DTU Health Tech)
 
 
 ## Overview
@@ -9,6 +9,7 @@ This repository contains the complete implementation of my Master's thesis proje
 
 
 ## Project Files Structure
+```
 iRBD-detection/  
 ├── Readme.md    # Main project documentation  
 ├── .gitignore    # Git ignore file  
@@ -57,7 +58,7 @@ iRBD-detection/
         ├── feature_volcano_plot.png                     # Volcano plot: effect size vs statistical significance    
         ├── top_discriminative_features.png              # Bar chart of most discriminative features    
         └── top_features_group_comparison.png            # Box plots comparing top features between groups  
-
+```
 
 
 ## Technologies Used
