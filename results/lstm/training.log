@@ -1,0 +1,752 @@
+2025-07-28 06:21:01,615 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 06:21:01,616 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 06:21:01,616 - INFO - Device: cpu
+2025-07-28 06:21:01,616 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 06:21:01,617 - INFO - ================================================================================
+2025-07-28 06:21:01,617 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 06:21:01,618 - INFO - ================================================================================
+2025-07-28 06:21:01,618 - INFO - Loading participant data...
+2025-07-28 06:21:01,621 - INFO - Found 38 control participant files
+2025-07-28 06:21:01,623 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD076_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,626 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD093_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,628 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD048_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,631 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD066_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,633 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD109_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,636 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD057_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,638 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD114_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,641 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD087_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,643 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD037_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,646 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD033_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,648 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD102_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,651 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD078_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,653 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD090_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,656 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD025_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,658 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/2290025_90001_0_0_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,661 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD097_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,663 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD112_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,666 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD038_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,668 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD069_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,670 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD055_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,673 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD064_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,675 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD110_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,678 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD094_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,680 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD081_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,683 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD107_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,685 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD056_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,687 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD115_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,690 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD083_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,692 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD051_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,695 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD091_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,697 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD054_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,699 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD050_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,702 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD079_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,704 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD092_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,707 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD082_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,709 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD096_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,711 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD058_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,714 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD098_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,715 - INFO - Found 33 iRBD participant files
+2025-07-28 06:21:01,717 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD004_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,720 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD021_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,722 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD095_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,724 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD020_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,727 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD071_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,729 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD007_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,732 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD032_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,734 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD030_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,737 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD013_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,739 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD059_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,741 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD065_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,743 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD039_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,746 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD010_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,748 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD023_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,751 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD105_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,753 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD061_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,756 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD072_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,758 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD000_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,761 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD001_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,763 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD015_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,765 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD012_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,768 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD008_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,770 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD018_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,773 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD080_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,775 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD028_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,777 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD016_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,779 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD011_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,782 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD014_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,784 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD006_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,786 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD113_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,789 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD062_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,791 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD031_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,793 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD074_features.npy: Object arrays cannot be loaded when allow_pickle=False
+2025-07-28 06:21:01,794 - INFO - Successfully loaded 0 participants:
+2025-07-28 06:21:01,794 - INFO -   - Controls: 0
+2025-07-28 06:21:01,794 - INFO -   - iRBD: 0
+2025-07-28 06:21:01,795 - ERROR - No participants loaded! Check feature file paths.
+2025-07-28 06:21:01,795 - ERROR - LSTM training pipeline failed: Failed to load participant data
+2025-07-28 06:21:01,795 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1471, in run_lstm_training
+    raise Exception("Failed to load participant data")
+Exception: Failed to load participant data
+
+2025-07-28 06:40:22,407 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 06:40:22,408 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 06:40:22,408 - INFO - Device: cpu
+2025-07-28 06:40:22,409 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 06:40:22,409 - INFO - ================================================================================
+2025-07-28 06:40:22,409 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 06:40:22,410 - INFO - ================================================================================
+2025-07-28 06:40:22,410 - INFO - Loading participant data...
+2025-07-28 06:40:22,413 - INFO - Found 38 control participant files
+2025-07-28 06:40:22,510 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD076_features.npy: tuple index out of range
+2025-07-28 06:40:22,636 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD093_features.npy: tuple index out of range
+2025-07-28 06:40:22,691 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD048_features.npy: tuple index out of range
+2025-07-28 06:40:22,911 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD066_features.npy: tuple index out of range
+2025-07-28 06:40:23,013 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD109_features.npy: tuple index out of range
+2025-07-28 06:40:23,246 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD057_features.npy: tuple index out of range
+2025-07-28 06:40:23,392 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD114_features.npy: tuple index out of range
+2025-07-28 06:40:23,506 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD087_features.npy: tuple index out of range
+2025-07-28 06:40:23,813 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD037_features.npy: tuple index out of range
+2025-07-28 06:40:24,117 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD033_features.npy: tuple index out of range
+2025-07-28 06:40:24,238 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD102_features.npy: tuple index out of range
+2025-07-28 06:40:24,366 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD078_features.npy: tuple index out of range
+2025-07-28 06:40:24,472 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD090_features.npy: tuple index out of range
+2025-07-28 06:40:24,663 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD025_features.npy: tuple index out of range
+2025-07-28 06:40:24,725 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/2290025_90001_0_0_features.npy: tuple index out of range
+2025-07-28 06:40:24,835 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD097_features.npy: tuple index out of range
+2025-07-28 06:40:24,951 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD112_features.npy: tuple index out of range
+2025-07-28 06:40:25,213 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD038_features.npy: tuple index out of range
+2025-07-28 06:40:25,380 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD069_features.npy: tuple index out of range
+2025-07-28 06:40:25,627 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD055_features.npy: tuple index out of range
+2025-07-28 06:40:25,905 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD064_features.npy: tuple index out of range
+2025-07-28 06:40:26,027 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD110_features.npy: tuple index out of range
+2025-07-28 06:40:26,140 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD094_features.npy: tuple index out of range
+2025-07-28 06:40:26,252 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD081_features.npy: tuple index out of range
+2025-07-28 06:40:26,363 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD107_features.npy: tuple index out of range
+2025-07-28 06:40:26,596 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD056_features.npy: tuple index out of range
+2025-07-28 06:40:26,726 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD115_features.npy: tuple index out of range
+2025-07-28 06:40:26,839 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD083_features.npy: tuple index out of range
+2025-07-28 06:40:26,949 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD051_features.npy: tuple index out of range
+2025-07-28 06:40:27,070 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD091_features.npy: tuple index out of range
+2025-07-28 06:40:27,363 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD054_features.npy: tuple index out of range
+2025-07-28 06:40:27,477 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD050_features.npy: tuple index out of range
+2025-07-28 06:40:27,588 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD079_features.npy: tuple index out of range
+2025-07-28 06:40:27,699 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD092_features.npy: tuple index out of range
+2025-07-28 06:40:27,818 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD082_features.npy: tuple index out of range
+2025-07-28 06:40:27,932 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD096_features.npy: tuple index out of range
+2025-07-28 06:40:28,231 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD058_features.npy: tuple index out of range
+2025-07-28 06:40:28,298 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD098_features.npy: tuple index out of range
+2025-07-28 06:40:28,300 - INFO - Found 33 iRBD participant files
+2025-07-28 06:40:28,555 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD004_features.npy: tuple index out of range
+2025-07-28 06:40:28,790 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD021_features.npy: tuple index out of range
+2025-07-28 06:40:29,055 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD095_features.npy: tuple index out of range
+2025-07-28 06:40:29,286 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD020_features.npy: tuple index out of range
+2025-07-28 06:40:29,542 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD071_features.npy: tuple index out of range
+2025-07-28 06:40:29,828 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD007_features.npy: tuple index out of range
+2025-07-28 06:40:30,147 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD032_features.npy: tuple index out of range
+2025-07-28 06:40:30,411 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD030_features.npy: tuple index out of range
+2025-07-28 06:40:30,691 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD013_features.npy: tuple index out of range
+2025-07-28 06:40:30,959 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD059_features.npy: tuple index out of range
+2025-07-28 06:40:31,058 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD065_features.npy: tuple index out of range
+2025-07-28 06:40:31,336 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD039_features.npy: tuple index out of range
+2025-07-28 06:40:31,584 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD010_features.npy: tuple index out of range
+2025-07-28 06:40:31,826 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD023_features.npy: tuple index out of range
+2025-07-28 06:40:32,043 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD105_features.npy: tuple index out of range
+2025-07-28 06:40:32,308 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD061_features.npy: tuple index out of range
+2025-07-28 06:40:32,619 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD072_features.npy: tuple index out of range
+2025-07-28 06:40:32,719 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD000_features.npy: tuple index out of range
+2025-07-28 06:40:32,924 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD001_features.npy: tuple index out of range
+2025-07-28 06:40:33,192 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD015_features.npy: tuple index out of range
+2025-07-28 06:40:33,448 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD012_features.npy: tuple index out of range
+2025-07-28 06:40:33,774 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD008_features.npy: tuple index out of range
+2025-07-28 06:40:34,050 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD018_features.npy: tuple index out of range
+2025-07-28 06:40:34,165 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD080_features.npy: tuple index out of range
+2025-07-28 06:40:34,426 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD028_features.npy: tuple index out of range
+2025-07-28 06:40:34,690 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD016_features.npy: tuple index out of range
+2025-07-28 06:40:34,941 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD011_features.npy: tuple index out of range
+2025-07-28 06:40:35,196 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD014_features.npy: tuple index out of range
+2025-07-28 06:40:35,445 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD006_features.npy: tuple index out of range
+2025-07-28 06:40:35,587 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD113_features.npy: tuple index out of range
+2025-07-28 06:40:35,699 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD062_features.npy: tuple index out of range
+2025-07-28 06:40:35,961 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD031_features.npy: tuple index out of range
+2025-07-28 06:40:36,190 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD074_features.npy: tuple index out of range
+2025-07-28 06:40:36,190 - INFO - Successfully loaded 0 participants:
+2025-07-28 06:40:36,191 - INFO -   - Controls: 0
+2025-07-28 06:40:36,191 - INFO -   - iRBD: 0
+2025-07-28 06:40:36,192 - ERROR - No participants loaded! Check feature file paths.
+2025-07-28 06:40:36,195 - ERROR - LSTM training pipeline failed: Failed to load participant data
+2025-07-28 06:40:36,196 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1471, in run_lstm_training
+    raise Exception("Failed to load participant data")
+Exception: Failed to load participant data
+
+2025-07-28 07:01:08,006 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 07:01:08,006 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 07:01:08,007 - INFO - Device: cpu
+2025-07-28 07:01:08,007 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 07:01:08,008 - INFO - ================================================================================
+2025-07-28 07:01:08,008 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 07:01:08,008 - INFO - ================================================================================
+2025-07-28 07:01:08,009 - INFO - Loading participant data...
+2025-07-28 07:01:08,011 - INFO - Found 38 control participant files
+2025-07-28 07:01:12,186 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD115_features.npy: 
+2025-07-28 07:01:12,189 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD083_features.npy: 
+2025-07-28 07:01:12,191 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD051_features.npy: 
+2025-07-28 07:01:12,193 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD091_features.npy: 
+2025-07-28 07:01:12,196 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD054_features.npy: 
+2025-07-28 07:01:12,198 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD050_features.npy: 
+2025-07-28 07:01:12,201 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD079_features.npy: 
+2025-07-28 07:01:12,204 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD092_features.npy: 
+2025-07-28 07:01:12,207 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD082_features.npy: 
+2025-07-28 07:01:12,209 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD096_features.npy: 
+2025-07-28 07:01:12,212 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD058_features.npy: 
+2025-07-28 07:01:12,276 - INFO - Found 33 iRBD participant files
+2025-07-28 07:01:12,280 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD004_features.npy: 
+2025-07-28 07:01:12,282 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD021_features.npy: 
+2025-07-28 07:01:12,285 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD095_features.npy: 
+2025-07-28 07:01:12,288 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD020_features.npy: 
+2025-07-28 07:01:12,290 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD071_features.npy: 
+2025-07-28 07:01:12,292 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD007_features.npy: 
+2025-07-28 07:01:12,295 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD032_features.npy: 
+2025-07-28 07:01:12,297 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD030_features.npy: 
+2025-07-28 07:01:12,300 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD013_features.npy: 
+2025-07-28 07:01:12,302 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD059_features.npy: 
+2025-07-28 07:01:12,305 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD065_features.npy: 
+2025-07-28 07:01:12,307 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD039_features.npy: 
+2025-07-28 07:01:12,309 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD010_features.npy: 
+2025-07-28 07:01:12,312 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD023_features.npy: 
+2025-07-28 07:01:12,314 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD105_features.npy: 
+2025-07-28 07:01:12,317 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD061_features.npy: 
+2025-07-28 07:01:12,319 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD072_features.npy: 
+2025-07-28 07:01:12,322 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD000_features.npy: 
+2025-07-28 07:01:12,324 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD001_features.npy: 
+2025-07-28 07:01:12,327 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD015_features.npy: 
+2025-07-28 07:01:12,329 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD012_features.npy: 
+2025-07-28 07:01:12,331 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD008_features.npy: 
+2025-07-28 07:01:12,334 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD018_features.npy: 
+2025-07-28 07:01:12,336 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD080_features.npy: 
+2025-07-28 07:01:12,338 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD028_features.npy: 
+2025-07-28 07:01:12,341 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD016_features.npy: 
+2025-07-28 07:01:12,343 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD011_features.npy: 
+2025-07-28 07:01:12,346 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD014_features.npy: 
+2025-07-28 07:01:12,348 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD006_features.npy: 
+2025-07-28 07:01:12,351 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD113_features.npy: 
+2025-07-28 07:01:12,353 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD062_features.npy: 
+2025-07-28 07:01:12,356 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD031_features.npy: 
+2025-07-28 07:01:12,358 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD074_features.npy: 
+2025-07-28 07:01:12,359 - INFO - Successfully loaded 27 participants:
+2025-07-28 07:01:12,359 - INFO -   - Controls: 27
+2025-07-28 07:01:12,359 - INFO -   - iRBD: 0
+2025-07-28 07:01:12,359 - INFO - Starting 5-fold cross-validation...
+2025-07-28 07:01:12,361 - INFO - \n============================================================
+2025-07-28 07:01:12,361 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 07:01:12,362 - INFO - ============================================================
+2025-07-28 07:01:12,363 - INFO - Fold 1 participants:
+2025-07-28 07:01:12,363 - INFO -   Train: 16 participants
+2025-07-28 07:01:12,363 - INFO -   Validation: 5 participants
+2025-07-28 07:01:12,364 - INFO -   Test: 6 participants
+2025-07-28 07:01:12,364 - INFO - Starting model training (Fold 1)...
+2025-07-28 07:01:14,692 - ERROR - LSTM training pipeline failed: index 1 is out of bounds for axis 0 with size 1
+2025-07-28 07:01:14,693 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1453, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1115, in run_cross_validation
+    model, fold_history = self.train_model(train_loader, val_loader, fold_num)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 759, in train_model
+    self.logger.info(f"Class weights: Control={class_weights[0]:.3f}, iRBD={class_weights[1]:.3f}")
+IndexError: index 1 is out of bounds for axis 0 with size 1
+
+2025-07-28 07:25:43,557 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 07:25:43,558 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 07:25:43,558 - INFO - Device: cpu
+2025-07-28 07:25:43,559 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 07:25:43,559 - INFO - ================================================================================
+2025-07-28 07:25:43,559 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 07:25:43,560 - INFO - ================================================================================
+2025-07-28 07:25:43,560 - INFO - Loading participant data...
+2025-07-28 07:25:43,562 - INFO - Found 38 control participant files
+2025-07-28 07:25:47,693 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD115_features.npy: 
+2025-07-28 07:25:47,696 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD083_features.npy: 
+2025-07-28 07:25:47,698 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD051_features.npy: 
+2025-07-28 07:25:47,701 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD091_features.npy: 
+2025-07-28 07:25:47,704 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD054_features.npy: 
+2025-07-28 07:25:47,706 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD050_features.npy: 
+2025-07-28 07:25:47,709 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD079_features.npy: 
+2025-07-28 07:25:47,711 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD092_features.npy: 
+2025-07-28 07:25:47,714 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD082_features.npy: 
+2025-07-28 07:25:47,716 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD096_features.npy: 
+2025-07-28 07:25:47,719 - ERROR - Error loading control file /work3/s184484/iRBD-detection/data/features/controls/AXRBD058_features.npy: 
+2025-07-28 07:25:47,784 - INFO - Found 33 iRBD participant files
+2025-07-28 07:25:47,787 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD004_features.npy: 
+2025-07-28 07:25:47,824 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,826 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD021_features.npy: 
+2025-07-28 07:25:47,827 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,830 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD095_features.npy: 
+2025-07-28 07:25:47,830 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,833 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD020_features.npy: 
+2025-07-28 07:25:47,834 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,837 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD071_features.npy: 
+2025-07-28 07:25:47,837 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,840 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD007_features.npy: 
+2025-07-28 07:25:47,840 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,843 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD032_features.npy: 
+2025-07-28 07:25:47,844 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,846 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD030_features.npy: 
+2025-07-28 07:25:47,847 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,849 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD013_features.npy: 
+2025-07-28 07:25:47,850 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,853 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD059_features.npy: 
+2025-07-28 07:25:47,853 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,856 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD065_features.npy: 
+2025-07-28 07:25:47,857 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,859 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD039_features.npy: 
+2025-07-28 07:25:47,860 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,862 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD010_features.npy: 
+2025-07-28 07:25:47,863 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,865 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD023_features.npy: 
+2025-07-28 07:25:47,866 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,868 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD105_features.npy: 
+2025-07-28 07:25:47,869 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,871 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD061_features.npy: 
+2025-07-28 07:25:47,872 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,874 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD072_features.npy: 
+2025-07-28 07:25:47,875 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,877 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD000_features.npy: 
+2025-07-28 07:25:47,878 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,880 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD001_features.npy: 
+2025-07-28 07:25:47,881 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,883 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD015_features.npy: 
+2025-07-28 07:25:47,884 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,886 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD012_features.npy: 
+2025-07-28 07:25:47,887 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,890 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD008_features.npy: 
+2025-07-28 07:25:47,890 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,893 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD018_features.npy: 
+2025-07-28 07:25:47,894 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,896 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD080_features.npy: 
+2025-07-28 07:25:47,897 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,899 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD028_features.npy: 
+2025-07-28 07:25:47,900 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,902 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD016_features.npy: 
+2025-07-28 07:25:47,903 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,905 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD011_features.npy: 
+2025-07-28 07:25:47,906 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,908 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD014_features.npy: 
+2025-07-28 07:25:47,909 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,911 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD006_features.npy: 
+2025-07-28 07:25:47,912 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,914 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD113_features.npy: 
+2025-07-28 07:25:47,915 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,917 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD062_features.npy: 
+2025-07-28 07:25:47,918 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,920 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD031_features.npy: 
+2025-07-28 07:25:47,921 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,923 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD074_features.npy: 
+2025-07-28 07:25:47,924 - ERROR - Detailed error: Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 469, in load_all_participants
+    data = np.load(feature_file, allow_pickle=True)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 480, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/numpy/lib/format.py", line 820, in read_array
+    array = pickle.load(fp, **pickle_kwargs)
+MemoryError
+
+2025-07-28 07:25:47,924 - INFO - Successfully loaded 27 participants:
+2025-07-28 07:25:47,925 - INFO -   - Controls: 27
+2025-07-28 07:25:47,925 - INFO -   - iRBD: 0
+2025-07-28 07:25:47,926 - INFO - Starting 5-fold cross-validation...
+2025-07-28 07:25:47,927 - INFO - \n============================================================
+2025-07-28 07:25:47,927 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 07:25:47,928 - INFO - ============================================================
+2025-07-28 07:25:47,929 - INFO - Fold 1 participants:
+2025-07-28 07:25:47,929 - INFO -   Train: 16 participants
+2025-07-28 07:25:47,930 - INFO -   Validation: 5 participants
+2025-07-28 07:25:47,930 - INFO -   Test: 6 participants
+2025-07-28 07:25:47,931 - INFO - Starting model training (Fold 1)...
+2025-07-28 07:25:48,010 - ERROR - LSTM training pipeline failed: name 'train_labels' is not defined
+2025-07-28 07:25:48,011 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1455, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1117, in run_cross_validation
+    model, fold_history = self.train_model(train_loader, val_loader, fold_num)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 751, in train_model
+    unique_classes = np.unique(train_labels)
+NameError: name 'train_labels' is not defined
+
+2025-07-28 07:36:02,587 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 07:36:02,587 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 07:36:02,588 - INFO - Device: cpu
+2025-07-28 07:36:02,588 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 07:36:02,588 - INFO - ================================================================================
+2025-07-28 07:36:02,589 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 07:36:02,589 - INFO - ================================================================================
+2025-07-28 07:36:02,590 - INFO - Loading participant data...
+2025-07-28 07:36:02,591 - INFO - Found 5 control participant files
+2025-07-28 07:36:03,205 - INFO - Found 5 iRBD participant files
+2025-07-28 07:36:03,449 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 07:36:03,682 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 07:36:03,943 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 07:36:04,174 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 07:36:04,427 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 07:36:04,428 - INFO - Successfully loaded 10 participants:
+2025-07-28 07:36:04,428 - INFO -   - Controls: 5
+2025-07-28 07:36:04,429 - INFO -   - iRBD: 5
+2025-07-28 07:36:04,429 - INFO - Starting 5-fold cross-validation...
+2025-07-28 07:36:04,431 - INFO - \n============================================================
+2025-07-28 07:36:04,431 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 07:36:04,431 - INFO - ============================================================
+2025-07-28 07:36:04,433 - INFO - Fold 1 participants:
+2025-07-28 07:36:04,433 - INFO -   Train: 6 participants
+2025-07-28 07:36:04,433 - INFO -   Validation: 2 participants
+2025-07-28 07:36:04,434 - INFO -   Test: 2 participants
+2025-07-28 07:36:04,435 - INFO - Starting model training (Fold 1)...
+2025-07-28 07:36:04,511 - ERROR - LSTM training pipeline failed: name 'train_labels' is not defined
+2025-07-28 07:36:04,513 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1455, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1117, in run_cross_validation
+    model, fold_history = self.train_model(train_loader, val_loader, fold_num)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 751, in train_model
+    unique_classes = np.unique(train_labels)
+NameError: name 'train_labels' is not defined
+
+2025-07-28 07:44:02,625 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 07:44:02,626 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 07:44:02,626 - INFO - Device: cpu
+2025-07-28 07:44:02,627 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 07:44:02,627 - INFO - ================================================================================
+2025-07-28 07:44:02,627 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 07:44:02,628 - INFO - ================================================================================
+2025-07-28 07:44:02,628 - INFO - Loading participant data...
+2025-07-28 07:44:02,630 - INFO - Found 5 control participant files
+2025-07-28 07:44:03,241 - INFO - Found 5 iRBD participant files
+2025-07-28 07:44:03,476 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 07:44:03,705 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 07:44:03,966 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 07:44:04,198 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 07:44:04,455 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 07:44:04,455 - INFO - Successfully loaded 10 participants:
+2025-07-28 07:44:04,456 - INFO -   - Controls: 5
+2025-07-28 07:44:04,456 - INFO -   - iRBD: 5
+2025-07-28 07:44:04,456 - INFO - Starting 5-fold cross-validation...
+2025-07-28 07:44:04,458 - INFO - \n============================================================
+2025-07-28 07:44:04,458 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 07:44:04,459 - INFO - ============================================================
+2025-07-28 07:44:04,460 - INFO - Fold 1 participants:
+2025-07-28 07:44:04,461 - INFO -   Train: 6 participants
+2025-07-28 07:44:04,461 - INFO -   Validation: 2 participants
+2025-07-28 07:44:04,461 - INFO -   Test: 2 participants
+2025-07-28 07:44:04,462 - INFO - Starting model training (Fold 1)...
+2025-07-28 07:44:04,783 - ERROR - LSTM training pipeline failed: new(): data must be a sequence (got dict)
+2025-07-28 07:44:04,788 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1462, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1124, in run_cross_validation
+    model, fold_history = self.train_model(train_loader, val_loader, fold_num)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 754, in train_model
+    for batch_features, batch_labels, batch_lengths in train_loader:
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 52, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 636, in __getitem__
+    features_tensor = torch.FloatTensor(features)
+TypeError: new(): data must be a sequence (got dict)
+
+2025-07-28 07:51:43,075 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 07:51:43,075 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 07:51:43,076 - INFO - Device: cpu
+2025-07-28 07:51:43,076 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 07:51:43,076 - INFO - ================================================================================
+2025-07-28 07:51:43,077 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 07:51:43,077 - INFO - ================================================================================
+2025-07-28 07:51:43,078 - INFO - Loading participant data...
+2025-07-28 07:51:43,079 - INFO - Found 5 control participant files
+2025-07-28 07:51:43,652 - INFO - Found 5 iRBD participant files
+2025-07-28 07:51:43,897 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 07:51:44,136 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 07:51:44,401 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 07:51:44,637 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 07:51:44,907 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 07:51:44,907 - INFO - Successfully loaded 10 participants:
+2025-07-28 07:51:44,907 - INFO -   - Controls: 5
+2025-07-28 07:51:44,908 - INFO -   - iRBD: 5
+2025-07-28 07:51:44,908 - INFO - Starting 5-fold cross-validation...
+2025-07-28 07:51:44,910 - INFO - \n============================================================
+2025-07-28 07:51:44,910 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 07:51:44,911 - INFO - ============================================================
+2025-07-28 07:51:44,912 - INFO - Fold 1 participants:
+2025-07-28 07:51:44,913 - INFO -   Train: 6 participants
+2025-07-28 07:51:44,913 - INFO -   Validation: 2 participants
+2025-07-28 07:51:44,914 - INFO -   Test: 2 participants
+2025-07-28 07:51:44,914 - INFO - Starting model training (Fold 1)...
+2025-07-28 07:51:46,973 - ERROR - LSTM training pipeline failed: too many values to unpack (expected 3)
+2025-07-28 07:51:46,975 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1472, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 1134, in run_cross_validation
+    model, fold_history = self.train_model(train_loader, val_loader, fold_num)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 764, in train_model
+    for batch_features, batch_labels, batch_lengths in train_loader:
+ValueError: too many values to unpack (expected 3)
+

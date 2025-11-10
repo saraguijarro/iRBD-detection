@@ -1,0 +1,90 @@
+2025-07-29 00:41:35,011 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-29 00:41:35,012 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-29 00:41:35,012 - INFO - Device: cpu
+2025-07-29 00:41:35,012 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-29 00:41:35,013 - INFO - ================================================================================
+2025-07-29 00:41:35,013 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-29 00:41:35,013 - INFO - ================================================================================
+2025-07-29 00:41:35,014 - INFO - Loading participant data...
+2025-07-29 00:41:35,017 - INFO - Found 10 control participant files
+2025-07-29 00:41:36,768 - INFO - Found 10 iRBD participant files
+2025-07-29 00:41:37,024 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-29 00:41:37,273 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-29 00:41:37,557 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-29 00:41:37,803 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-29 00:41:38,078 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-29 00:41:38,385 - INFO - Loaded iRBD AXRBD007: (37, 2880, 1024)
+2025-07-29 00:41:38,721 - INFO - Loaded iRBD AXRBD032: (40, 2880, 1024)
+2025-07-29 00:41:39,006 - INFO - Loaded iRBD AXRBD030: (34, 2880, 1024)
+2025-07-29 00:41:39,301 - INFO - Loaded iRBD AXRBD013: (36, 2880, 1024)
+2025-07-29 00:41:39,303 - ERROR - Error loading iRBD file /work3/s184484/iRBD-detection/data/features/irbd/AXRBD059_features.npy: 
+2025-07-29 00:41:39,304 - INFO - Successfully loaded 19 participants:
+2025-07-29 00:41:39,304 - INFO -   - Controls: 10
+2025-07-29 00:41:39,304 - INFO -   - iRBD: 9
+2025-07-29 00:41:39,305 - INFO - Starting 5-fold cross-validation...
+2025-07-29 00:41:39,306 - INFO - 
+============================================================
+2025-07-29 00:41:39,306 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-29 00:41:39,307 - INFO - ============================================================
+2025-07-29 00:41:39,308 - INFO - Fold 1 participants:
+2025-07-29 00:41:39,308 - INFO -   Train: 12 participants
+2025-07-29 00:41:39,309 - INFO -   Validation: 3 participants
+2025-07-29 00:41:39,309 - INFO -   Test: 4 participants
+2025-07-29 00:41:39,310 - INFO - Starting model training (Fold 1)...
+2025-07-29 00:41:39,311 - INFO - Initial memory usage: 11913.25 MB
+2025-07-29 00:41:39,325 - INFO - Class weights: Control=0.950, iRBD=1.056
+2025-07-29 00:41:42,067 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 401080320 bytes. Error code 12 (Cannot allocate memory)
+2025-07-29 00:41:42,068 - ERROR - Training failed for fold 1
+2025-07-29 00:41:42,069 - INFO - 
+============================================================
+2025-07-29 00:41:42,069 - INFO - CROSS-VALIDATION FOLD 2/5
+2025-07-29 00:41:42,070 - INFO - ============================================================
+2025-07-29 00:41:42,072 - INFO - Fold 2 participants:
+2025-07-29 00:41:42,072 - INFO -   Train: 12 participants
+2025-07-29 00:41:42,072 - INFO -   Validation: 3 participants
+2025-07-29 00:41:42,073 - INFO -   Test: 4 participants
+2025-07-29 00:41:42,073 - INFO - Starting model training (Fold 2)...
+2025-07-29 00:41:42,074 - INFO - Initial memory usage: 11991.50 MB
+2025-07-29 00:41:42,085 - INFO - Class weights: Control=0.950, iRBD=1.056
+2025-07-29 00:41:42,086 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 436469760 bytes. Error code 12 (Cannot allocate memory)
+2025-07-29 00:41:42,087 - ERROR - Training failed for fold 2
+2025-07-29 00:41:42,087 - INFO - 
+============================================================
+2025-07-29 00:41:42,087 - INFO - CROSS-VALIDATION FOLD 3/5
+2025-07-29 00:41:42,088 - INFO - ============================================================
+2025-07-29 00:41:42,089 - INFO - Fold 3 participants:
+2025-07-29 00:41:42,089 - INFO -   Train: 12 participants
+2025-07-29 00:41:42,089 - INFO -   Validation: 3 participants
+2025-07-29 00:41:42,090 - INFO -   Test: 4 participants
+2025-07-29 00:41:42,090 - INFO - Starting model training (Fold 3)...
+2025-07-29 00:41:42,091 - INFO - Initial memory usage: 11991.50 MB
+2025-07-29 00:41:42,103 - INFO - Class weights: Control=0.950, iRBD=1.056
+2025-07-29 00:41:42,104 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 436469760 bytes. Error code 12 (Cannot allocate memory)
+2025-07-29 00:41:42,105 - ERROR - Training failed for fold 3
+2025-07-29 00:41:42,105 - INFO - 
+============================================================
+2025-07-29 00:41:42,106 - INFO - CROSS-VALIDATION FOLD 4/5
+2025-07-29 00:41:42,106 - INFO - ============================================================
+2025-07-29 00:41:42,107 - INFO - Fold 4 participants:
+2025-07-29 00:41:42,107 - INFO -   Train: 12 participants
+2025-07-29 00:41:42,108 - INFO -   Validation: 3 participants
+2025-07-29 00:41:42,108 - INFO -   Test: 4 participants
+2025-07-29 00:41:42,108 - INFO - Starting model training (Fold 4)...
+2025-07-29 00:41:42,109 - INFO - Initial memory usage: 11991.50 MB
+2025-07-29 00:41:42,120 - INFO - Class weights: Control=0.950, iRBD=1.056
+2025-07-29 00:41:42,225 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 353894400 bytes. Error code 12 (Cannot allocate memory)
+2025-07-29 00:41:42,227 - ERROR - Training failed for fold 4
+2025-07-29 00:41:42,227 - INFO - 
+============================================================
+2025-07-29 00:41:42,228 - INFO - CROSS-VALIDATION FOLD 5/5
+2025-07-29 00:41:42,228 - INFO - ============================================================
+2025-07-29 00:41:42,229 - INFO - Fold 5 participants:
+2025-07-29 00:41:42,230 - INFO -   Train: 12 participants
+2025-07-29 00:41:42,230 - INFO -   Validation: 4 participants
+2025-07-29 00:41:42,231 - INFO -   Test: 3 participants
+2025-07-29 00:41:42,231 - INFO - Starting model training (Fold 5)...
+2025-07-29 00:41:42,232 - INFO - Initial memory usage: 11991.59 MB
+2025-07-29 00:41:42,243 - INFO - Class weights: Control=0.950, iRBD=1.056
+2025-07-29 00:41:42,244 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 448266240 bytes. Error code 12 (Cannot allocate memory)
+2025-07-29 00:41:42,245 - ERROR - Training failed for fold 5
+2025-07-29 00:41:42,245 - ERROR - Cross-validation failed

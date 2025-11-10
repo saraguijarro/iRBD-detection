@@ -1,0 +1,82 @@
+2025-07-28 08:12:59,413 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 08:12:59,414 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 08:12:59,414 - INFO - Device: cpu
+2025-07-28 08:12:59,415 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 08:12:59,415 - INFO - ================================================================================
+2025-07-28 08:12:59,415 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 08:12:59,415 - INFO - ================================================================================
+2025-07-28 08:12:59,416 - INFO - Loading participant data...
+2025-07-28 08:12:59,422 - INFO - Found 5 control participant files
+2025-07-28 08:13:00,009 - INFO - Found 5 iRBD participant files
+2025-07-28 08:13:00,269 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 08:13:00,501 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 08:13:00,787 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 08:13:01,021 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 08:13:01,279 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 08:13:01,280 - INFO - Successfully loaded 10 participants:
+2025-07-28 08:13:01,280 - INFO -   - Controls: 5
+2025-07-28 08:13:01,280 - INFO -   - iRBD: 5
+2025-07-28 08:13:01,280 - INFO - Starting 5-fold cross-validation...
+2025-07-28 08:13:01,282 - INFO - 
+============================================================
+2025-07-28 08:13:01,282 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 08:13:01,283 - INFO - ============================================================
+2025-07-28 08:13:01,284 - INFO - Fold 1 participants:
+2025-07-28 08:13:01,284 - INFO -   Train: 6 participants
+2025-07-28 08:13:01,285 - INFO -   Validation: 2 participants
+2025-07-28 08:13:01,285 - INFO -   Test: 2 participants
+2025-07-28 08:13:01,286 - INFO - Starting model training (Fold 1)...
+2025-07-28 08:13:01,300 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:13:17,187 - ERROR - Error in train_model: stack expects each tensor to be equal size, but got [34, 2680, 1024] at entry 0 and [34, 2880, 1024] at entry 1
+2025-07-28 08:13:17,205 - ERROR - Training failed for fold 1
+2025-07-28 08:13:17,205 - INFO - 
+============================================================
+2025-07-28 08:13:17,206 - INFO - CROSS-VALIDATION FOLD 2/5
+2025-07-28 08:13:17,206 - INFO - ============================================================
+2025-07-28 08:13:17,208 - INFO - Fold 2 participants:
+2025-07-28 08:13:17,208 - INFO -   Train: 6 participants
+2025-07-28 08:13:17,208 - INFO -   Validation: 2 participants
+2025-07-28 08:13:17,209 - INFO -   Test: 2 participants
+2025-07-28 08:13:17,209 - INFO - Starting model training (Fold 2)...
+2025-07-28 08:13:17,221 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:13:18,543 - ERROR - Error in train_model: stack expects each tensor to be equal size, but got [34, 2880, 1024] at entry 0 and [34, 2680, 1024] at entry 3
+2025-07-28 08:13:18,563 - ERROR - Training failed for fold 2
+2025-07-28 08:13:18,564 - INFO - 
+============================================================
+2025-07-28 08:13:18,564 - INFO - CROSS-VALIDATION FOLD 3/5
+2025-07-28 08:13:18,565 - INFO - ============================================================
+2025-07-28 08:13:18,566 - INFO - Fold 3 participants:
+2025-07-28 08:13:18,567 - INFO -   Train: 6 participants
+2025-07-28 08:13:18,567 - INFO -   Validation: 2 participants
+2025-07-28 08:13:18,567 - INFO -   Test: 2 participants
+2025-07-28 08:13:18,569 - INFO - Starting model training (Fold 3)...
+2025-07-28 08:13:18,580 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:13:21,721 - INFO - Epoch   0: Train Loss=0.6954, Val Loss=0.6848, Train Acc=0.333, Val Acc=0.500
+2025-07-28 08:13:24,785 - INFO - Epoch   1: Train Loss=0.6487, Val Loss=0.6966, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:13:27,850 - INFO - Epoch   2: Train Loss=0.6744, Val Loss=0.6895, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:13:30,905 - INFO - Epoch   3: Train Loss=0.6569, Val Loss=0.6699, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:13:33,930 - INFO - Epoch   4: Train Loss=0.6660, Val Loss=0.6578, Train Acc=0.833, Val Acc=0.500
+2025-07-28 08:13:52,078 - INFO - Epoch  10: Train Loss=0.3976, Val Loss=0.2827, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:14:22,319 - INFO - Epoch  20: Train Loss=0.0295, Val Loss=0.0048, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:14:52,555 - INFO - Epoch  30: Train Loss=0.0013, Val Loss=0.0008, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:15:22,793 - INFO - Epoch  40: Train Loss=0.0003, Val Loss=0.0005, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:15:53,051 - INFO - Epoch  50: Train Loss=0.0002, Val Loss=0.0021, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:15:59,100 - INFO - Early stopping at epoch 52
+2025-07-28 08:15:59,454 - ERROR - LSTM training pipeline failed: stack expects each tensor to be equal size, but got [34, 2680, 1024] at entry 0 and [34, 2880, 1024] at entry 1
+2025-07-28 08:15:59,458 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 841, in run_lstm_training
+    cv_results = self.run_cross_validation()
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 811, in run_cross_validation
+    test_results = self.evaluate_model(model, test_loader, f"Fold {fold_num} Test")
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 695, in evaluate_model
+    for features, labels, lengths, masks, participant_ids in data_loader:
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 733, in __next__
+    data = self._next_data()
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 789, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+    return self.collate_fn(data)
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 542, in collate_fn
+    batch_features = torch.stack(padded_features)
+RuntimeError: stack expects each tensor to be equal size, but got [34, 2680, 1024] at entry 0 and [34, 2880, 1024] at entry 1
+

@@ -1,0 +1,160 @@
+2025-07-28 08:34:39,150 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 08:34:39,150 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 08:34:39,151 - INFO - Device: cpu
+2025-07-28 08:34:39,151 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 08:34:39,151 - INFO - ================================================================================
+2025-07-28 08:34:39,152 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 08:34:39,152 - INFO - ================================================================================
+2025-07-28 08:34:39,152 - INFO - Loading participant data...
+2025-07-28 08:34:39,154 - INFO - Found 5 control participant files
+2025-07-28 08:34:39,744 - INFO - Found 5 iRBD participant files
+2025-07-28 08:34:39,983 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 08:34:40,215 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 08:34:40,477 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 08:34:40,709 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 08:34:40,963 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 08:34:40,963 - INFO - Successfully loaded 10 participants:
+2025-07-28 08:34:40,964 - INFO -   - Controls: 5
+2025-07-28 08:34:40,964 - INFO -   - iRBD: 5
+2025-07-28 08:34:40,964 - INFO - Starting 5-fold cross-validation...
+2025-07-28 08:34:40,966 - INFO - 
+============================================================
+2025-07-28 08:34:40,966 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 08:34:40,967 - INFO - ============================================================
+2025-07-28 08:34:40,968 - INFO - Fold 1 participants:
+2025-07-28 08:34:40,968 - INFO -   Train: 6 participants
+2025-07-28 08:34:40,969 - INFO -   Validation: 2 participants
+2025-07-28 08:34:40,969 - INFO -   Test: 2 participants
+2025-07-28 08:34:40,970 - INFO - Starting model training (Fold 1)...
+2025-07-28 08:34:40,984 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:34:45,818 - INFO - Epoch   0: Train Loss=0.6821, Val Loss=0.6547, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:34:48,973 - INFO - Epoch   1: Train Loss=0.6850, Val Loss=0.6365, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:34:52,125 - INFO - Epoch   2: Train Loss=0.6397, Val Loss=0.6246, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:34:55,280 - INFO - Epoch   3: Train Loss=0.6632, Val Loss=0.6029, Train Acc=0.500, Val Acc=1.000
+2025-07-28 08:34:58,434 - INFO - Epoch   4: Train Loss=0.6649, Val Loss=0.5756, Train Acc=0.500, Val Acc=1.000
+2025-07-28 08:35:03,253 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2335703040 bytes. Error code 12 (Cannot allocate memory)
+2025-07-28 08:35:03,277 - ERROR - Training failed for fold 1
+2025-07-28 08:35:03,278 - INFO - 
+============================================================
+2025-07-28 08:35:03,278 - INFO - CROSS-VALIDATION FOLD 2/5
+2025-07-28 08:35:03,278 - INFO - ============================================================
+2025-07-28 08:35:03,280 - INFO - Fold 2 participants:
+2025-07-28 08:35:03,280 - INFO -   Train: 6 participants
+2025-07-28 08:35:03,280 - INFO -   Validation: 2 participants
+2025-07-28 08:35:03,281 - INFO -   Test: 2 participants
+2025-07-28 08:35:03,281 - INFO - Starting model training (Fold 2)...
+2025-07-28 08:35:03,293 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:35:06,484 - INFO - Epoch   0: Train Loss=0.7205, Val Loss=0.7063, Train Acc=0.167, Val Acc=0.500
+2025-07-28 08:35:09,683 - INFO - Epoch   1: Train Loss=0.6768, Val Loss=0.7200, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:12,883 - INFO - Epoch   2: Train Loss=0.6462, Val Loss=0.7350, Train Acc=0.667, Val Acc=0.500
+2025-07-28 08:35:14,318 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2406481920 bytes. Error code 12 (Cannot allocate memory)
+2025-07-28 08:35:14,341 - ERROR - Training failed for fold 2
+2025-07-28 08:35:14,342 - INFO - 
+============================================================
+2025-07-28 08:35:14,342 - INFO - CROSS-VALIDATION FOLD 3/5
+2025-07-28 08:35:14,343 - INFO - ============================================================
+2025-07-28 08:35:14,344 - INFO - Fold 3 participants:
+2025-07-28 08:35:14,344 - INFO -   Train: 6 participants
+2025-07-28 08:35:14,345 - INFO -   Validation: 2 participants
+2025-07-28 08:35:14,345 - INFO -   Test: 2 participants
+2025-07-28 08:35:14,346 - INFO - Starting model training (Fold 3)...
+2025-07-28 08:35:14,357 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:35:17,412 - INFO - Epoch   0: Train Loss=0.7099, Val Loss=0.6691, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:20,476 - INFO - Epoch   1: Train Loss=0.6832, Val Loss=0.6596, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:23,542 - INFO - Epoch   2: Train Loss=0.6919, Val Loss=0.6522, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:26,609 - INFO - Epoch   3: Train Loss=0.6764, Val Loss=0.6363, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:29,674 - INFO - Epoch   4: Train Loss=0.6609, Val Loss=0.6108, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:35:48,073 - INFO - Epoch  10: Train Loss=0.3411, Val Loss=0.2726, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:36:18,734 - INFO - Epoch  20: Train Loss=0.0034, Val Loss=0.0020, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:36:49,384 - INFO - Epoch  30: Train Loss=0.0005, Val Loss=0.0002, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:37:20,032 - INFO - Epoch  40: Train Loss=0.0001, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:37:50,680 - INFO - Epoch  50: Train Loss=0.0001, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:38:21,337 - INFO - Epoch  60: Train Loss=0.0000, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:38:51,987 - INFO - Epoch  70: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:39:22,641 - INFO - Epoch  80: Train Loss=0.0000, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:39:53,282 - INFO - Epoch  90: Train Loss=0.0000, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:40:21,693 - INFO - 
+Fold 3 Test Results:
+2025-07-28 08:40:21,694 - INFO -   Accuracy: 1.000
+2025-07-28 08:40:21,694 - INFO -   Precision: 1.000
+2025-07-28 08:40:21,695 - INFO -   Recall: 1.000
+2025-07-28 08:40:21,695 - INFO -   F1-Score: 1.000
+2025-07-28 08:40:21,695 - INFO -   Sensitivity: 1.000
+2025-07-28 08:40:21,696 - INFO -   Specificity: 1.000
+2025-07-28 08:40:21,696 - INFO -   AUC-ROC: 1.000
+2025-07-28 08:40:21,696 - INFO -   AUC-PR: 1.000
+2025-07-28 08:40:21,700 - INFO - 
+============================================================
+2025-07-28 08:40:21,701 - INFO - CROSS-VALIDATION FOLD 4/5
+2025-07-28 08:40:21,701 - INFO - ============================================================
+2025-07-28 08:40:21,702 - INFO - Fold 4 participants:
+2025-07-28 08:40:21,703 - INFO -   Train: 6 participants
+2025-07-28 08:40:21,703 - INFO -   Validation: 2 participants
+2025-07-28 08:40:21,703 - INFO -   Test: 2 participants
+2025-07-28 08:40:21,704 - INFO - Starting model training (Fold 4)...
+2025-07-28 08:40:21,715 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:40:24,895 - INFO - Epoch   0: Train Loss=0.6931, Val Loss=0.6619, Train Acc=0.667, Val Acc=0.500
+2025-07-28 08:40:26,323 - ERROR - Error in train_model: [enforce fail at alloc_cpu.cpp:119] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2406481920 bytes. Error code 12 (Cannot allocate memory)
+2025-07-28 08:40:26,346 - ERROR - Training failed for fold 4
+2025-07-28 08:40:26,347 - INFO - 
+============================================================
+2025-07-28 08:40:26,347 - INFO - CROSS-VALIDATION FOLD 5/5
+2025-07-28 08:40:26,348 - INFO - ============================================================
+2025-07-28 08:40:26,349 - INFO - Fold 5 participants:
+2025-07-28 08:40:26,349 - INFO -   Train: 6 participants
+2025-07-28 08:40:26,350 - INFO -   Validation: 2 participants
+2025-07-28 08:40:26,350 - INFO -   Test: 2 participants
+2025-07-28 08:40:26,351 - INFO - Starting model training (Fold 5)...
+2025-07-28 08:40:26,364 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 08:40:29,422 - INFO - Epoch   0: Train Loss=0.6985, Val Loss=0.6799, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:40:32,490 - INFO - Epoch   1: Train Loss=0.6412, Val Loss=0.6793, Train Acc=0.667, Val Acc=0.500
+2025-07-28 08:40:35,560 - INFO - Epoch   2: Train Loss=0.6429, Val Loss=0.6560, Train Acc=0.500, Val Acc=0.500
+2025-07-28 08:40:38,633 - INFO - Epoch   3: Train Loss=0.6268, Val Loss=0.6128, Train Acc=0.667, Val Acc=0.500
+2025-07-28 08:40:41,704 - INFO - Epoch   4: Train Loss=0.5474, Val Loss=0.5496, Train Acc=0.667, Val Acc=1.000
+2025-07-28 08:41:00,126 - INFO - Epoch  10: Train Loss=0.1043, Val Loss=0.1952, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:41:30,821 - INFO - Epoch  20: Train Loss=0.0009, Val Loss=0.0008, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:42:01,519 - INFO - Epoch  30: Train Loss=0.0003, Val Loss=0.0002, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:42:32,216 - INFO - Epoch  40: Train Loss=0.0001, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:43:02,915 - INFO - Epoch  50: Train Loss=0.0000, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:43:33,606 - INFO - Epoch  60: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:44:04,295 - INFO - Epoch  70: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:44:34,987 - INFO - Epoch  80: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:45:05,682 - INFO - Epoch  90: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 08:45:34,065 - INFO - 
+Fold 5 Test Results:
+2025-07-28 08:45:34,066 - INFO -   Accuracy: 0.500
+2025-07-28 08:45:34,067 - INFO -   Precision: 0.250
+2025-07-28 08:45:34,067 - INFO -   Recall: 0.500
+2025-07-28 08:45:34,067 - INFO -   F1-Score: 0.333
+2025-07-28 08:45:34,068 - INFO -   Sensitivity: 0.000
+2025-07-28 08:45:34,068 - INFO -   Specificity: 1.000
+2025-07-28 08:45:34,068 - INFO -   AUC-ROC: 1.000
+2025-07-28 08:45:34,069 - INFO -   AUC-PR: 1.000
+2025-07-28 08:45:34,073 - INFO - 
+================================================================================
+2025-07-28 08:45:34,073 - INFO - CROSS-VALIDATION SUMMARY
+2025-07-28 08:45:34,073 - INFO - ================================================================================
+2025-07-28 08:45:34,074 - INFO - Average Test Accuracy: 0.750 ± 0.250
+2025-07-28 08:45:34,074 - INFO - Average Test AUC-ROC: 1.000 ± 0.000
+2025-07-28 08:45:34,078 - ERROR - LSTM training pipeline failed: Object of type ndarray is not JSON serializable
+2025-07-28 08:45:34,081 - ERROR - Traceback (most recent call last):
+  File "/work3/s184484/iRBD-detection/scripts/lstm.py", line 878, in run_lstm_training
+    json.dump(cv_results_serializable, f, indent=2)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/__init__.py", line 179, in dump
+    for chunk in iterable:
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 429, in _iterencode
+    yield from _iterencode_list(o, _current_indent_level)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/zhome/76/7/137318/miniconda3/envs/env_insights/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ndarray is not JSON serializable
+

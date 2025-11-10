@@ -1,0 +1,188 @@
+2025-07-28 17:04:23,716 - INFO - LSTM Training Pipeline initialized successfully
+2025-07-28 17:04:23,717 - INFO - Project directory: /work3/s184484/iRBD-detection
+2025-07-28 17:04:23,717 - INFO - Device: cpu
+2025-07-28 17:04:23,718 - INFO - Model architecture: 2-layer bidirectional LSTM with attention
+2025-07-28 17:04:23,718 - INFO - ================================================================================
+2025-07-28 17:04:23,718 - INFO - STARTING LSTM TRAINING PIPELINE FOR iRBD DETECTION
+2025-07-28 17:04:23,718 - INFO - ================================================================================
+2025-07-28 17:04:23,719 - INFO - Loading participant data...
+2025-07-28 17:04:23,726 - INFO - Found 5 control participant files
+2025-07-28 17:04:24,784 - INFO - Found 5 iRBD participant files
+2025-07-28 17:04:25,225 - INFO - Loaded iRBD AXRBD004: (31, 2880, 1024)
+2025-07-28 17:04:25,649 - INFO - Loaded iRBD AXRBD021: (30, 2880, 1024)
+2025-07-28 17:04:26,121 - INFO - Loaded iRBD AXRBD095: (34, 2880, 1024)
+2025-07-28 17:04:26,538 - INFO - Loaded iRBD AXRBD020: (30, 2880, 1024)
+2025-07-28 17:04:27,000 - INFO - Loaded iRBD AXRBD071: (33, 2880, 1024)
+2025-07-28 17:04:27,001 - INFO - Successfully loaded 10 participants:
+2025-07-28 17:04:27,001 - INFO -   - Controls: 5
+2025-07-28 17:04:27,002 - INFO -   - iRBD: 5
+2025-07-28 17:04:27,002 - INFO - Starting 5-fold cross-validation...
+2025-07-28 17:04:27,003 - INFO - 
+============================================================
+2025-07-28 17:04:27,004 - INFO - CROSS-VALIDATION FOLD 1/5
+2025-07-28 17:04:27,004 - INFO - ============================================================
+2025-07-28 17:04:27,006 - INFO - Fold 1 participants:
+2025-07-28 17:04:27,006 - INFO -   Train: 6 participants
+2025-07-28 17:04:27,007 - INFO -   Validation: 2 participants
+2025-07-28 17:04:27,007 - INFO -   Test: 2 participants
+2025-07-28 17:04:27,008 - INFO - Starting model training (Fold 1)...
+2025-07-28 17:04:27,008 - INFO - Initial memory usage: 5522.11 MB
+2025-07-28 17:04:27,023 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 17:04:39,270 - INFO - Epoch   0: Train Loss=2.1768, Val Loss=0.6688, Train Acc=0.389, Val Acc=1.000
+2025-07-28 17:04:48,566 - INFO - Epoch   1: Train Loss=1.9504, Val Loss=0.6172, Train Acc=0.889, Val Acc=1.000
+2025-07-28 17:04:57,693 - INFO - Epoch   2: Train Loss=1.8096, Val Loss=0.5167, Train Acc=0.722, Val Acc=1.000
+2025-07-28 17:05:06,455 - INFO - Epoch   3: Train Loss=1.6922, Val Loss=0.4398, Train Acc=0.778, Val Acc=1.000
+2025-07-28 17:05:15,632 - INFO - Epoch   4: Train Loss=1.1026, Val Loss=0.2337, Train Acc=0.889, Val Acc=1.000
+2025-07-28 17:06:09,901 - INFO - Epoch  10: Train Loss=0.0239, Val Loss=0.0016, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:07:40,429 - INFO - Epoch  20: Train Loss=0.5058, Val Loss=0.0006, Train Acc=0.944, Val Acc=1.000
+2025-07-28 17:09:11,731 - INFO - Epoch  30: Train Loss=0.0012, Val Loss=0.0003, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:10:42,239 - INFO - Epoch  40: Train Loss=0.0031, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:12:14,503 - INFO - Epoch  50: Train Loss=0.1220, Val Loss=0.0002, Train Acc=0.944, Val Acc=1.000
+2025-07-28 17:13:46,852 - INFO - Epoch  60: Train Loss=0.0004, Val Loss=0.0002, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:15:19,576 - INFO - Epoch  70: Train Loss=0.0003, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:16:52,334 - INFO - Epoch  80: Train Loss=0.0003, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:18:25,423 - INFO - Epoch  90: Train Loss=0.0002, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:19:50,029 - INFO - 
+Fold 1 Test Results:
+2025-07-28 17:19:50,033 - INFO -   Accuracy: 1.000
+2025-07-28 17:19:50,034 - INFO -   Precision: 1.000
+2025-07-28 17:19:50,034 - INFO -   Recall: 1.000
+2025-07-28 17:19:50,034 - INFO -   F1-Score: 1.000
+2025-07-28 17:19:50,035 - INFO -   Sensitivity: 1.000
+2025-07-28 17:19:50,035 - INFO -   Specificity: 1.000
+2025-07-28 17:19:50,035 - INFO -   AUC-ROC: 1.000
+2025-07-28 17:19:50,036 - INFO -   AUC-PR: 1.000
+2025-07-28 17:19:50,039 - INFO - 
+============================================================
+2025-07-28 17:19:50,040 - INFO - CROSS-VALIDATION FOLD 2/5
+2025-07-28 17:19:50,040 - INFO - ============================================================
+2025-07-28 17:19:50,042 - INFO - Fold 2 participants:
+2025-07-28 17:19:50,042 - INFO -   Train: 6 participants
+2025-07-28 17:19:50,042 - INFO -   Validation: 2 participants
+2025-07-28 17:19:50,043 - INFO -   Test: 2 participants
+2025-07-28 17:19:50,044 - INFO - Starting model training (Fold 2)...
+2025-07-28 17:19:50,044 - INFO - Initial memory usage: 5697.77 MB
+2025-07-28 17:19:50,056 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 17:19:59,548 - INFO - Epoch   0: Train Loss=2.0391, Val Loss=0.7821, Train Acc=0.500, Val Acc=0.500
+2025-07-28 17:20:08,987 - INFO - Epoch   1: Train Loss=1.7261, Val Loss=1.2032, Train Acc=0.722, Val Acc=0.000
+2025-07-28 17:20:18,772 - INFO - Epoch   2: Train Loss=1.3874, Val Loss=1.3499, Train Acc=0.722, Val Acc=0.000
+2025-07-28 17:20:29,331 - INFO - Epoch   3: Train Loss=0.8629, Val Loss=1.6033, Train Acc=0.944, Val Acc=0.500
+2025-07-28 17:20:38,690 - INFO - Epoch   4: Train Loss=0.4757, Val Loss=3.5456, Train Acc=0.889, Val Acc=0.000
+2025-07-28 17:21:36,367 - INFO - Epoch  10: Train Loss=0.0040, Val Loss=3.9809, Train Acc=1.000, Val Acc=0.500
+2025-07-28 17:22:24,498 - INFO - Early stopping at epoch 15
+2025-07-28 17:22:25,173 - INFO - 
+Fold 2 Test Results:
+2025-07-28 17:22:25,176 - INFO -   Accuracy: 0.500
+2025-07-28 17:22:25,177 - INFO -   Precision: 0.250
+2025-07-28 17:22:25,177 - INFO -   Recall: 0.500
+2025-07-28 17:22:25,178 - INFO -   F1-Score: 0.333
+2025-07-28 17:22:25,178 - INFO -   Sensitivity: 0.000
+2025-07-28 17:22:25,178 - INFO -   Specificity: 1.000
+2025-07-28 17:22:25,179 - INFO -   AUC-ROC: 0.000
+2025-07-28 17:22:25,179 - INFO -   AUC-PR: 0.500
+2025-07-28 17:22:25,183 - INFO - 
+============================================================
+2025-07-28 17:22:25,183 - INFO - CROSS-VALIDATION FOLD 3/5
+2025-07-28 17:22:25,183 - INFO - ============================================================
+2025-07-28 17:22:25,185 - INFO - Fold 3 participants:
+2025-07-28 17:22:25,185 - INFO -   Train: 6 participants
+2025-07-28 17:22:25,186 - INFO -   Validation: 2 participants
+2025-07-28 17:22:25,186 - INFO -   Test: 2 participants
+2025-07-28 17:22:25,187 - INFO - Starting model training (Fold 3)...
+2025-07-28 17:22:25,187 - INFO - Initial memory usage: 5697.91 MB
+2025-07-28 17:22:25,199 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 17:22:34,253 - INFO - Epoch   0: Train Loss=2.1689, Val Loss=0.7094, Train Acc=0.556, Val Acc=0.500
+2025-07-28 17:22:43,065 - INFO - Epoch   1: Train Loss=2.0237, Val Loss=0.6776, Train Acc=0.500, Val Acc=0.500
+2025-07-28 17:22:52,538 - INFO - Epoch   2: Train Loss=1.8519, Val Loss=0.6625, Train Acc=0.778, Val Acc=0.500
+2025-07-28 17:23:01,157 - INFO - Epoch   3: Train Loss=1.5313, Val Loss=0.4873, Train Acc=0.722, Val Acc=1.000
+2025-07-28 17:23:10,103 - INFO - Epoch   4: Train Loss=0.8939, Val Loss=0.1386, Train Acc=0.944, Val Acc=1.000
+2025-07-28 17:24:04,600 - INFO - Epoch  10: Train Loss=0.0018, Val Loss=0.0003, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:25:36,235 - INFO - Epoch  20: Train Loss=0.0005, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:27:07,908 - INFO - Epoch  30: Train Loss=0.0004, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:28:40,121 - INFO - Epoch  40: Train Loss=0.0003, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:30:11,583 - INFO - Epoch  50: Train Loss=0.0002, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:31:44,434 - INFO - Epoch  60: Train Loss=0.0003, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:33:15,023 - INFO - Epoch  70: Train Loss=0.0002, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:34:46,391 - INFO - Epoch  80: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:36:18,224 - INFO - Epoch  90: Train Loss=0.0001, Val Loss=0.0000, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:37:42,966 - INFO - 
+Fold 3 Test Results:
+2025-07-28 17:37:42,968 - INFO -   Accuracy: 1.000
+2025-07-28 17:37:42,968 - INFO -   Precision: 1.000
+2025-07-28 17:37:42,968 - INFO -   Recall: 1.000
+2025-07-28 17:37:42,969 - INFO -   F1-Score: 1.000
+2025-07-28 17:37:42,969 - INFO -   Sensitivity: 1.000
+2025-07-28 17:37:42,969 - INFO -   Specificity: 1.000
+2025-07-28 17:37:42,970 - INFO -   AUC-ROC: 1.000
+2025-07-28 17:37:42,970 - INFO -   AUC-PR: 1.000
+2025-07-28 17:37:42,974 - INFO - 
+============================================================
+2025-07-28 17:37:42,975 - INFO - CROSS-VALIDATION FOLD 4/5
+2025-07-28 17:37:42,976 - INFO - ============================================================
+2025-07-28 17:37:42,977 - INFO - Fold 4 participants:
+2025-07-28 17:37:42,978 - INFO -   Train: 6 participants
+2025-07-28 17:37:42,978 - INFO -   Validation: 2 participants
+2025-07-28 17:37:42,978 - INFO -   Test: 2 participants
+2025-07-28 17:37:42,979 - INFO - Starting model training (Fold 4)...
+2025-07-28 17:37:42,980 - INFO - Initial memory usage: 5738.90 MB
+2025-07-28 17:37:42,992 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 17:37:52,872 - INFO - Epoch   0: Train Loss=2.0509, Val Loss=0.6841, Train Acc=0.500, Val Acc=0.500
+2025-07-28 17:38:03,012 - INFO - Epoch   1: Train Loss=1.9017, Val Loss=0.6376, Train Acc=0.667, Val Acc=0.500
+2025-07-28 17:38:12,421 - INFO - Epoch   2: Train Loss=1.6849, Val Loss=0.6277, Train Acc=0.778, Val Acc=0.500
+2025-07-28 17:38:22,101 - INFO - Epoch   3: Train Loss=1.1134, Val Loss=0.6108, Train Acc=0.833, Val Acc=0.500
+2025-07-28 17:38:32,004 - INFO - Epoch   4: Train Loss=0.5559, Val Loss=0.5793, Train Acc=0.944, Val Acc=0.500
+2025-07-28 17:39:32,320 - INFO - Epoch  10: Train Loss=0.3775, Val Loss=0.0038, Train Acc=0.944, Val Acc=1.000
+2025-07-28 17:41:12,582 - INFO - Epoch  20: Train Loss=0.0031, Val Loss=0.0009, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:42:52,535 - INFO - Epoch  30: Train Loss=0.7608, Val Loss=0.0023, Train Acc=0.944, Val Acc=1.000
+2025-07-28 17:44:31,887 - INFO - Epoch  40: Train Loss=0.0015, Val Loss=0.0002, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:46:11,346 - INFO - Epoch  50: Train Loss=0.0004, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:47:50,105 - INFO - Epoch  60: Train Loss=0.0002, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:49:28,544 - INFO - Epoch  70: Train Loss=0.0002, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:51:07,408 - INFO - Epoch  80: Train Loss=0.0001, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:52:46,051 - INFO - Epoch  90: Train Loss=0.0001, Val Loss=0.0001, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:54:15,298 - INFO - 
+Fold 4 Test Results:
+2025-07-28 17:54:15,298 - INFO -   Accuracy: 1.000
+2025-07-28 17:54:15,299 - INFO -   Precision: 1.000
+2025-07-28 17:54:15,299 - INFO -   Recall: 1.000
+2025-07-28 17:54:15,299 - INFO -   F1-Score: 1.000
+2025-07-28 17:54:15,300 - INFO -   Sensitivity: 1.000
+2025-07-28 17:54:15,300 - INFO -   Specificity: 1.000
+2025-07-28 17:54:15,300 - INFO -   AUC-ROC: 1.000
+2025-07-28 17:54:15,300 - INFO -   AUC-PR: 1.000
+2025-07-28 17:54:15,304 - INFO - 
+============================================================
+2025-07-28 17:54:15,304 - INFO - CROSS-VALIDATION FOLD 5/5
+2025-07-28 17:54:15,305 - INFO - ============================================================
+2025-07-28 17:54:15,306 - INFO - Fold 5 participants:
+2025-07-28 17:54:15,306 - INFO -   Train: 6 participants
+2025-07-28 17:54:15,306 - INFO -   Validation: 2 participants
+2025-07-28 17:54:15,307 - INFO -   Test: 2 participants
+2025-07-28 17:54:15,307 - INFO - Starting model training (Fold 5)...
+2025-07-28 17:54:15,308 - INFO - Initial memory usage: 5744.17 MB
+2025-07-28 17:54:15,319 - INFO - Class weights: Control=1.000, iRBD=1.000
+2025-07-28 17:54:23,550 - INFO - Epoch   0: Train Loss=2.1474, Val Loss=0.6866, Train Acc=0.611, Val Acc=0.500
+2025-07-28 17:54:32,509 - INFO - Epoch   1: Train Loss=1.7944, Val Loss=0.6500, Train Acc=0.667, Val Acc=0.500
+2025-07-28 17:54:41,198 - INFO - Epoch   2: Train Loss=1.3728, Val Loss=0.4436, Train Acc=0.833, Val Acc=1.000
+2025-07-28 17:54:50,225 - INFO - Epoch   3: Train Loss=0.7149, Val Loss=1.0671, Train Acc=1.000, Val Acc=0.500
+2025-07-28 17:54:58,909 - INFO - Epoch   4: Train Loss=0.2345, Val Loss=0.0159, Train Acc=1.000, Val Acc=1.000
+2025-07-28 17:55:51,182 - INFO - Epoch  10: Train Loss=0.0008, Val Loss=4.6034, Train Acc=1.000, Val Acc=0.500
+2025-07-28 17:57:12,620 - INFO - Early stopping at epoch 19
+2025-07-28 17:57:13,370 - INFO - 
+Fold 5 Test Results:
+2025-07-28 17:57:13,371 - INFO -   Accuracy: 0.500
+2025-07-28 17:57:13,371 - INFO -   Precision: 0.250
+2025-07-28 17:57:13,371 - INFO -   Recall: 0.500
+2025-07-28 17:57:13,371 - INFO -   F1-Score: 0.333
+2025-07-28 17:57:13,372 - INFO -   Sensitivity: 0.000
+2025-07-28 17:57:13,372 - INFO -   Specificity: 1.000
+2025-07-28 17:57:13,372 - INFO -   AUC-ROC: 1.000
+2025-07-28 17:57:13,372 - INFO -   AUC-PR: 1.000
+2025-07-28 17:57:13,376 - INFO - 
+================================================================================
+2025-07-28 17:57:13,377 - INFO - CROSS-VALIDATION SUMMARY
+2025-07-28 17:57:13,377 - INFO - ================================================================================
+2025-07-28 17:57:13,377 - INFO - Average Test Accuracy: 0.800 ± 0.245
+2025-07-28 17:57:13,377 - INFO - Average Test AUC-ROC: 1.000 ± 0.000
+2025-07-28 17:57:13,385 - INFO - Results saved to: /work3/s184484/iRBD-detection/results/lstm/evaluation/cross_validation_results.json
+2025-07-28 17:57:13,385 - INFO - LSTM training pipeline completed successfully!
