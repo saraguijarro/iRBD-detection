@@ -1,0 +1,277 @@
+ERROR: Unable to locate a modulefile for 'miniconda3/4.12.0'
+2026-01-12 22:27:42,283 - INFO - Initialized LSTM Night-Level Pipeline (version=v1)
+2026-01-12 22:27:42,283 - INFO - Initialized LSTM Night-Level Pipeline (version=v1)
+2026-01-12 22:27:42,284 - INFO - Device: cuda
+2026-01-12 22:27:42,284 - INFO - Device: cuda
+2026-01-12 22:27:42,284 - INFO - Features directory: /work3/s184484/iRBD-detection/data/features_v1
+2026-01-12 22:27:42,284 - INFO - Features directory: /work3/s184484/iRBD-detection/data/features_v1
+2026-01-12 22:27:42,285 - INFO - Results directory: /work3/s184484/iRBD-detection/results/lstm_v1_night_level
+2026-01-12 22:27:42,285 - INFO - Results directory: /work3/s184484/iRBD-detection/results/lstm_v1_night_level
+2026-01-12 22:27:42,286 - INFO - Log file: /work3/s184484/iRBD-detection/results/lstm_v1_night_level/training.log
+2026-01-12 22:27:42,286 - INFO - Log file: /work3/s184484/iRBD-detection/results/lstm_v1_night_level/training.log
+2026-01-12 22:27:42,287 - INFO - ======================================================================
+2026-01-12 22:27:42,287 - INFO - ======================================================================
+2026-01-12 22:27:42,287 - INFO - STARTING NIGHT-LEVEL LSTM TRAINING
+2026-01-12 22:27:42,287 - INFO - STARTING NIGHT-LEVEL LSTM TRAINING
+2026-01-12 22:27:42,288 - INFO - ======================================================================
+2026-01-12 22:27:42,288 - INFO - ======================================================================
+2026-01-12 22:27:42,288 - INFO - Preparing night-level dataset...
+2026-01-12 22:27:42,288 - INFO - Preparing night-level dataset...
+2026-01-12 22:27:42,291 - INFO - Found 42 control participants
+2026-01-12 22:27:42,291 - INFO - Found 42 control participants
+2026-01-12 22:28:16,924 - INFO - Found 42 iRBD participants
+2026-01-12 22:28:16,924 - INFO - Found 42 iRBD participants
+2026-01-12 22:29:11,717 - INFO - Night-level dataset prepared:
+2026-01-12 22:29:11,717 - INFO - Night-level dataset prepared:
+2026-01-12 22:29:11,718 - INFO -   Total nights: 1960
+2026-01-12 22:29:11,718 - INFO -   Total nights: 1960
+2026-01-12 22:29:11,722 - INFO -   Control nights: 785
+2026-01-12 22:29:11,722 - INFO -   Control nights: 785
+2026-01-12 22:29:11,723 - INFO -   iRBD nights: 1175
+2026-01-12 22:29:11,723 - INFO -   iRBD nights: 1175
+2026-01-12 22:29:11,724 - INFO -   Unique participants: 84
+2026-01-12 22:29:11,724 - INFO -   Unique participants: 84
+2026-01-12 22:29:11,734 - INFO - 
+======================================================================
+2026-01-12 22:29:11,734 - INFO - 
+======================================================================
+2026-01-12 22:29:11,734 - INFO - FOLD 1/5
+2026-01-12 22:29:11,734 - INFO - FOLD 1/5
+2026-01-12 22:29:11,735 - INFO - ======================================================================
+2026-01-12 22:29:11,735 - INFO - ======================================================================
+2026-01-12 22:29:11,738 - INFO - Train nights: 1566, Test nights: 394
+2026-01-12 22:29:11,738 - INFO - Train nights: 1566, Test nights: 394
+2026-01-12 22:29:11,739 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:29:11,739 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:31:29,297 - INFO - Epoch 5/50 - Train Loss: 0.2049, Val Loss: 0.4756
+2026-01-12 22:31:29,297 - INFO - Epoch 5/50 - Train Loss: 0.2049, Val Loss: 0.4756
+2026-01-12 22:33:38,017 - INFO - Epoch 10/50 - Train Loss: 0.1428, Val Loss: 0.2993
+2026-01-12 22:33:38,017 - INFO - Epoch 10/50 - Train Loss: 0.1428, Val Loss: 0.2993
+2026-01-12 22:35:46,676 - INFO - Epoch 15/50 - Train Loss: 0.1071, Val Loss: 0.3233
+2026-01-12 22:35:46,676 - INFO - Epoch 15/50 - Train Loss: 0.1071, Val Loss: 0.3233
+2026-01-12 22:36:38,113 - INFO - Early stopping at epoch 17
+2026-01-12 22:36:38,113 - INFO - Early stopping at epoch 17
+2026-01-12 22:36:41,949 - INFO - 
+Fold 1 Results:
+2026-01-12 22:36:41,949 - INFO - 
+Fold 1 Results:
+2026-01-12 22:36:41,950 - INFO -   Night-level:
+2026-01-12 22:36:41,950 - INFO -   Night-level:
+2026-01-12 22:36:41,951 - INFO -     Accuracy: 0.9010
+2026-01-12 22:36:41,951 - INFO -     Accuracy: 0.9010
+2026-01-12 22:36:41,952 - INFO -     ROC-AUC: 0.9688
+2026-01-12 22:36:41,952 - INFO -     ROC-AUC: 0.9688
+2026-01-12 22:36:41,952 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:36:41,952 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:36:41,953 - INFO -     Accuracy: 0.9412
+2026-01-12 22:36:41,953 - INFO -     Accuracy: 0.9412
+2026-01-12 22:36:41,954 - INFO -     Precision: 0.8571
+2026-01-12 22:36:41,954 - INFO -     Precision: 0.8571
+2026-01-12 22:36:41,954 - INFO -     Recall: 1.0000
+2026-01-12 22:36:41,954 - INFO -     Recall: 1.0000
+2026-01-12 22:36:41,955 - INFO -     F1: 0.9231
+2026-01-12 22:36:41,955 - INFO -     F1: 0.9231
+2026-01-12 22:36:41,956 - INFO -     ROC-AUC: 1.0000
+2026-01-12 22:36:41,956 - INFO -     ROC-AUC: 1.0000
+2026-01-12 22:36:41,957 - INFO - 
+======================================================================
+2026-01-12 22:36:41,957 - INFO - 
+======================================================================
+2026-01-12 22:36:41,957 - INFO - FOLD 2/5
+2026-01-12 22:36:41,957 - INFO - FOLD 2/5
+2026-01-12 22:36:41,958 - INFO - ======================================================================
+2026-01-12 22:36:41,958 - INFO - ======================================================================
+2026-01-12 22:36:41,959 - INFO - Train nights: 1572, Test nights: 388
+2026-01-12 22:36:41,959 - INFO - Train nights: 1572, Test nights: 388
+2026-01-12 22:36:41,961 - INFO - Train participants: 68, Test participants: 16
+2026-01-12 22:36:41,961 - INFO - Train participants: 68, Test participants: 16
+2026-01-12 22:38:51,097 - INFO - Epoch 5/50 - Train Loss: 0.1898, Val Loss: 0.1329
+2026-01-12 22:38:51,097 - INFO - Epoch 5/50 - Train Loss: 0.1898, Val Loss: 0.1329
+2026-01-12 22:41:00,074 - INFO - Epoch 10/50 - Train Loss: 0.1233, Val Loss: 0.1641
+2026-01-12 22:41:00,074 - INFO - Epoch 10/50 - Train Loss: 0.1233, Val Loss: 0.1641
+2026-01-12 22:43:09,173 - INFO - Epoch 15/50 - Train Loss: 0.0788, Val Loss: 0.3771
+2026-01-12 22:43:09,173 - INFO - Epoch 15/50 - Train Loss: 0.0788, Val Loss: 0.3771
+2026-01-12 22:43:09,174 - INFO - Early stopping at epoch 15
+2026-01-12 22:43:09,174 - INFO - Early stopping at epoch 15
+2026-01-12 22:43:12,960 - INFO - 
+Fold 2 Results:
+2026-01-12 22:43:12,960 - INFO - 
+Fold 2 Results:
+2026-01-12 22:43:12,961 - INFO -   Night-level:
+2026-01-12 22:43:12,961 - INFO -   Night-level:
+2026-01-12 22:43:12,962 - INFO -     Accuracy: 0.9381
+2026-01-12 22:43:12,962 - INFO -     Accuracy: 0.9381
+2026-01-12 22:43:12,963 - INFO -     ROC-AUC: 0.9900
+2026-01-12 22:43:12,963 - INFO -     ROC-AUC: 0.9900
+2026-01-12 22:43:12,963 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:43:12,963 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:43:12,964 - INFO -     Accuracy: 1.0000
+2026-01-12 22:43:12,964 - INFO -     Accuracy: 1.0000
+2026-01-12 22:43:12,965 - INFO -     Precision: 1.0000
+2026-01-12 22:43:12,965 - INFO -     Precision: 1.0000
+2026-01-12 22:43:12,965 - INFO -     Recall: 1.0000
+2026-01-12 22:43:12,965 - INFO -     Recall: 1.0000
+2026-01-12 22:43:12,966 - INFO -     F1: 1.0000
+2026-01-12 22:43:12,966 - INFO -     F1: 1.0000
+2026-01-12 22:43:12,966 - INFO -     ROC-AUC: 1.0000
+2026-01-12 22:43:12,966 - INFO -     ROC-AUC: 1.0000
+2026-01-12 22:43:12,967 - INFO - 
+======================================================================
+2026-01-12 22:43:12,967 - INFO - 
+======================================================================
+2026-01-12 22:43:12,967 - INFO - FOLD 3/5
+2026-01-12 22:43:12,967 - INFO - FOLD 3/5
+2026-01-12 22:43:12,968 - INFO - ======================================================================
+2026-01-12 22:43:12,968 - INFO - ======================================================================
+2026-01-12 22:43:12,969 - INFO - Train nights: 1567, Test nights: 393
+2026-01-12 22:43:12,969 - INFO - Train nights: 1567, Test nights: 393
+2026-01-12 22:43:12,971 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:43:12,971 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:45:21,686 - INFO - Epoch 5/50 - Train Loss: 0.1491, Val Loss: 1.0044
+2026-01-12 22:45:21,686 - INFO - Epoch 5/50 - Train Loss: 0.1491, Val Loss: 1.0044
+2026-01-12 22:47:30,942 - INFO - Epoch 10/50 - Train Loss: 0.1023, Val Loss: 1.0094
+2026-01-12 22:47:30,942 - INFO - Epoch 10/50 - Train Loss: 0.1023, Val Loss: 1.0094
+2026-01-12 22:47:56,672 - INFO - Early stopping at epoch 11
+2026-01-12 22:47:56,672 - INFO - Early stopping at epoch 11
+2026-01-12 22:48:00,464 - INFO - 
+Fold 3 Results:
+2026-01-12 22:48:00,464 - INFO - 
+Fold 3 Results:
+2026-01-12 22:48:00,465 - INFO -   Night-level:
+2026-01-12 22:48:00,465 - INFO -   Night-level:
+2026-01-12 22:48:00,466 - INFO -     Accuracy: 0.7913
+2026-01-12 22:48:00,466 - INFO -     Accuracy: 0.7913
+2026-01-12 22:48:00,467 - INFO -     ROC-AUC: 0.8372
+2026-01-12 22:48:00,467 - INFO -     ROC-AUC: 0.8372
+2026-01-12 22:48:00,467 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:48:00,467 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:48:00,468 - INFO -     Accuracy: 0.7059
+2026-01-12 22:48:00,468 - INFO -     Accuracy: 0.7059
+2026-01-12 22:48:00,469 - INFO -     Precision: 0.6667
+2026-01-12 22:48:00,469 - INFO -     Precision: 0.6667
+2026-01-12 22:48:00,469 - INFO -     Recall: 0.8889
+2026-01-12 22:48:00,469 - INFO -     Recall: 0.8889
+2026-01-12 22:48:00,470 - INFO -     F1: 0.7619
+2026-01-12 22:48:00,470 - INFO -     F1: 0.7619
+2026-01-12 22:48:00,471 - INFO -     ROC-AUC: 0.8611
+2026-01-12 22:48:00,471 - INFO -     ROC-AUC: 0.8611
+2026-01-12 22:48:00,471 - INFO - 
+======================================================================
+2026-01-12 22:48:00,471 - INFO - 
+======================================================================
+2026-01-12 22:48:00,472 - INFO - FOLD 4/5
+2026-01-12 22:48:00,472 - INFO - FOLD 4/5
+2026-01-12 22:48:00,473 - INFO - ======================================================================
+2026-01-12 22:48:00,473 - INFO - ======================================================================
+2026-01-12 22:48:00,474 - INFO - Train nights: 1568, Test nights: 392
+2026-01-12 22:48:00,474 - INFO - Train nights: 1568, Test nights: 392
+2026-01-12 22:48:00,475 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:48:00,475 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:50:09,224 - INFO - Epoch 5/50 - Train Loss: 0.2141, Val Loss: 0.3546
+2026-01-12 22:50:09,224 - INFO - Epoch 5/50 - Train Loss: 0.2141, Val Loss: 0.3546
+2026-01-12 22:52:17,944 - INFO - Epoch 10/50 - Train Loss: 0.1273, Val Loss: 0.4045
+2026-01-12 22:52:17,944 - INFO - Epoch 10/50 - Train Loss: 0.1273, Val Loss: 0.4045
+2026-01-12 22:54:26,748 - INFO - Epoch 15/50 - Train Loss: 0.0773, Val Loss: 0.6499
+2026-01-12 22:54:26,748 - INFO - Epoch 15/50 - Train Loss: 0.0773, Val Loss: 0.6499
+2026-01-12 22:54:26,750 - INFO - Early stopping at epoch 15
+2026-01-12 22:54:26,750 - INFO - Early stopping at epoch 15
+2026-01-12 22:54:30,611 - INFO - 
+Fold 4 Results:
+2026-01-12 22:54:30,611 - INFO - 
+Fold 4 Results:
+2026-01-12 22:54:30,612 - INFO -   Night-level:
+2026-01-12 22:54:30,612 - INFO -   Night-level:
+2026-01-12 22:54:30,613 - INFO -     Accuracy: 0.8929
+2026-01-12 22:54:30,613 - INFO -     Accuracy: 0.8929
+2026-01-12 22:54:30,613 - INFO -     ROC-AUC: 0.9208
+2026-01-12 22:54:30,613 - INFO -     ROC-AUC: 0.9208
+2026-01-12 22:54:30,614 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:54:30,614 - INFO -   Participant-level (CLINICAL):
+2026-01-12 22:54:30,615 - INFO -     Accuracy: 0.8824
+2026-01-12 22:54:30,615 - INFO -     Accuracy: 0.8824
+2026-01-12 22:54:30,615 - INFO -     Precision: 0.8333
+2026-01-12 22:54:30,615 - INFO -     Precision: 0.8333
+2026-01-12 22:54:30,616 - INFO -     Recall: 1.0000
+2026-01-12 22:54:30,616 - INFO -     Recall: 1.0000
+2026-01-12 22:54:30,617 - INFO -     F1: 0.9091
+2026-01-12 22:54:30,617 - INFO -     F1: 0.9091
+2026-01-12 22:54:30,617 - INFO -     ROC-AUC: 0.9429
+2026-01-12 22:54:30,617 - INFO -     ROC-AUC: 0.9429
+2026-01-12 22:54:30,618 - INFO - 
+======================================================================
+2026-01-12 22:54:30,618 - INFO - 
+======================================================================
+2026-01-12 22:54:30,619 - INFO - FOLD 5/5
+2026-01-12 22:54:30,619 - INFO - FOLD 5/5
+2026-01-12 22:54:30,619 - INFO - ======================================================================
+2026-01-12 22:54:30,619 - INFO - ======================================================================
+2026-01-12 22:54:30,621 - INFO - Train nights: 1567, Test nights: 393
+2026-01-12 22:54:30,621 - INFO - Train nights: 1567, Test nights: 393
+2026-01-12 22:54:30,622 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:54:30,622 - INFO - Train participants: 67, Test participants: 17
+2026-01-12 22:56:41,611 - INFO - Epoch 5/50 - Train Loss: 0.2236, Val Loss: 0.2293
+2026-01-12 22:56:41,611 - INFO - Epoch 5/50 - Train Loss: 0.2236, Val Loss: 0.2293
+2026-01-12 22:58:51,249 - INFO - Epoch 10/50 - Train Loss: 0.1281, Val Loss: 0.4810
+2026-01-12 22:58:51,249 - INFO - Epoch 10/50 - Train Loss: 0.1281, Val Loss: 0.4810
+2026-01-12 23:00:59,898 - INFO - Epoch 15/50 - Train Loss: 0.0927, Val Loss: 0.2685
+2026-01-12 23:00:59,898 - INFO - Epoch 15/50 - Train Loss: 0.0927, Val Loss: 0.2685
+2026-01-12 23:03:08,543 - INFO - Epoch 20/50 - Train Loss: 0.0573, Val Loss: 0.2507
+2026-01-12 23:03:08,543 - INFO - Epoch 20/50 - Train Loss: 0.0573, Val Loss: 0.2507
+2026-01-12 23:03:59,984 - INFO - Early stopping at epoch 22
+2026-01-12 23:03:59,984 - INFO - Early stopping at epoch 22
+2026-01-12 23:04:03,823 - INFO - 
+Fold 5 Results:
+2026-01-12 23:04:03,823 - INFO - 
+Fold 5 Results:
+2026-01-12 23:04:03,824 - INFO -   Night-level:
+2026-01-12 23:04:03,824 - INFO -   Night-level:
+2026-01-12 23:04:03,825 - INFO -     Accuracy: 0.9491
+2026-01-12 23:04:03,825 - INFO -     Accuracy: 0.9491
+2026-01-12 23:04:03,825 - INFO -     ROC-AUC: 0.9833
+2026-01-12 23:04:03,825 - INFO -     ROC-AUC: 0.9833
+2026-01-12 23:04:03,826 - INFO -   Participant-level (CLINICAL):
+2026-01-12 23:04:03,826 - INFO -   Participant-level (CLINICAL):
+2026-01-12 23:04:03,826 - INFO -     Accuracy: 1.0000
+2026-01-12 23:04:03,826 - INFO -     Accuracy: 1.0000
+2026-01-12 23:04:03,827 - INFO -     Precision: 1.0000
+2026-01-12 23:04:03,827 - INFO -     Precision: 1.0000
+2026-01-12 23:04:03,828 - INFO -     Recall: 1.0000
+2026-01-12 23:04:03,828 - INFO -     Recall: 1.0000
+2026-01-12 23:04:03,828 - INFO -     F1: 1.0000
+2026-01-12 23:04:03,828 - INFO -     F1: 1.0000
+2026-01-12 23:04:03,829 - INFO -     ROC-AUC: 1.0000
+2026-01-12 23:04:03,829 - INFO -     ROC-AUC: 1.0000
+2026-01-12 23:04:03,830 - INFO - 
+======================================================================
+2026-01-12 23:04:03,830 - INFO - 
+======================================================================
+2026-01-12 23:04:03,831 - INFO - AVERAGE RESULTS ACROSS ALL FOLDS
+2026-01-12 23:04:03,831 - INFO - AVERAGE RESULTS ACROSS ALL FOLDS
+2026-01-12 23:04:03,832 - INFO - ======================================================================
+2026-01-12 23:04:03,832 - INFO - ======================================================================
+2026-01-12 23:04:03,832 - INFO - Night-level:
+2026-01-12 23:04:03,832 - INFO - Night-level:
+2026-01-12 23:04:03,833 - INFO -   Accuracy: 0.8945 ± 0.0558
+2026-01-12 23:04:03,833 - INFO -   Accuracy: 0.8945 ± 0.0558
+2026-01-12 23:04:03,837 - INFO -   ROC-AUC: 0.9400 ± 0.0568
+2026-01-12 23:04:03,837 - INFO -   ROC-AUC: 0.9400 ± 0.0568
+2026-01-12 23:04:03,838 - INFO - Participant-level (CLINICAL PERFORMANCE):
+2026-01-12 23:04:03,838 - INFO - Participant-level (CLINICAL PERFORMANCE):
+2026-01-12 23:04:03,839 - INFO -   Accuracy: 0.9059 ± 0.1091
+2026-01-12 23:04:03,839 - INFO -   Accuracy: 0.9059 ± 0.1091
+2026-01-12 23:04:03,839 - INFO -   Precision: 0.8714 ± 0.1238
+2026-01-12 23:04:03,839 - INFO -   Precision: 0.8714 ± 0.1238
+2026-01-12 23:04:03,840 - INFO -   Recall: 0.9778 ± 0.0444
+2026-01-12 23:04:03,840 - INFO -   Recall: 0.9778 ± 0.0444
+2026-01-12 23:04:03,840 - INFO -   F1: 0.9188 ± 0.0871
+2026-01-12 23:04:03,840 - INFO -   F1: 0.9188 ± 0.0871
+2026-01-12 23:04:03,841 - INFO -   ROC-AUC: 0.9608 ± 0.0545
+2026-01-12 23:04:03,841 - INFO -   ROC-AUC: 0.9608 ± 0.0545
+2026-01-12 23:04:03,848 - INFO - 
+Results saved to: /work3/s184484/iRBD-detection/results/lstm_v1_night_level/results_20260112_230403.json
+2026-01-12 23:04:03,848 - INFO - 
+Results saved to: /work3/s184484/iRBD-detection/results/lstm_v1_night_level/results_20260112_230403.json
+2026-01-12 23:04:04,208 - INFO - 
+======================================================================
+2026-01-12 23:04:04,208 - INFO - NIGHT-LEVEL LSTM TRAINING COMPLETED SUCCESSFULLY!
+2026-01-12 23:04:04,209 - INFO - ======================================================================

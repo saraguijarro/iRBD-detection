@@ -1,0 +1,183 @@
+2026-01-28 09:15:18,025 - INFO - === Statistical Analysis Pipeline Started ===
+2026-01-28 09:15:18,026 - INFO - Base directory: /work3/s184484/iRBD-detection
+2026-01-28 09:15:18,027 - INFO - Preprocessing version: v1
+2026-01-28 09:15:18,027 - INFO - Features directory: /work3/s184484/iRBD-detection/data/features_v1
+2026-01-28 09:15:18,028 - INFO - Feature dimension: 1024
+2026-01-28 09:15:18,029 - INFO - Bonferroni corrected alpha: 4.88e-05
+2026-01-28 09:15:18,030 - INFO - Effect size threshold: 0.5
+2026-01-28 09:15:18,031 - INFO - Aggregation method: mean
+2026-01-28 09:15:18,031 - INFO - Running complete statistical analysis pipeline...
+2026-01-28 09:15:18,032 - INFO -  Loading and aggregating feature data...
+2026-01-28 09:15:18,033 - INFO -    Processing control participant features...
+2026-01-28 09:15:19,655 - INFO -      - AXRBD025: 26 nights, 72459 total windows
+2026-01-28 09:15:21,912 - INFO -      - AXRBD033: 36 nights, 101319 total windows
+2026-01-28 09:15:24,032 - INFO -      - AXRBD037: 34 nights, 96549 total windows
+2026-01-28 09:15:25,858 - INFO -      - AXRBD038: 31 nights, 73540 total windows
+2026-01-28 09:15:26,816 - INFO -      - AXRBD044: 16 nights, 42291 total windows
+2026-01-28 09:15:27,801 - INFO -      - AXRBD046: 17 nights, 42812 total windows
+2026-01-28 09:15:28,157 - INFO -      - AXRBD048: 6 nights, 15283 total windows
+2026-01-28 09:15:28,995 - INFO -      - AXRBD050: 14 nights, 39298 total windows
+2026-01-28 09:15:29,851 - INFO -      - AXRBD051: 14 nights, 40320 total windows
+2026-01-28 09:15:31,131 - INFO -      - AXRBD053: 19 nights, 54720 total windows
+2026-01-28 09:15:33,371 - INFO -      - AXRBD054: 36 nights, 102880 total windows
+2026-01-28 09:15:35,324 - INFO -      - AXRBD055: 32 nights, 90514 total windows
+2026-01-28 09:15:37,105 - INFO -      - AXRBD056: 30 nights, 83673 total windows
+2026-01-28 09:15:38,999 - INFO -      - AXRBD057: 30 nights, 86400 total windows
+2026-01-28 09:15:41,241 - INFO -      - AXRBD058: 38 nights, 105469 total windows
+2026-01-28 09:15:43,198 - INFO -      - AXRBD064: 32 nights, 91857 total windows
+2026-01-28 09:15:44,899 - INFO -      - AXRBD066: 26 nights, 73757 total windows
+2026-01-28 09:15:45,877 - INFO -      - AXRBD069: 16 nights, 46035 total windows
+2026-01-28 09:15:46,604 - INFO -      - AXRBD076: 13 nights, 27530 total windows
+2026-01-28 09:15:47,644 - INFO -      - AXRBD077: 18 nights, 51840 total windows
+2026-01-28 09:15:48,619 - INFO -      - AXRBD078: 16 nights, 44548 total windows
+2026-01-28 09:15:49,372 - INFO -      - AXRBD079: 13 nights, 33181 total windows
+2026-01-28 09:15:50,303 - INFO -      - AXRBD081: 14 nights, 40320 total windows
+2026-01-28 09:15:51,167 - INFO -      - AXRBD082: 14 nights, 40064 total windows
+2026-01-28 09:15:52,067 - INFO -      - AXRBD083: 15 nights, 40334 total windows
+2026-01-28 09:15:52,983 - INFO -      - AXRBD087: 15 nights, 41289 total windows
+2026-01-28 09:15:53,734 - INFO -      - AXRBD090: 14 nights, 32550 total windows
+2026-01-28 09:15:54,783 - INFO -      - AXRBD091: 17 nights, 46830 total windows
+2026-01-28 09:15:55,764 - INFO -      - AXRBD092: 16 nights, 41834 total windows
+2026-01-28 09:15:56,666 - INFO -      - AXRBD093: 15 nights, 40488 total windows
+2026-01-28 09:15:57,525 - INFO -      - AXRBD094: 14 nights, 39399 total windows
+2026-01-28 09:15:58,411 - INFO -      - AXRBD096: 14 nights, 40320 total windows
+2026-01-28 09:15:59,239 - INFO -      - AXRBD097: 14 nights, 38845 total windows
+2026-01-28 09:15:59,721 - INFO -      - AXRBD098: 8 nights, 22624 total windows
+2026-01-28 09:16:00,238 - INFO -      - AXRBD102: 10 nights, 22341 total windows
+2026-01-28 09:16:01,080 - INFO -      - AXRBD107: 14 nights, 40320 total windows
+2026-01-28 09:16:01,671 - INFO -      - AXRBD109: 10 nights, 27289 total windows
+2026-01-28 09:16:02,513 - INFO -      - AXRBD110: 15 nights, 37689 total windows
+2026-01-28 09:16:02,908 - INFO -      - AXRBD111: 7 nights, 17296 total windows
+2026-01-28 09:16:03,741 - INFO -      - AXRBD112: 14 nights, 38678 total windows
+2026-01-28 09:16:04,626 - INFO -      - AXRBD114: 17 nights, 31746 total windows
+2026-01-28 09:16:05,542 - INFO -      - AXRBD115: 15 nights, 40457 total windows
+2026-01-28 09:16:05,543 - INFO -    Processing iRBD participant features...
+2026-01-28 09:16:06,234 - INFO -      - AXRBD000: 11 nights, 31121 total windows
+2026-01-28 09:16:07,996 - INFO -      - AXRBD001: 28 nights, 78377 total windows
+2026-01-28 09:16:10,957 - INFO -      - AXRBD002: 45 nights, 124892 total windows
+2026-01-28 09:16:12,728 - INFO -      - AXRBD003: 29 nights, 67961 total windows
+2026-01-28 09:16:14,727 - INFO -      - AXRBD004: 32 nights, 90005 total windows
+2026-01-28 09:16:16,657 - INFO -      - AXRBD006: 31 nights, 89280 total windows
+2026-01-28 09:16:19,046 - INFO -      - AXRBD007: 36 nights, 102875 total windows
+2026-01-28 09:16:21,527 - INFO -      - AXRBD008: 38 nights, 102962 total windows
+2026-01-28 09:16:23,479 - INFO -      - AXRBD010: 32 nights, 87262 total windows
+2026-01-28 09:16:25,563 - INFO -      - AXRBD011: 31 nights, 88171 total windows
+2026-01-28 09:16:27,537 - INFO -      - AXRBD012: 31 nights, 87978 total windows
+2026-01-28 09:16:29,855 - INFO -      - AXRBD013: 36 nights, 101079 total windows
+2026-01-28 09:16:31,760 - INFO -      - AXRBD014: 32 nights, 88327 total windows
+2026-01-28 09:16:34,127 - INFO -      - AXRBD015: 35 nights, 100061 total windows
+2026-01-28 09:16:36,297 - INFO -      - AXRBD016: 33 nights, 94397 total windows
+2026-01-28 09:16:37,215 - INFO -      - AXRBD017: 15 nights, 40833 total windows
+2026-01-28 09:16:39,512 - INFO -      - AXRBD018: 32 nights, 91128 total windows
+2026-01-28 09:16:41,295 - INFO -      - AXRBD020: 29 nights, 82592 total windows
+2026-01-28 09:16:43,128 - INFO -      - AXRBD021: 30 nights, 86391 total windows
+2026-01-28 09:16:44,986 - INFO -      - AXRBD023: 29 nights, 79628 total windows
+2026-01-28 09:16:47,271 - INFO -      - AXRBD028: 34 nights, 97920 total windows
+2026-01-28 09:16:49,393 - INFO -      - AXRBD030: 33 nights, 95040 total windows
+2026-01-28 09:16:51,486 - INFO -      - AXRBD031: 34 nights, 92519 total windows
+2026-01-28 09:16:53,928 - INFO -      - AXRBD032: 37 nights, 105695 total windows
+2026-01-28 09:16:55,978 - INFO -      - AXRBD039: 31 nights, 89280 total windows
+2026-01-28 09:16:57,529 - INFO -      - AXRBD040: 26 nights, 65032 total windows
+2026-01-28 09:16:58,461 - INFO -      - AXRBD041: 15 nights, 40353 total windows
+2026-01-28 09:16:59,206 - INFO -      - AXRBD043: 11 nights, 29822 total windows
+2026-01-28 09:17:00,355 - INFO -      - AXRBD045: 17 nights, 48366 total windows
+2026-01-28 09:17:01,581 - INFO -      - AXRBD047: 19 nights, 54058 total windows
+2026-01-28 09:17:02,527 - INFO -      - AXRBD049: 15 nights, 43200 total windows
+2026-01-28 09:17:04,586 - INFO -      - AXRBD059: 34 nights, 92263 total windows
+2026-01-28 09:17:06,833 - INFO -      - AXRBD061: 34 nights, 95561 total windows
+2026-01-28 09:17:07,721 - INFO -      - AXRBD062: 14 nights, 40320 total windows
+2026-01-28 09:17:08,548 - INFO -      - AXRBD065: 14 nights, 33656 total windows
+2026-01-28 09:17:10,744 - INFO -      - AXRBD071: 33 nights, 89943 total windows
+2026-01-28 09:17:13,339 - INFO -      - AXRBD072: 37 nights, 102842 total windows
+2026-01-28 09:17:15,313 - INFO -      - AXRBD074: 29 nights, 80294 total windows
+2026-01-28 09:17:16,246 - INFO -      - AXRBD080: 15 nights, 40672 total windows
+2026-01-28 09:17:18,298 - INFO -      - AXRBD095: 33 nights, 95040 total windows
+2026-01-28 09:17:20,047 - INFO -      - AXRBD105: 28 nights, 77209 total windows
+2026-01-28 09:17:21,166 - INFO -      - AXRBD113: 17 nights, 46131 total windows
+2026-01-28 09:17:21,167 - INFO - Feature data loaded and aggregated successfully:
+2026-01-28 09:17:21,168 - INFO -    - Controls: 42 participants
+2026-01-28 09:17:21,168 - INFO -    - iRBD: 42 participants
+2026-01-28 09:17:21,169 - INFO -    - Total nights: 1960
+2026-01-28 09:17:21,170 - INFO -    - Feature dimension: 1024
+2026-01-28 09:17:21,170 - INFO -    - Aggregation method: mean
+2026-01-28 09:17:21,173 - INFO - Performing statistical tests for all features...
+2026-01-28 09:17:21,174 - INFO -    Testing 1024 features...
+2026-01-28 09:17:21,338 - INFO -      - Processed 100/1024 features
+2026-01-28 09:17:21,505 - INFO -      - Processed 200/1024 features
+2026-01-28 09:17:21,667 - INFO -      - Processed 300/1024 features
+2026-01-28 09:17:21,826 - INFO -      - Processed 400/1024 features
+2026-01-28 09:17:21,992 - INFO -      - Processed 500/1024 features
+2026-01-28 09:17:22,156 - INFO -      - Processed 600/1024 features
+2026-01-28 09:17:22,319 - INFO -      - Processed 700/1024 features
+2026-01-28 09:17:22,486 - INFO -      - Processed 800/1024 features
+2026-01-28 09:17:22,646 - INFO -      - Processed 900/1024 features
+2026-01-28 09:17:22,812 - INFO -      - Processed 1000/1024 features
+2026-01-28 09:17:22,851 - INFO -    Applying Bonferroni correction for multiple comparisons...
+2026-01-28 09:17:22,853 - INFO -  Statistical testing completed:
+2026-01-28 09:17:22,854 - INFO -    - Total features tested: 1024
+2026-01-28 09:17:22,855 - INFO -    - Normal distributions: 151 features
+2026-01-28 09:17:22,856 - INFO -    - Non-normal distributions: 873 features
+2026-01-28 09:17:22,857 - INFO -    - Significant features (Bonferroni): 329
+2026-01-28 09:17:22,858 - INFO -    - Large effect features (|d|≥0.5): 39
+2026-01-28 09:17:22,859 - INFO -    - Both significant AND large effect: 15
+2026-01-28 09:17:22,874 - INFO - Saving analysis results...
+2026-01-28 09:17:22,913 - INFO -    - Detailed results saved: /work3/s184484/iRBD-detection/results/statistical_analysis_v1/detailed_statistical_results.csv
+2026-01-28 09:17:22,927 - INFO -    - Significant features saved: /work3/s184484/iRBD-detection/results/statistical_analysis_v1/significant_features.csv
+2026-01-28 09:17:22,932 - INFO -    - Large effect features saved: /work3/s184484/iRBD-detection/results/statistical_analysis_v1/large_effect_features.csv
+2026-01-28 09:17:22,937 - INFO -    - Significant + large effect features saved: /work3/s184484/iRBD-detection/results/statistical_analysis_v1/significant_and_large_effect_features.csv
+2026-01-28 09:17:22,960 - INFO -    - Raw feature matrices saved: /work3/s184484/iRBD-detection/results/statistical_analysis_v1/raw_feature_matrices.npz
+2026-01-28 09:17:22,961 - INFO - Creating comprehensive visualizations...
+2026-01-28 09:17:23,912 - INFO -    - Volcano plot saved: /work3/s184484/iRBD-detection/results/visualizations/v1/feature_volcano_plot.png
+2026-01-28 09:17:24,863 - INFO -    - Top features plot saved: /work3/s184484/iRBD-detection/results/visualizations/v1/top_discriminative_features.png
+2026-01-28 09:17:26,701 - INFO -    - Analysis dashboard saved: /work3/s184484/iRBD-detection/results/visualizations/v1/statistical_analysis_dashboard.png
+2026-01-28 09:17:28,256 - INFO -    - Group comparison plot saved: /work3/s184484/iRBD-detection/results/visualizations/v1/top_features_group_comparison.png
+2026-01-28 09:17:28,261 - INFO -    Creating t-SNE visualization of feature space...
+2026-01-28 09:17:29,271 - INFO -    - t-SNE visualization saved: /work3/s184484/iRBD-detection/results/visualizations/v1/feature_space_tsne.png
+2026-01-28 09:17:29,273 - INFO - 
+======================================================================
+2026-01-28 09:17:29,274 - INFO - STATISTICAL ANALYSIS COMPLETED
+2026-01-28 09:17:29,275 - INFO - ======================================================================
+2026-01-28 09:17:29,275 - INFO - Dataset Statistics:
+2026-01-28 09:17:29,276 - INFO -   - Total participants: 84
+2026-01-28 09:17:29,277 - INFO -   - Controls: 42
+2026-01-28 09:17:29,277 - INFO -   - iRBD: 42
+2026-01-28 09:17:29,279 - INFO -   - Total nights: 1960
+2026-01-28 09:17:29,279 - INFO -   - Aggregation method: mean
+2026-01-28 09:17:29,280 - INFO - 
+2026-01-28 09:17:29,281 - INFO - Feature Analysis Results:
+2026-01-28 09:17:29,283 - INFO -   - Total features tested: 1024
+2026-01-28 09:17:29,284 - INFO -   - Normal distributions: 151
+2026-01-28 09:17:29,285 - INFO -   - Non-normal distributions: 873
+2026-01-28 09:17:29,285 - INFO -   - Significant features (Bonferroni): 329
+2026-01-28 09:17:29,286 - INFO -   - Large effect features (|d|≥0.5): 39
+2026-01-28 09:17:29,287 - INFO -   - Both significant AND large effect: 15
+2026-01-28 09:17:29,288 - INFO -   - Significance rate: 32.13%
+2026-01-28 09:17:29,289 - INFO -   - Large effect rate: 3.81%
+2026-01-28 09:17:29,290 - INFO -   - Both significant & large effect rate: 1.46%
+2026-01-28 09:17:29,291 - INFO - 
+2026-01-28 09:17:29,292 - INFO - Statistical Parameters:
+2026-01-28 09:17:29,292 - INFO -   - Significance level (α): 0.05
+2026-01-28 09:17:29,294 - INFO -   - Bonferroni corrected α: 4.88e-05
+2026-01-28 09:17:29,295 - INFO -   - Effect size threshold: 0.5
+2026-01-28 09:17:29,296 - INFO -   - Normality test α: 0.05
+2026-01-28 09:17:29,297 - INFO - 
+2026-01-28 09:17:29,298 - INFO - Analysis Performance:
+2026-01-28 09:17:29,298 - INFO -   - Total analysis time: 131.2 seconds
+2026-01-28 09:17:29,299 - INFO - 
+2026-01-28 09:17:29,300 - INFO - Top 5 Most Discriminative Features:
+2026-01-28 09:17:29,301 - INFO -   1. Feature 979: |d|=1.629, p=6.73e-07, test=Independent t-test
+2026-01-28 09:17:29,301 - INFO -   2. Feature 323: |d|=1.437, p=1.21e-05, test=Independent t-test
+2026-01-28 09:17:29,302 - INFO -   3. Feature 249: |d|=1.403, p=2.14e-05, test=Independent t-test
+2026-01-28 09:17:29,303 - INFO -   4. Feature 466: |d|=1.336, p=7.57e-05, test=Independent t-test
+2026-01-28 09:17:29,303 - INFO -   5. Feature 709: |d|=1.188, p=9.59e-04, test=Independent t-test
+2026-01-28 09:17:29,304 - INFO - 
+2026-01-28 09:17:29,305 - INFO - Clinical Interpretation:
+2026-01-28 09:17:29,306 - INFO -   Found 15 features with both statistical
+2026-01-28 09:17:29,308 - INFO -      significance and large effect sizes
+2026-01-28 09:17:29,308 - INFO -   These features represent movement patterns that reliably
+2026-01-28 09:17:29,309 - INFO -      distinguish iRBD patients from healthy controls
+2026-01-28 09:17:29,310 - INFO -   Results support the use of SSL-Wearables features for iRBD detection
+2026-01-28 09:17:29,310 - INFO - 
+2026-01-28 09:17:29,311 - INFO - Statistical analysis pipeline completed successfully!
+2026-01-28 09:17:29,312 - INFO - Complete analysis ready for thesis writing and publication
+2026-01-28 09:17:29,313 - INFO - STATISTICAL ANALYSIS COMPLETED SUCCESSFULLY!

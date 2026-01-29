@@ -1,0 +1,4589 @@
+{
+  "investigation_date": "2026-01-14 07:54:53.537139",
+  "data_directory": "/work3/s184484/iRBD-detection/data/raw/",
+  "summary": {
+    "total_files": 84,
+    "successful_reads": 84,
+    "failed_reads": 0,
+    "failed_files": [],
+    "sample_rate_hz": {
+      "unique_values": [
+        25.0,
+        100.0
+      ],
+      "most_common": 25.0
+    },
+    "inferred_sample_rate_hz": {
+      "mean": 33.035714285714285,
+      "std": 23.197109029940325,
+      "min": 25.0,
+      "max": 100.0
+    },
+    "duration": {
+      "hours": {
+        "mean": 854.7955720568782,
+        "std": 375.4475450067111,
+        "min": 347.98695555555554,
+        "max": 1816.9469111111111
+      },
+      "days": {
+        "mean": 35.6164821690366,
+        "std": 15.643647708612963,
+        "min": 14.49945648148148,
+        "max": 75.7061212962963
+      }
+    },
+    "file_size_mb": {
+      "mean": 540.2641892206101,
+      "std": 238.69495305565601,
+      "min": 187.8115234375,
+      "max": 968.74951171875
+    },
+    "temperature_sensor": {
+      "files_with_temp": 84,
+      "percentage": 100.0
+    },
+    "devices": {
+      "unique_device_ids": [],
+      "num_unique_devices": 0
+    }
+  },
+  "individual_files": [
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD001.cwa",
+      "file_name": "AXRBD001.cwa",
+      "file_size_mb": 466.447265625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 77552500,
+      "start_time": "2021-04-22 18:54:00.280000",
+      "end_time": "2021-05-28 16:35:40.240000",
+      "duration_hours": 861.6944333333333,
+      "duration_days": 35.903934722222225,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.16962242126465,
+        "std": 2.955656051635742,
+        "min": 10.699999809265137,
+        "max": 30.350000381469727,
+        "samples": 77552087
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.33563944697380066,
+          "std": 0.4690369665622711,
+          "min": -4.0360283851623535,
+          "max": 4.011018753051758
+        },
+        "y": {
+          "mean": -0.01873015984892845,
+          "std": 0.6325302124023438,
+          "min": -4.0230536460876465,
+          "max": 4.061859130859375
+        },
+        "z": {
+          "mean": -0.2688658535480499,
+          "std": 0.47315260767936707,
+          "min": -3.983208656311035,
+          "max": 3.9581127166748047
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD077.CWA",
+      "file_name": "AXRBD077.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 162198904,
+      "start_time": "2021-09-28 11:45:41.280000",
+      "end_time": "2021-12-12 13:58:17.400000",
+      "duration_hours": 1802.2100333333333,
+      "duration_days": 75.09208472222222,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.87602424621582,
+        "std": 2.685471773147583,
+        "min": 12.800000190734863,
+        "max": 26.600000381469727,
+        "samples": 162198712
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.023486698046326637,
+          "std": 0.2697547972202301,
+          "min": -8.032415390014648,
+          "max": 8.023914337158203
+        },
+        "y": {
+          "mean": 0.28798025846481323,
+          "std": 0.8619565963745117,
+          "min": -7.9897847175598145,
+          "max": 8.087841033935547
+        },
+        "z": {
+          "mean": 0.07935238629579544,
+          "std": 0.311331570148468,
+          "min": -7.860799312591553,
+          "max": 7.834081172943115
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD076.CWA",
+      "file_name": "AXRBD076.CWA",
+      "file_size_mb": 242.986328125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 40604870,
+      "start_time": "2021-09-23 20:01:29.280000",
+      "end_time": "2021-10-12 15:11:24.040000",
+      "duration_hours": 451.1652111111111,
+      "duration_days": 18.79855046296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.404232025146484,
+        "std": 3.113391876220703,
+        "min": 12.199999809265137,
+        "max": 24.5,
+        "samples": 40604822
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.13745355606079102,
+          "std": 0.47261008620262146,
+          "min": -8.049447059631348,
+          "max": 8.011674880981445
+        },
+        "y": {
+          "mean": -0.056678012013435364,
+          "std": 0.7285476922988892,
+          "min": -7.922379493713379,
+          "max": 8.11460018157959
+        },
+        "z": {
+          "mean": -0.11470402777194977,
+          "std": 0.5021053552627563,
+          "min": -7.884186267852783,
+          "max": 7.865830421447754
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD038.CWA",
+      "file_name": "AXRBD038.CWA",
+      "file_size_mb": 604.93701171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 99362123,
+      "start_time": "2021-07-26 13:36:04.240000",
+      "end_time": "2021-09-10 13:37:29.120000",
+      "duration_hours": 1104.0235777777777,
+      "duration_days": 46.000982407407406,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.292404174804688,
+        "std": 2.5880329608917236,
+        "min": 13.399999618530273,
+        "max": 24.350000381469727,
+        "samples": 99360313
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.007041132543236017,
+          "std": 0.2609768807888031,
+          "min": -7.9794464111328125,
+          "max": 7.971712112426758
+        },
+        "y": {
+          "mean": 0.3657277822494507,
+          "std": 0.7807411551475525,
+          "min": -7.946836471557617,
+          "max": 7.9803338050842285
+        },
+        "z": {
+          "mean": 0.004615892190486193,
+          "std": 0.435243159532547,
+          "min": -7.962507247924805,
+          "max": 7.887401580810547
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD092.CWA",
+      "file_name": "AXRBD092.CWA",
+      "file_size_mb": 272.4599609375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 45417346,
+      "start_time": "2021-09-30 14:16:25.320000",
+      "end_time": "2021-10-21 14:54:39.120000",
+      "duration_hours": 504.6371666666667,
+      "duration_days": 21.026548611111114,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.477365493774414,
+        "std": 3.008239984512329,
+        "min": 9.5,
+        "max": 25.850000381469727,
+        "samples": 45417346
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.04936402291059494,
+          "std": 0.4977615177631378,
+          "min": -7.987943172454834,
+          "max": 8.028624534606934
+        },
+        "y": {
+          "mean": 0.023587211966514587,
+          "std": 0.6101442575454712,
+          "min": -7.925987720489502,
+          "max": 7.993178367614746
+        },
+        "z": {
+          "mean": 0.3965444564819336,
+          "std": 0.48354828357696533,
+          "min": -7.940411567687988,
+          "max": 7.897328853607178
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD050.CWA",
+      "file_name": "AXRBD050.CWA",
+      "file_size_mb": 284.6845703125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 47498339,
+      "start_time": "2021-10-04 15:11:46.280000",
+      "end_time": "2021-10-26 14:57:19.800000",
+      "duration_hours": 527.7593111111111,
+      "duration_days": 21.989971296296293,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.243635177612305,
+        "std": 3.5703465938568115,
+        "min": 11.600000381469727,
+        "max": 24.5,
+        "samples": 47498339
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.12376487255096436,
+          "std": 0.5405160784721375,
+          "min": -8.046369552612305,
+          "max": 7.9815874099731445
+        },
+        "y": {
+          "mean": 0.0003377854882273823,
+          "std": 0.5149964094161987,
+          "min": -7.930380821228027,
+          "max": 8.072164535522461
+        },
+        "z": {
+          "mean": -0.0019308780319988728,
+          "std": 0.6626512408256531,
+          "min": -7.873862266540527,
+          "max": 7.820868015289307
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD037.CWA",
+      "file_name": "AXRBD037.CWA",
+      "file_size_mb": 698.19580078125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 116791955,
+      "start_time": "2021-06-11 14:38:01.280000",
+      "end_time": "2021-08-04 16:19:19.440000",
+      "duration_hours": 1297.6883777777778,
+      "duration_days": 54.07034907407407,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.121822357177734,
+        "std": 2.4137909412384033,
+        "min": 13.550000190734863,
+        "max": 27.649999618530273,
+        "samples": 116791420
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.037247415632009506,
+          "std": 0.5117025375366211,
+          "min": -4.0460944175720215,
+          "max": 3.9972805976867676
+        },
+        "y": {
+          "mean": -0.26550909876823425,
+          "std": 0.6403296589851379,
+          "min": -4.000344753265381,
+          "max": 4.074929714202881
+        },
+        "z": {
+          "mean": -0.17227843403816223,
+          "std": 0.49896353483200073,
+          "min": -3.9675867557525635,
+          "max": 3.9641637802124023
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD053.CWA",
+      "file_name": "AXRBD053.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 160116694,
+      "start_time": "2021-06-28 19:24:18.230000",
+      "end_time": "2021-07-17 08:10:25.160000",
+      "duration_hours": 444.7685916666666,
+      "duration_days": 18.532024652777775,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.695419311523438,
+        "std": 0.7210946679115295,
+        "min": 14.149999618530273,
+        "max": 23.75,
+        "samples": 160116694
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.26109689474105835,
+          "std": 0.5642004013061523,
+          "min": -6.000425338745117,
+          "max": 5.134988784790039
+        },
+        "y": {
+          "mean": 0.11468686163425446,
+          "std": 0.4871448576450348,
+          "min": -6.3700480461120605,
+          "max": 4.8999152183532715
+        },
+        "z": {
+          "mean": -0.27161675691604614,
+          "std": 0.547837495803833,
+          "min": -6.804214000701904,
+          "max": 4.534241676330566
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD051.CWA",
+      "file_name": "AXRBD051.CWA",
+      "file_size_mb": 299.7822265625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 49898961,
+      "start_time": "2021-10-06 12:10:48.240000",
+      "end_time": "2021-10-29 14:36:46.640000",
+      "duration_hours": 554.4328888888889,
+      "duration_days": 23.101370370370372,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.982046127319336,
+        "std": 3.1739883422851562,
+        "min": 11.0,
+        "max": 25.25,
+        "samples": 49898961
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.06807307153940201,
+          "std": 0.47910499572753906,
+          "min": -8.042975425720215,
+          "max": 8.011354446411133
+        },
+        "y": {
+          "mean": 0.03091391548514366,
+          "std": 0.7159008383750916,
+          "min": -7.983574867248535,
+          "max": 8.042064666748047
+        },
+        "z": {
+          "mean": 0.22707708179950714,
+          "std": 0.49495431780815125,
+          "min": -7.9141435623168945,
+          "max": 7.880338668823242
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD093.CWA",
+      "file_name": "AXRBD093.CWA",
+      "file_size_mb": 323.056640625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 53931145,
+      "start_time": "2021-10-04 14:24:37.280000",
+      "end_time": "2021-10-29 13:38:43.040000",
+      "duration_hours": 599.2349333333333,
+      "duration_days": 24.96812222222222,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.213315963745117,
+        "std": 2.8420333862304688,
+        "min": 13.100000381469727,
+        "max": 27.799999237060547,
+        "samples": 53931145
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.09088141471147537,
+          "std": 0.5348784923553467,
+          "min": -8.017244338989258,
+          "max": 8.024362564086914
+        },
+        "y": {
+          "mean": 0.17866650223731995,
+          "std": 0.6901447176933289,
+          "min": -8.037627220153809,
+          "max": 8.108386993408203
+        },
+        "z": {
+          "mean": 0.19034850597381592,
+          "std": 0.43082869052886963,
+          "min": -7.893650054931641,
+          "max": 7.872347831726074
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD044.CWA",
+      "file_name": "AXRBD044.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 161460418,
+      "start_time": "2021-06-18 09:32:04.230000",
+      "end_time": "2021-07-07 02:02:08.400000",
+      "duration_hours": 448.5011583333333,
+      "duration_days": 18.68754826388889,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.068119049072266,
+        "std": 2.225759744644165,
+        "min": 14.0,
+        "max": 28.700000762939453,
+        "samples": 161458444
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.16830189526081085,
+          "std": 0.5382572412490845,
+          "min": -8.42953872680664,
+          "max": 9.282795906066895
+        },
+        "y": {
+          "mean": 0.051193151623010635,
+          "std": 0.6833767890930176,
+          "min": -8.340165138244629,
+          "max": 8.419639587402344
+        },
+        "z": {
+          "mean": -0.03312323987483978,
+          "std": 0.4907383322715759,
+          "min": -8.176403045654297,
+          "max": 9.516464233398438
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD091.CWA",
+      "file_name": "AXRBD091.CWA",
+      "file_size_mb": 274.77197265625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 45557641,
+      "start_time": "2021-09-30 11:45:27.280000",
+      "end_time": "2021-10-21 13:57:12.880000",
+      "duration_hours": 506.196,
+      "duration_days": 21.0915,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.355852127075195,
+        "std": 3.0378377437591553,
+        "min": 12.199999809265137,
+        "max": 25.850000381469727,
+        "samples": 45557641
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.10574917495250702,
+          "std": 0.538992702960968,
+          "min": -7.953972339630127,
+          "max": 8.011878967285156
+        },
+        "y": {
+          "mean": 0.12873542308807373,
+          "std": 0.5076700448989868,
+          "min": -8.007545471191406,
+          "max": 8.071715354919434
+        },
+        "z": {
+          "mean": 0.0363682396709919,
+          "std": 0.6760486364364624,
+          "min": -7.9195237159729,
+          "max": 7.961836338043213
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD109.CWA",
+      "file_name": "AXRBD109.CWA",
+      "file_size_mb": 299.12060546875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 49759762,
+      "start_time": "2021-11-17 10:32:13.240000",
+      "end_time": "2021-12-10 11:25:23.680000",
+      "duration_hours": 552.8862333333333,
+      "duration_days": 23.036926388888887,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.43648910522461,
+        "std": 2.2166218757629395,
+        "min": 11.600000381469727,
+        "max": 23.600000381469727,
+        "samples": 49759762
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.02139553800225258,
+          "std": 0.28557318449020386,
+          "min": -7.4482421875,
+          "max": 7.999755859375
+        },
+        "y": {
+          "mean": -0.46133461594581604,
+          "std": 0.788138210773468,
+          "min": -8.0,
+          "max": 7.999755859375
+        },
+        "z": {
+          "mean": 0.09089619666337967,
+          "std": 0.2782444655895233,
+          "min": -6.7421875,
+          "max": 7.999755859375
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD094.CWA",
+      "file_name": "AXRBD094.CWA",
+      "file_size_mb": 452.2314453125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 75730321,
+      "start_time": "2021-10-04 15:09:56.240000",
+      "end_time": "2021-11-08 16:36:49.040000",
+      "duration_hours": 841.448,
+      "duration_days": 35.06033333333333,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.840660095214844,
+        "std": 3.8524630069732666,
+        "min": 11.75,
+        "max": 25.100000381469727,
+        "samples": 75730273
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.18023988604545593,
+          "std": 0.44972163438796997,
+          "min": -7.962416648864746,
+          "max": 8.049232482910156
+        },
+        "y": {
+          "mean": -0.11988804489374161,
+          "std": 0.7049931883811951,
+          "min": -7.936242580413818,
+          "max": 8.059303283691406
+        },
+        "z": {
+          "mean": -0.06748227030038834,
+          "std": 0.5095215439796448,
+          "min": -7.988095283508301,
+          "max": 7.878119468688965
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD097.CWA",
+      "file_name": "AXRBD097.CWA",
+      "file_size_mb": 254.81005859375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 42938483,
+      "start_time": "2021-11-04 14:51:57.280000",
+      "end_time": "2021-11-24 11:57:36.560000",
+      "duration_hours": 477.0942444444444,
+      "duration_days": 19.87892685185185,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.39304542541504,
+        "std": 3.152238607406616,
+        "min": 8.899999618530273,
+        "max": 24.799999237060547,
+        "samples": 42938362
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.28731632232666016,
+          "std": 0.4621918797492981,
+          "min": -8.0,
+          "max": 7.999755859375
+        },
+        "y": {
+          "mean": 0.1232498437166214,
+          "std": 0.5786782503128052,
+          "min": -8.0,
+          "max": 7.999755859375
+        },
+        "z": {
+          "mean": 0.3777945935726166,
+          "std": 0.4760558009147644,
+          "min": -8.0,
+          "max": 7.999755859375
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD083.CWA",
+      "file_name": "AXRBD083.CWA",
+      "file_size_mb": 261.94091796875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 43594849,
+      "start_time": "2021-09-30 11:46:01.280000",
+      "end_time": "2021-10-20 16:09:15.200000",
+      "duration_hours": 484.3872,
+      "duration_days": 20.1828,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.177127838134766,
+        "std": 2.549755573272705,
+        "min": 11.899999618530273,
+        "max": 24.799999237060547,
+        "samples": 43594849
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.16463595628738403,
+          "std": 0.5135557055473328,
+          "min": -7.972851753234863,
+          "max": 8.006450653076172
+        },
+        "y": {
+          "mean": -0.03541366755962372,
+          "std": 0.5187239050865173,
+          "min": -8.030839920043945,
+          "max": 8.031837463378906
+        },
+        "z": {
+          "mean": -0.018716799095273018,
+          "std": 0.6737068295478821,
+          "min": -7.882086277008057,
+          "max": 7.855199813842773
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD058.CWA",
+      "file_name": "AXRBD058.CWA",
+      "file_size_mb": 524.89208984375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 86032970,
+      "start_time": "2021-07-30 17:48:35.200000",
+      "end_time": "2021-09-08 13:43:53.960000",
+      "duration_hours": 955.9218777777777,
+      "duration_days": 39.83007824074074,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.739179611206055,
+        "std": 1.9448572397232056,
+        "min": 13.699999809265137,
+        "max": 37.70000076293945,
+        "samples": 86032970
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.32338592410087585,
+          "std": 0.5092621445655823,
+          "min": -8.026606559753418,
+          "max": 8.002408981323242
+        },
+        "y": {
+          "mean": 0.00406554015353322,
+          "std": 0.5270190238952637,
+          "min": -7.974044322967529,
+          "max": 8.045661926269531
+        },
+        "z": {
+          "mean": 0.3567163944244385,
+          "std": 0.518166720867157,
+          "min": -7.904965877532959,
+          "max": 7.880401611328125
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD025.CWA",
+      "file_name": "AXRBD025.CWA",
+      "file_size_mb": 366.57861328125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 60040585,
+      "start_time": "2021-05-10 19:53:06.200000",
+      "end_time": "2021-06-07 15:00:09.560000",
+      "duration_hours": 667.1175999999999,
+      "duration_days": 27.796566666666664,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.88115692138672,
+        "std": 2.3127360343933105,
+        "min": 13.550000190734863,
+        "max": 37.25,
+        "samples": 60040585
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.28616997599601746,
+          "std": 0.5388266444206238,
+          "min": -4.038003921508789,
+          "max": 4.020746231079102
+        },
+        "y": {
+          "mean": -0.01070444192737341,
+          "std": 0.581295371055603,
+          "min": -4.016650676727295,
+          "max": 4.0558013916015625
+        },
+        "z": {
+          "mean": -0.29685428738594055,
+          "std": 0.4769270420074463,
+          "min": -3.9754819869995117,
+          "max": 3.9391376972198486
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD107.CWA",
+      "file_name": "AXRBD107.CWA",
+      "file_size_mb": 270.88427734375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 45379555,
+      "start_time": "2021-11-08 10:56:06.280000",
+      "end_time": "2021-11-29 11:09:08.440000",
+      "duration_hours": 504.21726666666666,
+      "duration_days": 21.00905277777778,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.633689880371094,
+        "std": 2.629406690597534,
+        "min": 9.050000190734863,
+        "max": 23.450000762939453,
+        "samples": 45379054
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.1852331906557083,
+          "std": 0.45353153347969055,
+          "min": -7.979745388031006,
+          "max": 7.943939685821533
+        },
+        "y": {
+          "mean": 0.2989092171192169,
+          "std": 0.6657813191413879,
+          "min": -7.99041223526001,
+          "max": 8.067414283752441
+        },
+        "z": {
+          "mean": 0.3181498348712921,
+          "std": 0.394054114818573,
+          "min": -7.888547420501709,
+          "max": 7.895476341247559
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD054.CWA",
+      "file_name": "AXRBD054.CWA",
+      "file_size_mb": 563.73193359375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 93512180,
+      "start_time": "2021-07-26 12:23:24.280000",
+      "end_time": "2021-09-07 19:24:51.440000",
+      "duration_hours": 1039.024211111111,
+      "duration_days": 43.29267546296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.5213680267334,
+        "std": 2.3150124549865723,
+        "min": 11.449999809265137,
+        "max": 31.850000381469727,
+        "samples": 93510878
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.21025018393993378,
+          "std": 0.5249740481376648,
+          "min": -7.983160972595215,
+          "max": 8.025646209716797
+        },
+        "y": {
+          "mean": 0.22218920290470123,
+          "std": 0.6012725234031677,
+          "min": -7.940091133117676,
+          "max": 7.960819721221924
+        },
+        "z": {
+          "mean": 0.014069873839616776,
+          "std": 0.5384625792503357,
+          "min": -7.917980194091797,
+          "max": 7.89671516418457
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD082.CWA",
+      "file_name": "AXRBD082.CWA",
+      "file_size_mb": 260.58154296875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 43698013,
+      "start_time": "2021-09-29 09:16:12.280000",
+      "end_time": "2021-10-19 14:48:12.760000",
+      "duration_hours": 485.53346666666664,
+      "duration_days": 20.23056111111111,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.338062286376953,
+        "std": 2.993565320968628,
+        "min": 9.350000381469727,
+        "max": 29.149999618530273,
+        "samples": 43696123
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.37317556142807007,
+          "std": 0.38394588232040405,
+          "min": -8.012014389038086,
+          "max": 7.658830165863037
+        },
+        "y": {
+          "mean": -0.0031843127217143774,
+          "std": 0.48544615507125854,
+          "min": -8.005550384521484,
+          "max": 8.091621398925781
+        },
+        "z": {
+          "mean": -0.007439012173563242,
+          "std": 0.7014567255973816,
+          "min": -7.900403022766113,
+          "max": 7.837348937988281
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD112.CWA",
+      "file_name": "AXRBD112.CWA",
+      "file_size_mb": 187.8115234375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 31318827,
+      "start_time": "2021-12-02 19:55:47.280000",
+      "end_time": "2021-12-17 07:55:00.320000",
+      "duration_hours": 347.98695555555554,
+      "duration_days": 14.49945648148148,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.001073837280273,
+        "std": 2.472855806350708,
+        "min": 13.699999809265137,
+        "max": 23.600000381469727,
+        "samples": 31318827
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.02469783090054989,
+          "std": 0.4396153688430786,
+          "min": -7.985540390014648,
+          "max": 8.028244018554688
+        },
+        "y": {
+          "mean": -0.12143015116453171,
+          "std": 0.7314003109931946,
+          "min": -6.724974155426025,
+          "max": 7.736944675445557
+        },
+        "z": {
+          "mean": -0.2149067223072052,
+          "std": 0.45936644077301025,
+          "min": -6.847057342529297,
+          "max": 5.0481038093566895
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD111.CWA",
+      "file_name": "AXRBD111.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 162227527,
+      "start_time": "2021-09-27 09:25:45.280000",
+      "end_time": "2021-12-11 11:57:26.320000",
+      "duration_hours": 1802.5280666666667,
+      "duration_days": 75.10533611111111,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 14.760379791259766,
+        "std": 1.2284804582595825,
+        "min": 13.100000381469727,
+        "max": 23.899999618530273,
+        "samples": 162227527
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.026214487850666046,
+          "std": 0.1263088583946228,
+          "min": -8.0,
+          "max": 6.14697265625
+        },
+        "y": {
+          "mean": -0.8718866109848022,
+          "std": 0.4628291130065918,
+          "min": -8.0,
+          "max": 7.948974609375
+        },
+        "z": {
+          "mean": 0.05337360128760338,
+          "std": 0.13205468654632568,
+          "min": -7.315673828125,
+          "max": 6.497314453125
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD081.CWA",
+      "file_name": "AXRBD081.CWA",
+      "file_size_mb": 197.62548828125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 32774463,
+      "start_time": "2021-09-29 09:20:11.240000",
+      "end_time": "2021-10-14 13:29:49.720000",
+      "duration_hours": 364.1606888888889,
+      "duration_days": 15.173362037037037,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.222185134887695,
+        "std": 1.9075847864151,
+        "min": 11.600000381469727,
+        "max": 27.350000381469727,
+        "samples": 32774463
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.044265780597925186,
+          "std": 0.5676095485687256,
+          "min": -8.012433052062988,
+          "max": 7.980366230010986
+        },
+        "y": {
+          "mean": 0.044401366263628006,
+          "std": 0.530664324760437,
+          "min": -8.0205078125,
+          "max": 8.076144218444824
+        },
+        "z": {
+          "mean": 0.4373115599155426,
+          "std": 0.46759623289108276,
+          "min": -7.826485633850098,
+          "max": 7.854609489440918
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD078.CWA",
+      "file_name": "AXRBD078.CWA",
+      "file_size_mb": 278.03857421875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 45688985,
+      "start_time": "2021-09-28 11:41:48.240000",
+      "end_time": "2021-10-19 15:21:07.600000",
+      "duration_hours": 507.6553777777778,
+      "duration_days": 21.15230740740741,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.914653778076172,
+        "std": 2.843693256378174,
+        "min": 12.649999618530273,
+        "max": 27.049999237060547,
+        "samples": 45688985
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.30843284726142883,
+          "std": 0.4592297673225403,
+          "min": -7.960405349731445,
+          "max": 7.959630489349365
+        },
+        "y": {
+          "mean": -0.23874731361865997,
+          "std": 0.6264618039131165,
+          "min": -7.9637298583984375,
+          "max": 7.976808071136475
+        },
+        "z": {
+          "mean": 0.1726928949356079,
+          "std": 0.47080767154693604,
+          "min": -7.961465835571289,
+          "max": 7.906490802764893
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD046.CWA",
+      "file_name": "AXRBD046.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 158877601,
+      "start_time": "2021-06-21 18:56:14.220000",
+      "end_time": "2021-07-10 04:15:50.220000",
+      "duration_hours": 441.32666666666665,
+      "duration_days": 18.38861111111111,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.89273452758789,
+        "std": 1.8629869222640991,
+        "min": 16.100000381469727,
+        "max": 24.049999237060547,
+        "samples": 158875530
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.06075563281774521,
+          "std": 0.36977502703666687,
+          "min": -6.310834884643555,
+          "max": 4.521463871002197
+        },
+        "y": {
+          "mean": -0.29063862562179565,
+          "std": 0.7758594155311584,
+          "min": -5.466501235961914,
+          "max": 5.572127342224121
+        },
+        "z": {
+          "mean": 0.003387083765119314,
+          "std": 0.41676974296569824,
+          "min": -4.253323554992676,
+          "max": 5.207696437835693
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD055.CWA",
+      "file_name": "AXRBD055.CWA",
+      "file_size_mb": 482.0771484375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 79732271,
+      "start_time": "2021-07-27 14:11:07.240000",
+      "end_time": "2021-09-02 12:05:58.040000",
+      "duration_hours": 885.9141111111111,
+      "duration_days": 36.91308796296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.22598648071289,
+        "std": 1.7154721021652222,
+        "min": 13.550000190734863,
+        "max": 26.149999618530273,
+        "samples": 79731405
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.3384385108947754,
+          "std": 0.4637982249259949,
+          "min": -8.037651062011719,
+          "max": 8.013846397399902
+        },
+        "y": {
+          "mean": 0.06937167793512344,
+          "std": 0.6139792203903198,
+          "min": -7.937004089355469,
+          "max": 8.04625129699707
+        },
+        "z": {
+          "mean": 0.2885703444480896,
+          "std": 0.5083705186843872,
+          "min": -7.976644992828369,
+          "max": 7.915872573852539
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD048.CWA",
+      "file_name": "AXRBD048.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 160196871,
+      "start_time": "2021-06-25 18:32:31.240000",
+      "end_time": "2021-07-14 07:31:59.940000",
+      "duration_hours": 444.9913055555555,
+      "duration_days": 18.541304398148146,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.24410057067871,
+        "std": 2.232166051864624,
+        "min": 13.399999618530273,
+        "max": 24.200000762939453,
+        "samples": 160196871
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.11030273139476776,
+          "std": 0.3701397478580475,
+          "min": -6.043381690979004,
+          "max": 5.9480695724487305
+        },
+        "y": {
+          "mean": 0.23837827146053314,
+          "std": 0.805846095085144,
+          "min": -7.396918296813965,
+          "max": 5.387193202972412
+        },
+        "z": {
+          "mean": -0.07477829605340958,
+          "std": 0.374235600233078,
+          "min": -5.4651103019714355,
+          "max": 6.031799793243408
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD115.CWA",
+      "file_name": "AXRBD115.CWA",
+      "file_size_mb": 296.736328125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 49766043,
+      "start_time": "2022-01-04 14:23:15.280000",
+      "end_time": "2022-01-27 15:20:36.960000",
+      "duration_hours": 552.9560222222223,
+      "duration_days": 23.039834259259262,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.73446273803711,
+        "std": 3.294189691543579,
+        "min": 7.400000095367432,
+        "max": 24.049999237060547,
+        "samples": 49765639
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.18444235622882843,
+          "std": 0.5145270824432373,
+          "min": -7.991649150848389,
+          "max": 8.000140190124512
+        },
+        "y": {
+          "mean": 0.2063673585653305,
+          "std": 0.6081925630569458,
+          "min": -8.01024055480957,
+          "max": 8.090239524841309
+        },
+        "z": {
+          "mean": 0.030575916171073914,
+          "std": 0.5428507328033447,
+          "min": -7.913889408111572,
+          "max": 7.860877513885498
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD056.CWA",
+      "file_name": "AXRBD056.CWA",
+      "file_size_mb": 495.5732421875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 82226430,
+      "start_time": "2021-07-26 12:03:19.280000",
+      "end_time": "2021-09-02 13:40:56.440000",
+      "duration_hours": 913.626988888889,
+      "duration_days": 38.067791203703706,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.335330963134766,
+        "std": 2.8111190795898438,
+        "min": 12.949999809265137,
+        "max": 24.200000762939453,
+        "samples": 82221669
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.0075760046020150185,
+          "std": 0.29832443594932556,
+          "min": -7.915085315704346,
+          "max": 7.968207836151123
+        },
+        "y": {
+          "mean": 0.01670560985803604,
+          "std": 0.6346617341041565,
+          "min": -7.985299587249756,
+          "max": 8.082056045532227
+        },
+        "z": {
+          "mean": -0.26724058389663696,
+          "std": 0.6607720851898193,
+          "min": -7.9217915534973145,
+          "max": 7.864238262176514
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD114.CWA",
+      "file_name": "AXRBD114.CWA",
+      "file_size_mb": 266.32861328125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 43825583,
+      "start_time": "2021-12-09 21:44:45.280000",
+      "end_time": "2021-12-30 04:41:48.560000",
+      "duration_hours": 486.9509111111111,
+      "duration_days": 20.289621296296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.892364501953125,
+        "std": 2.8475632667541504,
+        "min": 8.600000381469727,
+        "max": 26.0,
+        "samples": 43732618
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.030153123661875725,
+          "std": 0.4273746907711029,
+          "min": -8.020065307617188,
+          "max": 7.5785393714904785
+        },
+        "y": {
+          "mean": 0.2763861119747162,
+          "std": 0.7433002591133118,
+          "min": -7.992369651794434,
+          "max": 8.083484649658203
+        },
+        "z": {
+          "mean": 0.0386018343269825,
+          "std": 0.4357719421386719,
+          "min": -7.900638103485107,
+          "max": 7.913751602172852
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD110.CWA",
+      "file_name": "AXRBD110.CWA",
+      "file_size_mb": 241.74560546875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 40534986,
+      "start_time": "2021-11-30 13:18:08.280000",
+      "end_time": "2021-12-19 07:41:27.680000",
+      "duration_hours": 450.3887222222222,
+      "duration_days": 18.76619675925926,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.74193572998047,
+        "std": 2.4551327228546143,
+        "min": 14.899999618530273,
+        "max": 24.350000381469727,
+        "samples": 40534866
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.0034277020022273064,
+          "std": 0.256501168012619,
+          "min": -7.85666561126709,
+          "max": 5.851768970489502
+        },
+        "y": {
+          "mean": -0.31776320934295654,
+          "std": 0.8210509419441223,
+          "min": -7.927749156951904,
+          "max": 7.807025909423828
+        },
+        "z": {
+          "mean": 0.0943663939833641,
+          "std": 0.3885449767112732,
+          "min": -6.174408435821533,
+          "max": 7.849065780639648
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD102.CWA",
+      "file_name": "AXRBD102.CWA",
+      "file_size_mb": 550.44970703125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 92447878,
+      "start_time": "2021-11-19 14:51:03.240000",
+      "end_time": "2022-01-01 10:02:58.320000",
+      "duration_hours": 1027.1986333333334,
+      "duration_days": 42.79994305555556,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 15.269856452941895,
+        "std": 2.9769961833953857,
+        "min": 9.949999809265137,
+        "max": 26.899999618530273,
+        "samples": 92447782
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.04409053921699524,
+          "std": 0.3086322546005249,
+          "min": -8.006596565246582,
+          "max": 8.084912300109863
+        },
+        "y": {
+          "mean": -0.2498871088027954,
+          "std": 0.8271734714508057,
+          "min": -7.928678035736084,
+          "max": 8.043645858764648
+        },
+        "z": {
+          "mean": 0.025511471554636955,
+          "std": 0.3958436846733093,
+          "min": -7.864245414733887,
+          "max": 7.856690883636475
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD090.CWA",
+      "file_name": "AXRBD090.CWA",
+      "file_size_mb": 196.4345703125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 32594061,
+      "start_time": "2021-09-30 12:02:35.240000",
+      "end_time": "2021-10-15 14:11:57.640000",
+      "duration_hours": 362.1562222222222,
+      "duration_days": 15.089842592592591,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.108253479003906,
+        "std": 2.649015426635742,
+        "min": 10.550000190734863,
+        "max": 23.75,
+        "samples": 32594061
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.008487171493470669,
+          "std": 0.3888165056705475,
+          "min": -8.082401275634766,
+          "max": 8.013827323913574
+        },
+        "y": {
+          "mean": 0.2128080278635025,
+          "std": 0.7801952362060547,
+          "min": -8.00261402130127,
+          "max": 8.017578125
+        },
+        "z": {
+          "mean": -0.041811924427747726,
+          "std": 0.44205108284950256,
+          "min": -7.9069342613220215,
+          "max": 7.960389137268066
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD033.CWA",
+      "file_name": "AXRBD033.CWA",
+      "file_size_mb": 612.15478515625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 101565772,
+      "start_time": "2021-06-11 14:07:29.240000",
+      "end_time": "2021-07-28 14:38:00.080000",
+      "duration_hours": 1128.5085666666666,
+      "duration_days": 47.02119027777778,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.950008392333984,
+        "std": 1.9125475883483887,
+        "min": 13.850000381469727,
+        "max": 31.25,
+        "samples": 101564617
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.3533967435359955,
+          "std": 0.4797162115573883,
+          "min": -4.050106048583984,
+          "max": 3.9787373542785645
+        },
+        "y": {
+          "mean": -0.16269877552986145,
+          "std": 0.6290366053581238,
+          "min": -3.9655377864837646,
+          "max": 4.085575103759766
+        },
+        "z": {
+          "mean": -0.25559526681900024,
+          "std": 0.42862409353256226,
+          "min": -4.023963451385498,
+          "max": 3.97581148147583
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD066.CWA",
+      "file_name": "AXRBD066.CWA",
+      "file_size_mb": 414.27294921875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 68861984,
+      "start_time": "2021-08-19 17:50:41.280000",
+      "end_time": "2021-09-20 14:58:40.600000",
+      "duration_hours": 765.1331444444444,
+      "duration_days": 31.88054768518518,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.311126708984375,
+        "std": 2.4039084911346436,
+        "min": 9.199999809265137,
+        "max": 27.649999618530273,
+        "samples": 68861984
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.26061171293258667,
+          "std": 0.4848856031894684,
+          "min": -8.006071090698242,
+          "max": 8.02992057800293
+        },
+        "y": {
+          "mean": 0.027765614911913872,
+          "std": 0.5164709687232971,
+          "min": -7.981637001037598,
+          "max": 8.038249015808105
+        },
+        "z": {
+          "mean": 0.47806209325790405,
+          "std": 0.4875451922416687,
+          "min": -7.9339094161987305,
+          "max": 7.869651794433594
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD069.CWA",
+      "file_name": "AXRBD069.CWA",
+      "file_size_mb": 450.5380859375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 75242456,
+      "start_time": "2021-08-15 18:16:08.240000",
+      "end_time": "2021-09-19 14:17:46.440000",
+      "duration_hours": 836.0272777777778,
+      "duration_days": 34.83446990740741,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.039031982421875,
+        "std": 1.6687091588974,
+        "min": 16.549999237060547,
+        "max": 23.75,
+        "samples": 75242456
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.34353870153427124,
+          "std": 0.4460853338241577,
+          "min": -7.995707035064697,
+          "max": 7.964957237243652
+        },
+        "y": {
+          "mean": -0.3842219412326813,
+          "std": 0.5995672941207886,
+          "min": -7.911986351013184,
+          "max": 8.022603988647461
+        },
+        "z": {
+          "mean": 0.06143888458609581,
+          "std": 0.43382418155670166,
+          "min": -7.910574913024902,
+          "max": 7.874715328216553
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD096.CWA",
+      "file_name": "AXRBD096.CWA",
+      "file_size_mb": 364.48583984375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 60644408,
+      "start_time": "2021-10-21 15:09:39.280000",
+      "end_time": "2021-11-18 16:59:15.560000",
+      "duration_hours": 673.8267444444444,
+      "duration_days": 28.076114351851853,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.42098045349121,
+        "std": 3.6348814964294434,
+        "min": 9.199999809265137,
+        "max": 23.899999618530273,
+        "samples": 60644408
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.2156132608652115,
+          "std": 0.49474382400512695,
+          "min": -8.010045051574707,
+          "max": 8.038763046264648
+        },
+        "y": {
+          "mean": -0.20987838506698608,
+          "std": 0.7112877368927002,
+          "min": -8.009994506835938,
+          "max": 8.044732093811035
+        },
+        "z": {
+          "mean": 0.1082417294383049,
+          "std": 0.40998607873916626,
+          "min": -7.9182305335998535,
+          "max": 7.860963821411133
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD079.CWA",
+      "file_name": "AXRBD079.CWA",
+      "file_size_mb": 407.43994140625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 67166965,
+      "start_time": "2021-09-28 11:43:19.200000",
+      "end_time": "2021-10-29 14:01:17.760000",
+      "duration_hours": 746.2996,
+      "duration_days": 31.095816666666668,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 15.988788604736328,
+        "std": 3.3153388500213623,
+        "min": 11.600000381469727,
+        "max": 29.299999237060547,
+        "samples": 67166804
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.05407694727182388,
+          "std": 0.2852092981338501,
+          "min": -7.951936721801758,
+          "max": 7.950965404510498
+        },
+        "y": {
+          "mean": 0.22563913464546204,
+          "std": 0.7670263648033142,
+          "min": -7.932834625244141,
+          "max": 8.074767112731934
+        },
+        "z": {
+          "mean": 0.000587049697060138,
+          "std": 0.5315240621566772,
+          "min": -7.980827331542969,
+          "max": 7.911646842956543
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD098.CWA",
+      "file_name": "AXRBD098.CWA",
+      "file_size_mb": 595.7451171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 99834602,
+      "start_time": "2021-11-01 09:34:51.240000",
+      "end_time": "2021-12-17 14:51:15.280000",
+      "duration_hours": 1109.2733444444445,
+      "duration_days": 46.21972268518519,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 15.920994758605957,
+        "std": 1.8239860534667969,
+        "min": 8.0,
+        "max": 23.0,
+        "samples": 99834578
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.022941825911402702,
+          "std": 0.2538001835346222,
+          "min": -8.050711631774902,
+          "max": 8.014549255371094
+        },
+        "y": {
+          "mean": -0.566533625125885,
+          "std": 0.6995933651924133,
+          "min": -8.024630546569824,
+          "max": 8.04291820526123
+        },
+        "z": {
+          "mean": -0.030571432784199715,
+          "std": 0.3533068299293518,
+          "min": -7.859007835388184,
+          "max": 7.873678684234619
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD087.CWA",
+      "file_name": "AXRBD087.CWA",
+      "file_size_mb": 195.2802734375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 32354703,
+      "start_time": "2021-10-18 15:25:25.240000",
+      "end_time": "2021-11-02 14:55:13.320000",
+      "duration_hours": 359.4966888888889,
+      "duration_days": 14.979028703703705,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.718576431274414,
+        "std": 1.9281439781188965,
+        "min": 13.550000190734863,
+        "max": 24.049999237060547,
+        "samples": 32354703
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.1188042089343071,
+          "std": 0.5579702258110046,
+          "min": -8.084946632385254,
+          "max": 8.012481689453125
+        },
+        "y": {
+          "mean": -0.016881514340639114,
+          "std": 0.44000303745269775,
+          "min": -7.984999179840088,
+          "max": 8.021041870117188
+        },
+        "z": {
+          "mean": 0.3691556453704834,
+          "std": 0.5994683504104614,
+          "min": -7.895283222198486,
+          "max": 7.950649738311768
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD057.CWA",
+      "file_name": "AXRBD057.CWA",
+      "file_size_mb": 471.57861328125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 78096756,
+      "start_time": "2021-07-26 13:13:37.240000",
+      "end_time": "2021-08-31 16:58:07.440000",
+      "duration_hours": 867.7417222222223,
+      "duration_days": 36.1559050925926,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.0937557220459,
+        "std": 1.7518669366836548,
+        "min": 14.449999809265137,
+        "max": 24.950000762939453,
+        "samples": 78094807
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.3508806824684143,
+          "std": 0.4254327118396759,
+          "min": -8.028199195861816,
+          "max": 8.004335403442383
+        },
+        "y": {
+          "mean": 0.018989695236086845,
+          "std": 0.4962232708930969,
+          "min": -8.000960350036621,
+          "max": 8.101611137390137
+        },
+        "z": {
+          "mean": 0.31584078073501587,
+          "std": 0.6067922115325928,
+          "min": -7.8788652420043945,
+          "max": 7.845427989959717
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/controls/AXRBD064.CWA",
+      "file_name": "AXRBD064.CWA",
+      "file_size_mb": 516.52880859375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 86271030,
+      "start_time": "2021-08-18 17:41:09.240000",
+      "end_time": "2021-09-27 16:15:10.400000",
+      "duration_hours": 958.5669888888889,
+      "duration_days": 39.9402912037037,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.18120765686035,
+        "std": 2.39516282081604,
+        "min": 12.800000190734863,
+        "max": 27.049999237060547,
+        "samples": 86270035
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.2256568968296051,
+          "std": 0.48845309019088745,
+          "min": -8.051445960998535,
+          "max": 8.064104080200195
+        },
+        "y": {
+          "mean": -0.03447898477315903,
+          "std": 0.6229833364486694,
+          "min": -8.000288963317871,
+          "max": 8.089402198791504
+        },
+        "z": {
+          "mean": 0.18409496545791626,
+          "std": 0.5654700994491577,
+          "min": -7.934937477111816,
+          "max": 7.867251396179199
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD043.CWA",
+      "file_name": "AXRBD043.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 161174224,
+      "start_time": "2021-06-18 09:27:30.230000",
+      "end_time": "2021-07-07 01:09:52.460000",
+      "duration_hours": 447.706175,
+      "duration_days": 18.654423958333332,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.241294860839844,
+        "std": 3.097428560256958,
+        "min": 13.100000381469727,
+        "max": 26.450000762939453,
+        "samples": 161174224
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.3217540681362152,
+          "std": 0.5367765426635742,
+          "min": -9.538208961486816,
+          "max": 9.306432723999023
+        },
+        "y": {
+          "mean": 0.16492418944835663,
+          "std": 0.6622757911682129,
+          "min": -8.466967582702637,
+          "max": 8.259464263916016
+        },
+        "z": {
+          "mean": -0.1109871044754982,
+          "std": 0.3953931927680969,
+          "min": -6.784079074859619,
+          "max": 8.693546295166016
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD065.CWA",
+      "file_name": "AXRBD065.CWA",
+      "file_size_mb": 349.2880859375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 58283671,
+      "start_time": "2022-01-05 12:54:07.240000",
+      "end_time": "2022-02-01 12:29:54.040000",
+      "duration_hours": 647.5963333333333,
+      "duration_days": 26.983180555555553,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 14.73757553100586,
+        "std": 3.33593487739563,
+        "min": 5.75,
+        "max": 23.450000762939453,
+        "samples": 58281765
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.012292337603867054,
+          "std": 0.3607063293457031,
+          "min": -8.006158828735352,
+          "max": 8.013808250427246
+        },
+        "y": {
+          "mean": 0.3232892155647278,
+          "std": 0.7985007166862488,
+          "min": -7.985720157623291,
+          "max": 7.951243877410889
+        },
+        "z": {
+          "mean": 0.06716877967119217,
+          "std": 0.3565216660499573,
+          "min": -7.934937000274658,
+          "max": 7.9317474365234375
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD032.CWA",
+      "file_name": "AXRBD032.CWA",
+      "file_size_mb": 646.2099609375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 106053323,
+      "start_time": "2021-06-11 13:54:47.200000",
+      "end_time": "2021-07-30 16:17:00.080000",
+      "duration_hours": 1178.3702444444443,
+      "duration_days": 49.09876018518518,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.350444793701172,
+        "std": 2.3276679515838623,
+        "min": 13.25,
+        "max": 27.649999618530273,
+        "samples": 106052648
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.007149573881179094,
+          "std": 0.4742465615272522,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "y": {
+          "mean": -0.1624077558517456,
+          "std": 0.6595155596733093,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "z": {
+          "mean": -0.35274726152420044,
+          "std": 0.4469459354877472,
+          "min": -4.0,
+          "max": 3.9998779296875
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD040.CWA",
+      "file_name": "AXRBD040.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 163006140,
+      "start_time": "2021-06-11 15:50:47.280000",
+      "end_time": "2021-08-26 03:01:32.840000",
+      "duration_hours": 1811.179322222222,
+      "duration_days": 75.46580509259259,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.692119598388672,
+        "std": 2.347343921661377,
+        "min": 13.699999809265137,
+        "max": 25.100000381469727,
+        "samples": 163005900
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.027724679559469223,
+          "std": 0.3727453649044037,
+          "min": -4.029220104217529,
+          "max": 4.00785493850708
+        },
+        "y": {
+          "mean": 0.14240992069244385,
+          "std": 0.8510739803314209,
+          "min": -4.019294261932373,
+          "max": 4.058188438415527
+        },
+        "z": {
+          "mean": -0.1175694614648819,
+          "std": 0.33015716075897217,
+          "min": -3.9192380905151367,
+          "max": 3.948788642883301
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD008.CWA",
+      "file_name": "AXRBD008.CWA",
+      "file_size_mb": 603.087890625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 100886984,
+      "start_time": "2021-04-22 22:46:29.280000",
+      "end_time": "2021-06-08 15:44:28.600000",
+      "duration_hours": 1120.9664777777778,
+      "duration_days": 46.70693657407407,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.6104793548584,
+        "std": 2.863999366760254,
+        "min": 11.449999809265137,
+        "max": 24.950000762939453,
+        "samples": 100886936
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.17235952615737915,
+          "std": 0.5430445671081543,
+          "min": -4.038900852203369,
+          "max": 3.9937524795532227
+        },
+        "y": {
+          "mean": -0.08336161822080612,
+          "std": 0.6591237187385559,
+          "min": -4.0209245681762695,
+          "max": 4.084932327270508
+        },
+        "z": {
+          "mean": -0.14043466746807098,
+          "std": 0.48477041721343994,
+          "min": -3.9776740074157715,
+          "max": 3.9896340370178223
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD072.CWA",
+      "file_name": "AXRBD072.CWA",
+      "file_size_mb": 698.18994140625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 114801472,
+      "start_time": "2021-09-23 11:20:39.240000",
+      "end_time": "2021-11-15 14:54:58.080000",
+      "duration_hours": 1275.5719,
+      "duration_days": 53.148829166666665,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.342727661132812,
+        "std": 2.2648231983184814,
+        "min": 12.199999809265137,
+        "max": 24.049999237060547,
+        "samples": 114801472
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.02954503893852234,
+          "std": 0.511795163154602,
+          "min": -8.03080940246582,
+          "max": 8.006324768066406
+        },
+        "y": {
+          "mean": 0.1784820705652237,
+          "std": 0.687027633190155,
+          "min": -7.97162389755249,
+          "max": 8.015558242797852
+        },
+        "z": {
+          "mean": 0.20659489929676056,
+          "std": 0.4510059654712677,
+          "min": -7.898245811462402,
+          "max": 7.885308265686035
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD071.CWA",
+      "file_name": "AXRBD071.CWA",
+      "file_size_mb": 496.02734375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 82343606,
+      "start_time": "2021-09-20 11:24:43.240000",
+      "end_time": "2021-10-28 14:20:27.440000",
+      "duration_hours": 914.9289444444445,
+      "duration_days": 38.12203935185185,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.667964935302734,
+        "std": 2.088644027709961,
+        "min": 12.199999809265137,
+        "max": 25.850000381469727,
+        "samples": 82343606
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.3014642894268036,
+          "std": 0.46408748626708984,
+          "min": -8.030133247375488,
+          "max": 8.011714935302734
+        },
+        "y": {
+          "mean": -0.03277100622653961,
+          "std": 0.5978811979293823,
+          "min": -7.948544025421143,
+          "max": 8.033340454101562
+        },
+        "z": {
+          "mean": 0.28287631273269653,
+          "std": 0.5143200159072876,
+          "min": -7.934649467468262,
+          "max": 7.908169269561768
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD039.CWA",
+      "file_name": "AXRBD039.CWA",
+      "file_size_mb": 550.40478515625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 91110492,
+      "start_time": "2021-06-11 14:52:18.280000",
+      "end_time": "2021-07-23 19:12:37.920000",
+      "duration_hours": 1012.3387888888889,
+      "duration_days": 42.18078287037037,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.27301025390625,
+        "std": 2.340146780014038,
+        "min": 13.399999618530273,
+        "max": 24.649999618530273,
+        "samples": 91024113
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.1643974930047989,
+          "std": 0.5356436967849731,
+          "min": -3.9752516746520996,
+          "max": 4.022459506988525
+        },
+        "y": {
+          "mean": 0.005594777408987284,
+          "std": 0.604509711265564,
+          "min": -3.982424020767212,
+          "max": 4.063255786895752
+        },
+        "z": {
+          "mean": -0.020518282428383827,
+          "std": 0.5784550309181213,
+          "min": -3.96665620803833,
+          "max": 3.9924585819244385
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD030.CWA",
+      "file_name": "AXRBD030.CWA",
+      "file_size_mb": 582.6904296875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 97107417,
+      "start_time": "2021-05-14 19:53:07.080000",
+      "end_time": "2021-06-28 18:51:23.720000",
+      "duration_hours": 1078.971288888889,
+      "duration_days": 44.957137037037036,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.43853759765625,
+        "std": 2.4784553050994873,
+        "min": 12.649999618530273,
+        "max": 25.100000381469727,
+        "samples": 97107417
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.08724265545606613,
+          "std": 0.5624063611030579,
+          "min": -4.028092861175537,
+          "max": 4.0214314460754395
+        },
+        "y": {
+          "mean": 0.1317923665046692,
+          "std": 0.5842472910881042,
+          "min": -4.007462024688721,
+          "max": 4.028255939483643
+        },
+        "z": {
+          "mean": -0.13335533440113068,
+          "std": 0.5822945237159729,
+          "min": -3.965965509414673,
+          "max": 3.926333427429199
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD003.CWA",
+      "file_name": "AXRBD003.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 163525223,
+      "start_time": "2021-04-22 19:07:01.280000",
+      "end_time": "2021-07-07 12:03:50.160000",
+      "duration_hours": 1816.9469111111111,
+      "duration_days": 75.7061212962963,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.823667526245117,
+        "std": 2.0233278274536133,
+        "min": 10.399999618530273,
+        "max": 23.299999237060547,
+        "samples": 163524935
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.055001504719257355,
+          "std": 0.3621900975704193,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "y": {
+          "mean": -0.005037135910242796,
+          "std": 0.753410279750824,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "z": {
+          "mean": -0.220661923289299,
+          "std": 0.49380525946617126,
+          "min": -4.0,
+          "max": 3.9998779296875
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD041.CWA",
+      "file_name": "AXRBD041.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 158489734,
+      "start_time": "2021-06-15 16:41:57.210000",
+      "end_time": "2021-07-04 00:56:54.540000",
+      "duration_hours": 440.24925833333333,
+      "duration_days": 18.343719097222223,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.991674423217773,
+        "std": 2.4327449798583984,
+        "min": 12.649999618530273,
+        "max": 26.299999237060547,
+        "samples": 158489734
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.038484107702970505,
+          "std": 0.5155621767044067,
+          "min": -7.757234573364258,
+          "max": 7.535823345184326
+        },
+        "y": {
+          "mean": 0.21197497844696045,
+          "std": 0.625647783279419,
+          "min": -8.256308555603027,
+          "max": 7.690329551696777
+        },
+        "z": {
+          "mean": -0.2897742986679077,
+          "std": 0.4789732098579407,
+          "min": -7.933466911315918,
+          "max": 7.799031734466553
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD113.CWA",
+      "file_name": "AXRBD113.CWA",
+      "file_size_mb": 413.41064453125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 69218845,
+      "start_time": "2021-12-10 09:47:56.280000",
+      "end_time": "2022-01-11 10:53:50.040000",
+      "duration_hours": 769.0982666666666,
+      "duration_days": 32.04576111111111,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.478837966918945,
+        "std": 3.278502941131592,
+        "min": 8.300000190734863,
+        "max": 23.450000762939453,
+        "samples": 69218260
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.0062832762487232685,
+          "std": 0.42848145961761475,
+          "min": -8.037951469421387,
+          "max": 8.011078834533691
+        },
+        "y": {
+          "mean": 0.08973369747400284,
+          "std": 0.6616235971450806,
+          "min": -7.94352912902832,
+          "max": 8.032038688659668
+        },
+        "z": {
+          "mean": 0.000558161991648376,
+          "std": 0.6274804472923279,
+          "min": -7.95515251159668,
+          "max": 7.922862529754639
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD000.CWA",
+      "file_name": "AXRBD000.CWA",
+      "file_size_mb": 192.26806640625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 31988381,
+      "start_time": "2022-03-24 18:47:02.240000",
+      "end_time": "2022-04-08 14:12:37.440000",
+      "duration_hours": 355.4264444444444,
+      "duration_days": 14.809435185185185,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.946693420410156,
+        "std": 2.4353928565979004,
+        "min": 12.050000190734863,
+        "max": 24.049999237060547,
+        "samples": 31987629
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.21418397128582,
+          "std": 0.5768918395042419,
+          "min": -8.035759925842285,
+          "max": 7.969128608703613
+        },
+        "y": {
+          "mean": 0.07578246295452118,
+          "std": 0.6088147759437561,
+          "min": -7.985382080078125,
+          "max": 8.062844276428223
+        },
+        "z": {
+          "mean": 0.24710340797901154,
+          "std": 0.44678381085395813,
+          "min": -7.909388065338135,
+          "max": 7.875321865081787
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD074.CWA",
+      "file_name": "AXRBD074.CWA",
+      "file_size_mb": 500.3271484375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 84323762,
+      "start_time": "2021-09-24 13:18:49.280000",
+      "end_time": "2021-11-02 14:14:39.720000",
+      "duration_hours": 936.9306777777778,
+      "duration_days": 39.03877824074074,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.643705368041992,
+        "std": 2.8535544872283936,
+        "min": 11.0,
+        "max": 24.649999618530273,
+        "samples": 84323642
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.1378670036792755,
+          "std": 0.533843457698822,
+          "min": -8.0,
+          "max": 7.999755859375
+        },
+        "y": {
+          "mean": -0.006311019416898489,
+          "std": 0.5990013480186462,
+          "min": -8.0,
+          "max": 7.999755859375
+        },
+        "z": {
+          "mean": -0.10361867398023605,
+          "std": 0.5902112126350403,
+          "min": -8.0,
+          "max": 7.999755859375
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD015.CWA",
+      "file_name": "AXRBD015.CWA",
+      "file_size_mb": 601.22216796875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 100678566,
+      "start_time": "2021-04-22 23:38:29.320000",
+      "end_time": "2021-06-08 14:17:31.920000",
+      "duration_hours": 1118.6507222222222,
+      "duration_days": 46.610446759259254,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.25994300842285,
+        "std": 2.694223642349243,
+        "min": 12.050000190734863,
+        "max": 26.149999618530273,
+        "samples": 100678566
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.08661213517189026,
+          "std": 0.49029862880706787,
+          "min": -3.9825387001037598,
+          "max": 4.018930912017822
+        },
+        "y": {
+          "mean": -0.17290109395980835,
+          "std": 0.5775459408760071,
+          "min": -3.9988224506378174,
+          "max": 4.050127029418945
+        },
+        "z": {
+          "mean": 0.37381651997566223,
+          "std": 0.51216721534729,
+          "min": -3.949381113052368,
+          "max": 3.914785623550415
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD095.CWA",
+      "file_name": "AXRBD095.CWA",
+      "file_size_mb": 547.22998046875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 90828420,
+      "start_time": "2021-10-04 14:23:53.280000",
+      "end_time": "2021-11-15 15:36:10.040000",
+      "duration_hours": 1009.2046555555555,
+      "duration_days": 42.05019398148148,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.89822006225586,
+        "std": 2.489428997039795,
+        "min": 12.350000381469727,
+        "max": 24.5,
+        "samples": 90828420
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.19189554452896118,
+          "std": 0.5454596877098083,
+          "min": -7.9939751625061035,
+          "max": 7.979480266571045
+        },
+        "y": {
+          "mean": 0.08702126145362854,
+          "std": 0.49141159653663635,
+          "min": -7.924352169036865,
+          "max": 7.913119316101074
+        },
+        "z": {
+          "mean": 0.1487894505262375,
+          "std": 0.6421315670013428,
+          "min": -7.908138275146484,
+          "max": 7.965339660644531
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD012.CWA",
+      "file_name": "AXRBD012.CWA",
+      "file_size_mb": 593.9638671875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98659254,
+      "start_time": "2021-04-22 23:24:01.240000",
+      "end_time": "2021-06-07 15:36:51.360000",
+      "duration_hours": 1096.2139222222222,
+      "duration_days": 45.67558009259259,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.790695190429688,
+        "std": 3.206231117248535,
+        "min": 10.550000190734863,
+        "max": 26.299999237060547,
+        "samples": 98659254
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.1790204793214798,
+          "std": 0.5622233152389526,
+          "min": -4.053950786590576,
+          "max": 3.988954544067383
+        },
+        "y": {
+          "mean": 0.0009269467554986477,
+          "std": 0.5088669657707214,
+          "min": -3.9975366592407227,
+          "max": 4.1002278327941895
+        },
+        "z": {
+          "mean": -0.36265093088150024,
+          "std": 0.5214418768882751,
+          "min": -4.001413822174072,
+          "max": 3.949270248413086
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD017.CWA",
+      "file_name": "AXRBD017.CWA",
+      "file_size_mb": 484.42724609375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 79918652,
+      "start_time": "2021-11-29 16:13:39.200000",
+      "end_time": "2022-01-05 16:12:45.240000",
+      "duration_hours": 887.9850111111111,
+      "duration_days": 36.999375462962966,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.058420181274414,
+        "std": 1.7471030950546265,
+        "min": 12.649999618530273,
+        "max": 23.450000762939453,
+        "samples": 79917794
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.2012658417224884,
+          "std": 0.4712330400943756,
+          "min": -8.034926414489746,
+          "max": 8.008970260620117
+        },
+        "y": {
+          "mean": -0.19238318502902985,
+          "std": 0.5711719393730164,
+          "min": -7.984982013702393,
+          "max": 8.021842002868652
+        },
+        "z": {
+          "mean": -0.2285737842321396,
+          "std": 0.5712220668792725,
+          "min": -7.9077887535095215,
+          "max": 7.894309997558594
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD013.CWA",
+      "file_name": "AXRBD013.CWA",
+      "file_size_mb": 591.25244140625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98264653,
+      "start_time": "2021-04-22 23:27:20.240000",
+      "end_time": "2021-06-07 11:17:06.320000",
+      "duration_hours": 1091.8294666666666,
+      "duration_days": 45.49289444444444,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.246471405029297,
+        "std": 2.7083334922790527,
+        "min": 10.399999618530273,
+        "max": 24.950000762939453,
+        "samples": 98110382
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.003123025642707944,
+          "std": 0.5183877944946289,
+          "min": -4.075658321380615,
+          "max": 3.998310089111328
+        },
+        "y": {
+          "mean": 0.1876012086868286,
+          "std": 0.6692811250686646,
+          "min": -4.040507793426514,
+          "max": 4.032748699188232
+        },
+        "z": {
+          "mean": 0.1426418423652649,
+          "std": 0.49347689747810364,
+          "min": -3.9338338375091553,
+          "max": 4.000537395477295
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD023.CWA",
+      "file_name": "AXRBD023.CWA",
+      "file_size_mb": 389.57470703125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 64755020,
+      "start_time": "2021-07-27 14:46:39.280000",
+      "end_time": "2021-08-26 14:16:40.040000",
+      "duration_hours": 719.5002111111111,
+      "duration_days": 29.97917546296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 21.470561981201172,
+        "std": 1.7289925813674927,
+        "min": 12.5,
+        "max": 28.100000381469727,
+        "samples": 64753827
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.23872022330760956,
+          "std": 0.5254966616630554,
+          "min": -8.100114822387695,
+          "max": 8.02462387084961
+        },
+        "y": {
+          "mean": -0.0419289730489254,
+          "std": 0.5607355833053589,
+          "min": -7.927596569061279,
+          "max": 8.068693161010742
+        },
+        "z": {
+          "mean": 0.2699398100376129,
+          "std": 0.5469924807548523,
+          "min": -7.922876358032227,
+          "max": 7.868918418884277
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD002.CWA",
+      "file_name": "AXRBD002.CWA",
+      "file_size_mb": 968.71826171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 161525774,
+      "start_time": "2021-04-22 19:01:51.280000",
+      "end_time": "2021-07-06 13:45:42.200000",
+      "duration_hours": 1794.730811111111,
+      "duration_days": 74.78045046296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.18846321105957,
+        "std": 2.476687431335449,
+        "min": 11.75,
+        "max": 26.75,
+        "samples": 161525774
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.12677404284477234,
+          "std": 0.48592257499694824,
+          "min": -4.004619598388672,
+          "max": 4.022106170654297
+        },
+        "y": {
+          "mean": 0.335155189037323,
+          "std": 0.6602635979652405,
+          "min": -4.028905391693115,
+          "max": 4.086460113525391
+        },
+        "z": {
+          "mean": -0.14477010071277618,
+          "std": 0.4403339624404907,
+          "min": -3.9721319675445557,
+          "max": 3.949183702468872
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD049.CWA",
+      "file_name": "AXRBD049.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 161007925,
+      "start_time": "2021-06-25 18:47:41.240000",
+      "end_time": "2021-07-14 10:02:20.480000",
+      "duration_hours": 447.24423333333334,
+      "duration_days": 18.63517638888889,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.8470401763916,
+        "std": 2.678384304046631,
+        "min": 13.25,
+        "max": 26.0,
+        "samples": 161007925
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.07037517428398132,
+          "std": 0.6224232912063599,
+          "min": -8.617125511169434,
+          "max": 8.330534934997559
+        },
+        "y": {
+          "mean": 0.006083561107516289,
+          "std": 0.5547510385513306,
+          "min": -8.640852928161621,
+          "max": 7.973911762237549
+        },
+        "z": {
+          "mean": -9.08154106582515e-05,
+          "std": 0.5831107497215271,
+          "min": -8.199609756469727,
+          "max": 6.797868251800537
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD021.CWA",
+      "file_name": "AXRBD021.CWA",
+      "file_size_mb": 597.453125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98427210,
+      "start_time": "2021-04-23 00:09:22.200000",
+      "end_time": "2021-06-07 13:47:30.560000",
+      "duration_hours": 1093.6356555555556,
+      "duration_days": 45.56815231481482,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.940448760986328,
+        "std": 3.196025848388672,
+        "min": 10.699999809265137,
+        "max": 26.450000762939453,
+        "samples": 98427210
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.08711610734462738,
+          "std": 0.4870874881744385,
+          "min": -4.008155822753906,
+          "max": 4.008842945098877
+        },
+        "y": {
+          "mean": 0.02459636889398098,
+          "std": 0.5249253511428833,
+          "min": -3.9631645679473877,
+          "max": 4.081436634063721
+        },
+        "z": {
+          "mean": 0.39776578545570374,
+          "std": 0.583925187587738,
+          "min": -4.015684604644775,
+          "max": 3.9407739639282227
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD059.CWA",
+      "file_name": "AXRBD059.CWA",
+      "file_size_mb": 633.8828125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 105536709,
+      "start_time": "2021-07-30 17:47:12.280000",
+      "end_time": "2021-09-17 14:25:00.600000",
+      "duration_hours": 1172.630088888889,
+      "duration_days": 48.859587037037045,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.976537704467773,
+        "std": 2.230523109436035,
+        "min": 14.149999618530273,
+        "max": 25.100000381469727,
+        "samples": 105536709
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.018808122724294662,
+          "std": 0.3824986517429352,
+          "min": -8.015965461730957,
+          "max": 8.03058910369873
+        },
+        "y": {
+          "mean": -0.04584627225995064,
+          "std": 0.7421351671218872,
+          "min": -7.99979829788208,
+          "max": 8.076321601867676
+        },
+        "z": {
+          "mean": 0.09302328526973724,
+          "std": 0.5615801811218262,
+          "min": -7.910826206207275,
+          "max": 7.8863115310668945
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD020.CWA",
+      "file_name": "AXRBD020.CWA",
+      "file_size_mb": 588.248046875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98633108,
+      "start_time": "2021-04-23 00:06:28.280000",
+      "end_time": "2021-06-07 16:01:52.560000",
+      "duration_hours": 1095.9234111111111,
+      "duration_days": 45.663475462962964,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.379608154296875,
+        "std": 2.811002492904663,
+        "min": 11.300000190734863,
+        "max": 23.899999618530273,
+        "samples": 98633036
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.11422746628522873,
+          "std": 0.3956300616264343,
+          "min": -4.0222930908203125,
+          "max": 4.014427661895752
+        },
+        "y": {
+          "mean": -0.023911459371447563,
+          "std": 0.6779941916465759,
+          "min": -3.976947069168091,
+          "max": 4.057412147521973
+        },
+        "z": {
+          "mean": 0.1072157546877861,
+          "std": 0.6118820905685425,
+          "min": -4.002053260803223,
+          "max": 3.9488015174865723
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD018.CWA",
+      "file_name": "AXRBD018.CWA",
+      "file_size_mb": 603.5263671875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 100149975,
+      "start_time": "2021-04-22 23:55:22.280000",
+      "end_time": "2021-06-08 08:42:01.240000",
+      "duration_hours": 1112.777488888889,
+      "duration_days": 46.3657287037037,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.42898178100586,
+        "std": 2.711510419845581,
+        "min": 11.600000381469727,
+        "max": 24.049999237060547,
+        "samples": 100149894
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.2591085433959961,
+          "std": 0.4694030284881592,
+          "min": -4.001532077789307,
+          "max": 4.000090599060059
+        },
+        "y": {
+          "mean": -0.05125141516327858,
+          "std": 0.7178260684013367,
+          "min": -3.9325594902038574,
+          "max": 4.09144401550293
+        },
+        "z": {
+          "mean": -0.11028910428285599,
+          "std": 0.44600242376327515,
+          "min": -3.974200487136841,
+          "max": 3.9753384590148926
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD047.CWA",
+      "file_name": "AXRBD047.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 160517152,
+      "start_time": "2021-06-23 14:16:54.260000",
+      "end_time": "2021-07-12 04:09:45.770000",
+      "duration_hours": 445.880975,
+      "duration_days": 18.578373958333334,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.594886779785156,
+        "std": 1.2345644235610962,
+        "min": 15.050000190734863,
+        "max": 25.25,
+        "samples": 160517152
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.23261496424674988,
+          "std": 0.5820314288139343,
+          "min": -9.514632225036621,
+          "max": 8.850319862365723
+        },
+        "y": {
+          "mean": -0.008271426893770695,
+          "std": 0.5360249876976013,
+          "min": -6.72637939453125,
+          "max": 9.292335510253906
+        },
+        "z": {
+          "mean": -0.357544481754303,
+          "std": 0.48495516180992126,
+          "min": -7.959608554840088,
+          "max": 9.038457870483398
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD014.CWA",
+      "file_name": "AXRBD014.CWA",
+      "file_size_mb": 586.70849609375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98340613,
+      "start_time": "2021-04-22 23:35:41.280000",
+      "end_time": "2021-06-07 12:16:05.760000",
+      "duration_hours": 1092.6734666666666,
+      "duration_days": 45.52806111111111,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.07632064819336,
+        "std": 2.8810765743255615,
+        "min": 11.75,
+        "max": 28.850000381469727,
+        "samples": 98340541
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.05743725225329399,
+          "std": 0.5078577399253845,
+          "min": -4.010629653930664,
+          "max": 4.036587238311768
+        },
+        "y": {
+          "mean": 0.1088089793920517,
+          "std": 0.5445407629013062,
+          "min": -4.01463508605957,
+          "max": 4.098050117492676
+        },
+        "z": {
+          "mean": 0.321381539106369,
+          "std": 0.5801310539245605,
+          "min": -3.985257625579834,
+          "max": 3.9053568840026855
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD062.CWA",
+      "file_name": "AXRBD062.CWA",
+      "file_size_mb": 423.0625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 70756710,
+      "start_time": "2021-11-29 16:42:36.280000",
+      "end_time": "2022-01-01 10:53:44.640000",
+      "duration_hours": 786.1856555555555,
+      "duration_days": 32.75773564814815,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 16.952362060546875,
+        "std": 2.848832607269287,
+        "min": 5.75,
+        "max": 23.299999237060547,
+        "samples": 70756223
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.10472553968429565,
+          "std": 0.5081066489219666,
+          "min": -8.061906814575195,
+          "max": 7.99349308013916
+        },
+        "y": {
+          "mean": -0.17684628069400787,
+          "std": 0.7287794947624207,
+          "min": -7.943729877471924,
+          "max": 8.07352066040039
+        },
+        "z": {
+          "mean": 0.15702596306800842,
+          "std": 0.39467620849609375,
+          "min": -7.93066930770874,
+          "max": 7.889577865600586
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD061.CWA",
+      "file_name": "AXRBD061.CWA",
+      "file_size_mb": 549.17724609375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 90172712,
+      "start_time": "2021-08-11 17:41:53.200000",
+      "end_time": "2021-09-22 11:37:01.640000",
+      "duration_hours": 1001.9190111111111,
+      "duration_days": 41.74662546296296,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.281869888305664,
+        "std": 2.629364013671875,
+        "min": 13.100000381469727,
+        "max": 25.399999618530273,
+        "samples": 90172634
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.02301667630672455,
+          "std": 0.5253682732582092,
+          "min": -7.969717979431152,
+          "max": 7.969818115234375
+        },
+        "y": {
+          "mean": 0.04190061241388321,
+          "std": 0.5648877024650574,
+          "min": -7.90619421005249,
+          "max": 8.053582191467285
+        },
+        "z": {
+          "mean": -0.24621404707431793,
+          "std": 0.6020998358726501,
+          "min": -7.976465702056885,
+          "max": 7.903684616088867
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD010.CWA",
+      "file_name": "AXRBD010.CWA",
+      "file_size_mb": 526.59619140625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 87235006,
+      "start_time": "2021-04-22 23:06:31.320000",
+      "end_time": "2021-06-02 08:23:11.520000",
+      "duration_hours": 969.2778333333334,
+      "duration_days": 40.38657638888889,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.794219970703125,
+        "std": 3.435072660446167,
+        "min": 10.550000190734863,
+        "max": 34.70000076293945,
+        "samples": 87235006
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.0635487511754036,
+          "std": 0.5294644832611084,
+          "min": -3.9835143089294434,
+          "max": 4.030550003051758
+        },
+        "y": {
+          "mean": 0.11452604085206985,
+          "std": 0.6192771196365356,
+          "min": -4.0103535652160645,
+          "max": 4.095173358917236
+        },
+        "z": {
+          "mean": -0.15837447345256805,
+          "std": 0.5562782883644104,
+          "min": -3.973456621170044,
+          "max": 4.003238201141357
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD007.CWA",
+      "file_name": "AXRBD007.CWA",
+      "file_size_mb": 594.69091796875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98570757,
+      "start_time": "2021-04-22 22:40:43.280000",
+      "end_time": "2021-06-07 13:54:33.520000",
+      "duration_hours": 1095.2306222222223,
+      "duration_days": 45.634609259259264,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.656166076660156,
+        "std": 3.1519460678100586,
+        "min": 11.300000190734863,
+        "max": 25.399999618530273,
+        "samples": 98570685
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.07107150554656982,
+          "std": 0.5365248918533325,
+          "min": -4.013874053955078,
+          "max": 4.005606174468994
+        },
+        "y": {
+          "mean": -0.024076320230960846,
+          "std": 0.6037259101867676,
+          "min": -3.98403000831604,
+          "max": 4.0780930519104
+        },
+        "z": {
+          "mean": -0.27593955397605896,
+          "std": 0.5339434146881104,
+          "min": -4.007857322692871,
+          "max": 3.962400197982788
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD105.CWA",
+      "file_name": "AXRBD105.CWA",
+      "file_size_mb": 464.88671875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 77572038,
+      "start_time": "2021-10-19 17:27:30.280000",
+      "end_time": "2021-11-24 15:22:11.760000",
+      "duration_hours": 861.9115222222222,
+      "duration_days": 35.91298009259259,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.574254989624023,
+        "std": 2.311432123184204,
+        "min": 6.349999904632568,
+        "max": 26.149999618530273,
+        "samples": 77572014
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.11667145788669586,
+          "std": 0.5451439023017883,
+          "min": -8.008978843688965,
+          "max": 7.969756603240967
+        },
+        "y": {
+          "mean": -0.05838499218225479,
+          "std": 0.6031599044799805,
+          "min": -7.949904441833496,
+          "max": 8.053831100463867
+        },
+        "z": {
+          "mean": 0.06217895820736885,
+          "std": 0.5892896056175232,
+          "min": -7.955836772918701,
+          "max": 7.913609027862549
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD080.CWA",
+      "file_name": "AXRBD080.CWA",
+      "file_size_mb": 273.05419921875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 45913335,
+      "start_time": "2021-09-29 09:15:26.320000",
+      "end_time": "2021-10-20 15:24:19.680000",
+      "duration_hours": 510.1481555555556,
+      "duration_days": 21.25617314814815,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.060739517211914,
+        "std": 3.108476161956787,
+        "min": 11.300000190734863,
+        "max": 26.450000762939453,
+        "samples": 45913239
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.04977288097143173,
+          "std": 0.4887937009334564,
+          "min": -8.041231155395508,
+          "max": 8.016239166259766
+        },
+        "y": {
+          "mean": -0.012279772199690342,
+          "std": 0.5343671441078186,
+          "min": -8.01865005493164,
+          "max": 8.060103416442871
+        },
+        "z": {
+          "mean": -0.3321235477924347,
+          "std": 0.6254042387008667,
+          "min": -7.826277732849121,
+          "max": 7.876523017883301
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD016.CWA",
+      "file_name": "AXRBD016.CWA",
+      "file_size_mb": 826.30078125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 137686719,
+      "start_time": "2021-04-22 23:43:50.280000",
+      "end_time": "2021-06-25 17:34:59",
+      "duration_hours": 1529.8524222222222,
+      "duration_days": 63.743850925925926,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 17.956274032592773,
+        "std": 3.0752315521240234,
+        "min": 9.350000381469727,
+        "max": 24.049999237060547,
+        "samples": 137686719
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.019252143800258636,
+          "std": 0.46065014600753784,
+          "min": -4.000685691833496,
+          "max": 4.067852973937988
+        },
+        "y": {
+          "mean": -0.44998472929000854,
+          "std": 0.6367406249046326,
+          "min": -4.029432773590088,
+          "max": 4.050976276397705
+        },
+        "z": {
+          "mean": -0.012793254107236862,
+          "std": 0.4407435357570648,
+          "min": -3.989429473876953,
+          "max": 3.924837112426758
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD045.CWA",
+      "file_name": "AXRBD045.CWA",
+      "file_size_mb": 968.74951171875,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 100.0,
+      "inferred_sample_rate_hz": 100.0,
+      "num_samples": 158122593,
+      "start_time": "2021-06-18 09:38:43.230000",
+      "end_time": "2021-07-06 16:52:29.150000",
+      "duration_hours": 439.2294222222222,
+      "duration_days": 18.301225925925923,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 20.835763931274414,
+        "std": 2.0260725021362305,
+        "min": 12.5,
+        "max": 26.149999618530273,
+        "samples": 158122593
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.13267192244529724,
+          "std": 0.4781748652458191,
+          "min": -7.849586009979248,
+          "max": 8.605062484741211
+        },
+        "y": {
+          "mean": -0.0035193453077226877,
+          "std": 0.6275120973587036,
+          "min": -8.239789009094238,
+          "max": 8.478669166564941
+        },
+        "z": {
+          "mean": -0.45209166407585144,
+          "std": 0.42093193531036377,
+          "min": -7.555593013763428,
+          "max": 8.538080215454102
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD011.CWA",
+      "file_name": "AXRBD011.CWA",
+      "file_size_mb": 606.943359375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 100246319,
+      "start_time": "2021-04-22 23:10:43.240000",
+      "end_time": "2021-06-08 09:01:35.960000",
+      "duration_hours": 1113.847977777778,
+      "duration_days": 46.41033240740742,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.462549209594727,
+        "std": 2.5718960762023926,
+        "min": 11.449999809265137,
+        "max": 27.950000762939453,
+        "samples": 100246319
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.115808866918087,
+          "std": 0.5294298529624939,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "y": {
+          "mean": -0.3464062213897705,
+          "std": 0.5919200778007507,
+          "min": -4.0,
+          "max": 3.9998779296875
+        },
+        "z": {
+          "mean": -0.09096746146678925,
+          "std": 0.5006093978881836,
+          "min": -4.0,
+          "max": 3.9998779296875
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD004.CWA",
+      "file_name": "AXRBD004.CWA",
+      "file_size_mb": 591.927734375,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 98704619,
+      "start_time": "2021-04-22 22:20:48.280000",
+      "end_time": "2021-06-07 15:03:53",
+      "duration_hours": 1096.7179777777778,
+      "duration_days": 45.69658240740741,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 18.947656631469727,
+        "std": 2.9072506427764893,
+        "min": 10.850000381469727,
+        "max": 24.950000762939453,
+        "samples": 98704571
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.08804569393396378,
+          "std": 0.5410186648368835,
+          "min": -4.060775279998779,
+          "max": 3.992802381515503
+        },
+        "y": {
+          "mean": 0.005151216872036457,
+          "std": 0.47020044922828674,
+          "min": -4.026554584503174,
+          "max": 4.0058770179748535
+        },
+        "z": {
+          "mean": -0.39575278759002686,
+          "std": 0.5822726488113403,
+          "min": -3.927570104598999,
+          "max": 3.973006010055542
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD028.CWA",
+      "file_name": "AXRBD028.CWA",
+      "file_size_mb": 479.0830078125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 79031880,
+      "start_time": "2021-05-10 19:53:03.680000",
+      "end_time": "2021-06-16 10:00:58.840000",
+      "duration_hours": 878.1319888888889,
+      "duration_days": 36.588832870370375,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 21.348167419433594,
+        "std": 2.0159127712249756,
+        "min": 12.199999809265137,
+        "max": 26.600000381469727,
+        "samples": 79031880
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.24239833652973175,
+          "std": 0.5797591209411621,
+          "min": -4.011074066162109,
+          "max": 4.012284755706787
+        },
+        "y": {
+          "mean": 0.0776308998465538,
+          "std": 0.5163860321044922,
+          "min": -3.9948880672454834,
+          "max": 4.092999458312988
+        },
+        "z": {
+          "mean": -0.4467179477214813,
+          "std": 0.38588404655456543,
+          "min": -3.9586637020111084,
+          "max": 3.922283411026001
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD031.CWA",
+      "file_name": "AXRBD031.CWA",
+      "file_size_mb": 762.6689453125,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 127625790,
+      "start_time": "2021-06-11 13:46:46.240000",
+      "end_time": "2021-08-09 15:50:37.800000",
+      "duration_hours": 1418.064322222222,
+      "duration_days": 59.08601342592592,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.106081008911133,
+        "std": 3.032930612564087,
+        "min": 12.050000190734863,
+        "max": 27.799999237060547,
+        "samples": 127625670
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": -0.1914854198694229,
+          "std": 0.439329594373703,
+          "min": -4.012735366821289,
+          "max": 4.035194396972656
+        },
+        "y": {
+          "mean": 0.3810144066810608,
+          "std": 0.6417222023010254,
+          "min": -4.007064342498779,
+          "max": 4.095008850097656
+        },
+        "z": {
+          "mean": -0.2010890245437622,
+          "std": 0.42569682002067566,
+          "min": -3.9901041984558105,
+          "max": 3.895644426345825
+        }
+      },
+      "calibration_info": "Not available"
+    },
+    {
+      "file_path": "/work3/s184484/iRBD-detection/data/raw/irbd/AXRBD006.CWA",
+      "file_name": "AXRBD006.CWA",
+      "file_size_mb": 529.22509765625,
+      "device_id": "Unknown",
+      "device_type": "Unknown",
+      "hardware_version": "Unknown",
+      "firmware_version": "Unknown",
+      "sample_rate_hz": 25.0,
+      "inferred_sample_rate_hz": 25.0,
+      "num_samples": 87704412,
+      "start_time": "2021-04-22 22:34:21.280000",
+      "end_time": "2021-06-02 13:03:57.720000",
+      "duration_hours": 974.4934555555556,
+      "duration_days": 40.603893981481484,
+      "has_accelerometer": true,
+      "has_temperature": true,
+      "data_columns": [
+        "x",
+        "y",
+        "z",
+        "temperature",
+        "light"
+      ],
+      "accel_range_g": "Unknown",
+      "temperature_stats": {
+        "mean": 19.642107009887695,
+        "std": 3.0634593963623047,
+        "min": 11.75,
+        "max": 25.399999618530273,
+        "samples": 87704412
+      },
+      "accelerometer_stats": {
+        "x": {
+          "mean": 0.03261338919401169,
+          "std": 0.5938912630081177,
+          "min": -3.9862377643585205,
+          "max": 3.967308282852173
+        },
+        "y": {
+          "mean": -0.06161116063594818,
+          "std": 0.5864756107330322,
+          "min": -4.043315887451172,
+          "max": 4.0429534912109375
+        },
+        "z": {
+          "mean": -0.28452956676483154,
+          "std": 0.4863918125629425,
+          "min": -3.96040415763855,
+          "max": 3.996331214904785
+        }
+      },
+      "calibration_info": "Not available"
+    }
+  ]
+}

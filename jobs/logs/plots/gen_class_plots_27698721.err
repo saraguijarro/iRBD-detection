@@ -1,0 +1,9 @@
+ERROR: Unable to locate a modulefile for 'miniconda3/4.12.0'
+/work3/s184484/iRBD-detection/scripts/generate_classification_plots.py:399: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot(data, labels=labels, patch_artist=True, widths=0.6, showfliers=False)
+/work3/s184484/iRBD-detection/scripts/generate_classification_plots.py:399: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot(data, labels=labels, patch_artist=True, widths=0.6, showfliers=False)
+/work3/s184484/iRBD-detection/scripts/generate_classification_plots.py:399: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot(data, labels=labels, patch_artist=True, widths=0.6, showfliers=False)
+/work3/s184484/iRBD-detection/scripts/generate_classification_plots.py:399: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot(data, labels=labels, patch_artist=True, widths=0.6, showfliers=False)

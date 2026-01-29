@@ -1,0 +1,300 @@
+2026-01-28 04:54:23,539 - INFO - Initialized ML Baselines Night-Level (version=v1t)
+2026-01-28 04:54:23,540 - INFO - Features directory: /work3/s184484/iRBD-detection/data/features_v1t
+2026-01-28 04:54:23,541 - INFO - Results directory: /work3/s184484/iRBD-detection/results/ml_baselines_v1t
+2026-01-28 04:54:23,541 - INFO - Log file: /work3/s184484/iRBD-detection/results/ml_baselines_v1t/training.log
+2026-01-28 04:54:23,542 - INFO - ======================================================================
+2026-01-28 04:54:23,542 - INFO - STARTING NIGHT-LEVEL CLASSIFICATION
+2026-01-28 04:54:23,543 - INFO - ======================================================================
+2026-01-28 04:54:23,543 - INFO - Preparing night-level dataset...
+2026-01-28 04:54:23,546 - INFO - Found 42 control participants
+2026-01-28 04:55:08,055 - INFO - Found 42 iRBD participants
+2026-01-28 04:56:19,008 - INFO - Night-level dataset prepared:
+2026-01-28 04:56:19,009 - INFO -   Total nights: 1960
+2026-01-28 04:56:19,010 - INFO -   Control nights: 785
+2026-01-28 04:56:19,011 - INFO -   iRBD nights: 1175
+2026-01-28 04:56:19,012 - INFO -   Unique participants: 84
+2026-01-28 04:56:19,013 - INFO -   Feature dimension: 1024
+2026-01-28 04:56:19,072 - INFO - XGBoost available
+2026-01-28 04:56:19,073 - INFO - 
+======================================================================
+2026-01-28 04:56:19,074 - INFO - Training Random Forest
+2026-01-28 04:56:19,074 - INFO - ======================================================================
+2026-01-28 04:56:19,076 - INFO - 
+Fold 1/5
+2026-01-28 04:56:19,883 - INFO -   Night-level metrics:
+2026-01-28 04:56:19,884 - INFO -     Accuracy: 0.8832
+2026-01-28 04:56:19,884 - INFO -     ROC-AUC: 0.9564
+2026-01-28 04:56:19,885 - INFO -   Participant-level metrics:
+2026-01-28 04:56:19,886 - INFO -     Accuracy: 0.8824
+2026-01-28 04:56:19,886 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:19,887 - INFO -     Test participants: 17
+2026-01-28 04:56:19,888 - INFO - 
+Fold 2/5
+2026-01-28 04:56:20,717 - INFO -   Night-level metrics:
+2026-01-28 04:56:20,717 - INFO -     Accuracy: 0.9304
+2026-01-28 04:56:20,718 - INFO -     ROC-AUC: 0.9840
+2026-01-28 04:56:20,719 - INFO -   Participant-level metrics:
+2026-01-28 04:56:20,719 - INFO -     Accuracy: 1.0000
+2026-01-28 04:56:20,720 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:20,720 - INFO -     Test participants: 16
+2026-01-28 04:56:20,721 - INFO - 
+Fold 3/5
+2026-01-28 04:56:21,517 - INFO -   Night-level metrics:
+2026-01-28 04:56:21,518 - INFO -     Accuracy: 0.7048
+2026-01-28 04:56:21,518 - INFO -     ROC-AUC: 0.7903
+2026-01-28 04:56:21,519 - INFO -   Participant-level metrics:
+2026-01-28 04:56:21,520 - INFO -     Accuracy: 0.7647
+2026-01-28 04:56:21,520 - INFO -     ROC-AUC: 0.8056
+2026-01-28 04:56:21,521 - INFO -     Test participants: 17
+2026-01-28 04:56:21,522 - INFO - 
+Fold 4/5
+2026-01-28 04:56:22,302 - INFO -   Night-level metrics:
+2026-01-28 04:56:22,302 - INFO -     Accuracy: 0.8061
+2026-01-28 04:56:22,303 - INFO -     ROC-AUC: 0.8374
+2026-01-28 04:56:22,304 - INFO -   Participant-level metrics:
+2026-01-28 04:56:22,305 - INFO -     Accuracy: 0.8235
+2026-01-28 04:56:22,305 - INFO -     ROC-AUC: 0.9000
+2026-01-28 04:56:22,306 - INFO -     Test participants: 17
+2026-01-28 04:56:22,307 - INFO - 
+Fold 5/5
+2026-01-28 04:56:23,077 - INFO -   Night-level metrics:
+2026-01-28 04:56:23,078 - INFO -     Accuracy: 0.8575
+2026-01-28 04:56:23,079 - INFO -     ROC-AUC: 0.9298
+2026-01-28 04:56:23,080 - INFO -   Participant-level metrics:
+2026-01-28 04:56:23,080 - INFO -     Accuracy: 0.9412
+2026-01-28 04:56:23,081 - INFO -     ROC-AUC: 0.9861
+2026-01-28 04:56:23,082 - INFO -     Test participants: 17
+2026-01-28 04:56:23,082 - INFO - 
+Random Forest - Average Results:
+2026-01-28 04:56:23,083 - INFO -   Night-level:
+2026-01-28 04:56:23,083 - INFO -     Accuracy: 0.8364 ± 0.0771
+2026-01-28 04:56:23,084 - INFO -     ROC-AUC: 0.8996 ± 0.0736
+2026-01-28 04:56:23,085 - INFO -   Participant-level (CLINICAL PERFORMANCE):
+2026-01-28 04:56:23,085 - INFO -     Accuracy: 0.8824 ± 0.0832
+2026-01-28 04:56:23,086 - INFO -     Precision: 0.8470 ± 0.0897
+2026-01-28 04:56:23,086 - INFO -     Recall: 0.9356 ± 0.0879
+2026-01-28 04:56:23,087 - INFO -     F1: 0.8866 ± 0.0767
+2026-01-28 04:56:23,087 - INFO -     ROC-AUC: 0.9383 ± 0.0761
+2026-01-28 04:56:23,088 - INFO - 
+======================================================================
+2026-01-28 04:56:23,088 - INFO - Training Logistic Regression
+2026-01-28 04:56:23,089 - INFO - ======================================================================
+2026-01-28 04:56:23,090 - INFO - 
+Fold 1/5
+2026-01-28 04:56:25,648 - INFO -   Night-level metrics:
+2026-01-28 04:56:25,649 - INFO -     Accuracy: 0.8528
+2026-01-28 04:56:25,649 - INFO -     ROC-AUC: 0.8915
+2026-01-28 04:56:25,650 - INFO -   Participant-level metrics:
+2026-01-28 04:56:25,651 - INFO -     Accuracy: 0.9412
+2026-01-28 04:56:25,651 - INFO -     ROC-AUC: 0.9697
+2026-01-28 04:56:25,652 - INFO -     Test participants: 17
+2026-01-28 04:56:25,652 - INFO - 
+Fold 2/5
+2026-01-28 04:56:27,735 - INFO -   Night-level metrics:
+2026-01-28 04:56:27,735 - INFO -     Accuracy: 0.9046
+2026-01-28 04:56:27,736 - INFO -     ROC-AUC: 0.9661
+2026-01-28 04:56:27,737 - INFO -   Participant-level metrics:
+2026-01-28 04:56:27,737 - INFO -     Accuracy: 0.9375
+2026-01-28 04:56:27,738 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:27,738 - INFO -     Test participants: 16
+2026-01-28 04:56:27,739 - INFO - 
+Fold 3/5
+2026-01-28 04:56:29,732 - INFO -   Night-level metrics:
+2026-01-28 04:56:29,733 - INFO -     Accuracy: 0.6870
+2026-01-28 04:56:29,733 - INFO -     ROC-AUC: 0.7021
+2026-01-28 04:56:29,734 - INFO -   Participant-level metrics:
+2026-01-28 04:56:29,735 - INFO -     Accuracy: 0.7059
+2026-01-28 04:56:29,735 - INFO -     ROC-AUC: 0.7639
+2026-01-28 04:56:29,736 - INFO -     Test participants: 17
+2026-01-28 04:56:29,736 - INFO - 
+Fold 4/5
+2026-01-28 04:56:31,788 - INFO -   Night-level metrics:
+2026-01-28 04:56:31,789 - INFO -     Accuracy: 0.7985
+2026-01-28 04:56:31,790 - INFO -     ROC-AUC: 0.7664
+2026-01-28 04:56:31,790 - INFO -   Participant-level metrics:
+2026-01-28 04:56:31,791 - INFO -     Accuracy: 0.8235
+2026-01-28 04:56:31,792 - INFO -     ROC-AUC: 0.8429
+2026-01-28 04:56:31,792 - INFO -     Test participants: 17
+2026-01-28 04:56:31,793 - INFO - 
+Fold 5/5
+2026-01-28 04:56:33,866 - INFO -   Night-level metrics:
+2026-01-28 04:56:33,866 - INFO -     Accuracy: 0.8219
+2026-01-28 04:56:33,867 - INFO -     ROC-AUC: 0.9110
+2026-01-28 04:56:33,868 - INFO -   Participant-level metrics:
+2026-01-28 04:56:33,868 - INFO -     Accuracy: 0.8824
+2026-01-28 04:56:33,869 - INFO -     ROC-AUC: 0.9722
+2026-01-28 04:56:33,869 - INFO -     Test participants: 17
+2026-01-28 04:56:33,870 - INFO - 
+Logistic Regression - Average Results:
+2026-01-28 04:56:33,870 - INFO -   Night-level:
+2026-01-28 04:56:33,871 - INFO -     Accuracy: 0.8130 ± 0.0723
+2026-01-28 04:56:33,872 - INFO -     ROC-AUC: 0.8474 ± 0.0977
+2026-01-28 04:56:33,872 - INFO -   Participant-level (CLINICAL PERFORMANCE):
+2026-01-28 04:56:33,873 - INFO -     Accuracy: 0.8581 ± 0.0874
+2026-01-28 04:56:33,874 - INFO -     Precision: 0.8301 ± 0.0703
+2026-01-28 04:56:33,875 - INFO -     Recall: 0.9106 ± 0.0837
+2026-01-28 04:56:33,875 - INFO -     F1: 0.8679 ± 0.0731
+2026-01-28 04:56:33,876 - INFO -     ROC-AUC: 0.9097 ± 0.0910
+2026-01-28 04:56:33,876 - INFO - 
+======================================================================
+2026-01-28 04:56:33,877 - INFO - Training SVM
+2026-01-28 04:56:33,877 - INFO - ======================================================================
+2026-01-28 04:56:33,879 - INFO - 
+Fold 1/5
+2026-01-28 04:56:36,353 - INFO -   Night-level metrics:
+2026-01-28 04:56:36,354 - INFO -     Accuracy: 0.8553
+2026-01-28 04:56:36,354 - INFO -     ROC-AUC: 0.9239
+2026-01-28 04:56:36,355 - INFO -   Participant-level metrics:
+2026-01-28 04:56:36,356 - INFO -     Accuracy: 0.9412
+2026-01-28 04:56:36,357 - INFO -     ROC-AUC: 0.9697
+2026-01-28 04:56:36,357 - INFO -     Test participants: 17
+2026-01-28 04:56:36,358 - INFO - 
+Fold 2/5
+2026-01-28 04:56:38,770 - INFO -   Night-level metrics:
+2026-01-28 04:56:38,771 - INFO -     Accuracy: 0.9201
+2026-01-28 04:56:38,772 - INFO -     ROC-AUC: 0.9804
+2026-01-28 04:56:38,772 - INFO -   Participant-level metrics:
+2026-01-28 04:56:38,773 - INFO -     Accuracy: 1.0000
+2026-01-28 04:56:38,774 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:38,775 - INFO -     Test participants: 16
+2026-01-28 04:56:38,775 - INFO - 
+Fold 3/5
+2026-01-28 04:56:40,890 - INFO -   Night-level metrics:
+2026-01-28 04:56:40,891 - INFO -     Accuracy: 0.7328
+2026-01-28 04:56:40,891 - INFO -     ROC-AUC: 0.7878
+2026-01-28 04:56:40,892 - INFO -   Participant-level metrics:
+2026-01-28 04:56:40,893 - INFO -     Accuracy: 0.7059
+2026-01-28 04:56:40,893 - INFO -     ROC-AUC: 0.8611
+2026-01-28 04:56:40,894 - INFO -     Test participants: 17
+2026-01-28 04:56:40,895 - INFO - 
+Fold 4/5
+2026-01-28 04:56:43,219 - INFO -   Night-level metrics:
+2026-01-28 04:56:43,220 - INFO -     Accuracy: 0.7908
+2026-01-28 04:56:43,220 - INFO -     ROC-AUC: 0.8873
+2026-01-28 04:56:43,221 - INFO -   Participant-level metrics:
+2026-01-28 04:56:43,221 - INFO -     Accuracy: 0.8235
+2026-01-28 04:56:43,222 - INFO -     ROC-AUC: 0.9571
+2026-01-28 04:56:43,222 - INFO -     Test participants: 17
+2026-01-28 04:56:43,223 - INFO - 
+Fold 5/5
+2026-01-28 04:56:45,514 - INFO -   Night-level metrics:
+2026-01-28 04:56:45,515 - INFO -     Accuracy: 0.8422
+2026-01-28 04:56:45,515 - INFO -     ROC-AUC: 0.9287
+2026-01-28 04:56:45,516 - INFO -   Participant-level metrics:
+2026-01-28 04:56:45,516 - INFO -     Accuracy: 0.9412
+2026-01-28 04:56:45,517 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:45,517 - INFO -     Test participants: 17
+2026-01-28 04:56:45,518 - INFO - 
+SVM - Average Results:
+2026-01-28 04:56:45,518 - INFO -   Night-level:
+2026-01-28 04:56:45,519 - INFO -     Accuracy: 0.8283 ± 0.0630
+2026-01-28 04:56:45,519 - INFO -     ROC-AUC: 0.9016 ± 0.0642
+2026-01-28 04:56:45,520 - INFO -   Participant-level (CLINICAL PERFORMANCE):
+2026-01-28 04:56:45,520 - INFO -     Accuracy: 0.8824 ± 0.1052
+2026-01-28 04:56:45,521 - INFO -     Precision: 0.8528 ± 0.0975
+2026-01-28 04:56:45,521 - INFO -     Recall: 0.9356 ± 0.0879
+2026-01-28 04:56:45,522 - INFO -     F1: 0.8916 ± 0.0898
+2026-01-28 04:56:45,522 - INFO -     ROC-AUC: 0.9576 ± 0.0511
+2026-01-28 04:56:45,523 - INFO - 
+======================================================================
+2026-01-28 04:56:45,523 - INFO - Training XGBoost
+2026-01-28 04:56:45,523 - INFO - ======================================================================
+2026-01-28 04:56:45,525 - INFO - 
+Fold 1/5
+2026-01-28 04:56:59,654 - INFO -   Night-level metrics:
+2026-01-28 04:56:59,655 - INFO -     Accuracy: 0.8807
+2026-01-28 04:56:59,656 - INFO -     ROC-AUC: 0.9465
+2026-01-28 04:56:59,657 - INFO -   Participant-level metrics:
+2026-01-28 04:56:59,657 - INFO -     Accuracy: 0.9412
+2026-01-28 04:56:59,658 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:56:59,658 - INFO -     Test participants: 17
+2026-01-28 04:56:59,659 - INFO - 
+Fold 2/5
+2026-01-28 04:57:13,796 - INFO -   Night-level metrics:
+2026-01-28 04:57:13,797 - INFO -     Accuracy: 0.9227
+2026-01-28 04:57:13,797 - INFO -     ROC-AUC: 0.9813
+2026-01-28 04:57:13,798 - INFO -   Participant-level metrics:
+2026-01-28 04:57:13,798 - INFO -     Accuracy: 1.0000
+2026-01-28 04:57:13,799 - INFO -     ROC-AUC: 1.0000
+2026-01-28 04:57:13,800 - INFO -     Test participants: 16
+2026-01-28 04:57:13,800 - INFO - 
+Fold 3/5
+2026-01-28 04:57:26,234 - INFO -   Night-level metrics:
+2026-01-28 04:57:26,235 - INFO -     Accuracy: 0.7176
+2026-01-28 04:57:26,235 - INFO -     ROC-AUC: 0.7976
+2026-01-28 04:57:26,236 - INFO -   Participant-level metrics:
+2026-01-28 04:57:26,237 - INFO -     Accuracy: 0.7647
+2026-01-28 04:57:26,237 - INFO -     ROC-AUC: 0.8333
+2026-01-28 04:57:26,238 - INFO -     Test participants: 17
+2026-01-28 04:57:26,239 - INFO - 
+Fold 4/5
+2026-01-28 04:57:39,799 - INFO -   Night-level metrics:
+2026-01-28 04:57:39,800 - INFO -     Accuracy: 0.8061
+2026-01-28 04:57:39,801 - INFO -     ROC-AUC: 0.8200
+2026-01-28 04:57:39,801 - INFO -   Participant-level metrics:
+2026-01-28 04:57:39,802 - INFO -     Accuracy: 0.8235
+2026-01-28 04:57:39,803 - INFO -     ROC-AUC: 0.8857
+2026-01-28 04:57:39,803 - INFO -     Test participants: 17
+2026-01-28 04:57:39,804 - INFO - 
+Fold 5/5
+2026-01-28 04:57:53,245 - INFO -   Night-level metrics:
+2026-01-28 04:57:53,246 - INFO -     Accuracy: 0.8372
+2026-01-28 04:57:53,247 - INFO -     ROC-AUC: 0.9277
+2026-01-28 04:57:53,247 - INFO -   Participant-level metrics:
+2026-01-28 04:57:53,248 - INFO -     Accuracy: 0.8824
+2026-01-28 04:57:53,248 - INFO -     ROC-AUC: 0.9722
+2026-01-28 04:57:53,249 - INFO -     Test participants: 17
+2026-01-28 04:57:53,250 - INFO - 
+XGBoost - Average Results:
+2026-01-28 04:57:53,250 - INFO -   Night-level:
+2026-01-28 04:57:53,251 - INFO -     Accuracy: 0.8328 ± 0.0698
+2026-01-28 04:57:53,252 - INFO -     ROC-AUC: 0.8947 ± 0.0725
+2026-01-28 04:57:53,252 - INFO -   Participant-level (CLINICAL PERFORMANCE):
+2026-01-28 04:57:53,253 - INFO -     Accuracy: 0.8824 ± 0.0832
+2026-01-28 04:57:53,254 - INFO -     Precision: 0.8656 ± 0.0751
+2026-01-28 04:57:53,254 - INFO -     Recall: 0.9106 ± 0.0837
+2026-01-28 04:57:53,255 - INFO -     F1: 0.8866 ± 0.0735
+2026-01-28 04:57:53,255 - INFO -     ROC-AUC: 0.9383 ± 0.0672
+2026-01-28 04:57:53,279 - INFO - 
+Results saved to: /work3/s184484/iRBD-detection/results/ml_baselines_v1t/results_20260128_045753.json
+2026-01-28 04:57:53,292 - INFO - Summary saved to: /work3/s184484/iRBD-detection/results/ml_baselines_v1t/summary_20260128_045753.csv
+2026-01-28 04:57:53,292 - INFO - 
+Summary Table:
+2026-01-28 04:57:53,298 - INFO - 
+         Classifier  Night_Accuracy  Night_ROC_AUC  Participant_Accuracy  Participant_Precision  Participant_Recall  Participant_F1  Participant_ROC_AUC
+      Random Forest        0.836425       0.899566              0.882353               0.846970            0.935556        0.886648             0.938333
+Logistic Regression        0.812961       0.847423              0.858088               0.830065            0.910556        0.867886             0.909733
+                SVM        0.828263       0.901628              0.882353               0.852843            0.935556        0.891648             0.957590
+            XGBoost        0.832844       0.894654              0.882353               0.865620            0.910556        0.886600             0.938254
+2026-01-28 04:57:53,305 - INFO - 
+Random Forest feature importance saved to: /work3/s184484/iRBD-detection/results/ml_baselines_v1t/feature_importance_rf.json
+2026-01-28 04:57:53,306 - INFO - 
+Top 10 Most Important Features (Random Forest):
+2026-01-28 04:57:53,306 - INFO -   1. SSL_Feature_1: 0.029375 +/- 0.002703
+2026-01-28 04:57:53,307 - INFO -   2. SSL_Feature_691: 0.024405 +/- 0.003394
+2026-01-28 04:57:53,307 - INFO -   3. SSL_Feature_514: 0.021441 +/- 0.007228
+2026-01-28 04:57:53,308 - INFO -   4. SSL_Feature_335: 0.019462 +/- 0.000897
+2026-01-28 04:57:53,308 - INFO -   5. SSL_Feature_294: 0.019217 +/- 0.002280
+2026-01-28 04:57:53,309 - INFO -   6. SSL_Feature_478: 0.019170 +/- 0.001305
+2026-01-28 04:57:53,309 - INFO -   7. SSL_Feature_405: 0.017632 +/- 0.001970
+2026-01-28 04:57:53,310 - INFO -   8. SSL_Feature_481: 0.016349 +/- 0.002377
+2026-01-28 04:57:53,311 - INFO -   9. SSL_Feature_859: 0.015639 +/- 0.003437
+2026-01-28 04:57:53,311 - INFO -   10. SSL_Feature_769: 0.012827 +/- 0.001845
+2026-01-28 04:57:53,318 - INFO - 
+XGBoost feature importance saved to: /work3/s184484/iRBD-detection/results/ml_baselines_v1t/feature_importance_xgb.json
+2026-01-28 04:57:53,319 - INFO - 
+Top 10 Most Important Features (XGBoost):
+2026-01-28 04:57:53,319 - INFO -   1. SSL_Feature_478: 0.052424 +/- 0.050186
+2026-01-28 04:57:53,320 - INFO -   2. SSL_Feature_769: 0.051911 +/- 0.028328
+2026-01-28 04:57:53,320 - INFO -   3. SSL_Feature_1: 0.048280 +/- 0.072498
+2026-01-28 04:57:53,321 - INFO -   4. SSL_Feature_481: 0.028003 +/- 0.026348
+2026-01-28 04:57:53,321 - INFO -   5. SSL_Feature_751: 0.017506 +/- 0.003586
+2026-01-28 04:57:53,322 - INFO -   6. SSL_Feature_519: 0.012053 +/- 0.013628
+2026-01-28 04:57:53,322 - INFO -   7. SSL_Feature_257: 0.010013 +/- 0.007368
+2026-01-28 04:57:53,323 - INFO -   8. SSL_Feature_691: 0.009789 +/- 0.007054
+2026-01-28 04:57:53,323 - INFO -   9. SSL_Feature_335: 0.008634 +/- 0.003222
+2026-01-28 04:57:53,324 - INFO -   10. SSL_Feature_692: 0.005599 +/- 0.003537
+2026-01-28 04:57:53,326 - INFO - 
+======================================================================
+2026-01-28 04:57:53,327 - INFO - NIGHT-LEVEL CLASSIFICATION COMPLETED SUCCESSFULLY!
+2026-01-28 04:57:53,328 - INFO - ======================================================================

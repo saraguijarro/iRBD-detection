@@ -1,128 +1,68 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
-# In[ ]:
+"""
+===============================================================================
+ROBUST FEATURE EXTRACTION SCRIPT FOR IRBD DETECTION
+===============================================================================
 
+This script extracts SSL-Wearables embeddings from preprocessed accelerometer data.
+Supports multiple preprocessing versions (v0, v1, v1t, vvt) via command-line argument.
 
-# FEATURE EXTRACTION
-# Extract high-level movement features from preprocessed accelerometer data using the SSL-Wearables model.
+KEY FEATURES:
+- Uses HAR-Net10 model pre-trained on UK Biobank data (100k participants)
+- Extracts 1024-dimensional embeddings from 10-second windows
+- Robust error handling: skips bad nights instead of failing entire participant
+- Memory-efficient batch processing with GPU support
+- Comprehensive logging and statistics tracking
 
-## INPUT
-# Source : .h5 files (from preprocessing stage)
-# Directories : 
-#    - /work3/s184484/iRBD-detection/data/preprocessing/controls/
-#    - /work3/s184484/iRBD-detection/data/preprocessing/irbd/ 
-# Format : Clean 30Hz accelerometer data segmented by nights
+PREPROCESSING COMPATIBILITY:
+- Expects HDF5 files with structure: night_0/accel, night_0/timestamps, etc.
+- Assumes 30Hz sampling rate (300 samples = 10 seconds)
+- Handles variable-length nights with padding and masking
 
+SSL-WEARABLES REFERENCE:
+Yuan, H., Chan, S., Creagh, A. P., et al. (2024). Self-supervised learning 
+for human activity recognition using 700,000 person-days of wearable data. 
+NPJ Digital Medicine, 7(1), 91.
+===============================================================================
+"""
 
-## PIPELINE
-# 1. Night segmentation : Divide each night into 10-minute segments
-# 2. Window creation : Create 10-second non-overlapping windows within each segment
-# 3. Feature extraction : 
-#    - Load SSL-Wearables harnet10 model via torch.hub.load()
-#    - Process windows in batches for GPU efficiency
-#    - Extract 1024-dimensional features using model.feature_extractor
-# 4. Quality control : Validate feature dimensions and handle edge cases
-# 5. Memory management : Clear GPU cache between participants
-# 6. Save features : Save per-participant features, then auto-combine for LSTM
+import argparse
+import os
+import sys
+import h5py
+import numpy as np
+import pandas as pd
+from datetime import datetime, timedelta
+import logging
+from pathlib import Path
+import glob
+import traceback
+import json
+import gc  # For explicit memory management
 
+# Visualization libraries
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-## OUTPUT
-# Format : .npy files
-# Directories : 
-#    - /work3/s184484/iRBD-detection/data/features/controls/
-#    - /work3/s184484/iRBD-detection/data/features/irbd/ 
-#    - /work3/s184484/iRBD-detection/data/features/combined/
-# Individual files : One .npy file per participant with shape (participant_windows, 1024)
-# Combined datasets : 
-#    - X_features.npy : All features (total_windows, 1024)
-#    - y_labels.npy : All labels (total_windows,) - 0=non-iRBD, 1=iRBD
-#    - participant_ids.npy : Participant mapping for sequence organization
-# Structure within directories : 
-#   ├── features
-#   │   ├── controls
-#   |   │   ├── participant_PARTICIPANTID0_features.npy     # Shape: (participant_windows, 1024)
-#   |   │   ├── participant_PARTICIPANTID1_features.npy     # Shape: (participant_windows, 1024)
-#   |   │   └── ...
-#   │   ├── irbd
-#   |   │   ├── participant_PARTICIPANTID0_features.npy     # Shape: (participant_windows, 1024)
-#   |   │   ├── participant_PARTICIPANTID1_features.npy     # Shape: (participant_windows, 1024)
-#   |   │   └── ...
-#   │   └── combined
-#   |       ├── X_features.npy                   # Shape: (total_windows, 1024) - ALL features
-#   |       ├── y_labels.npy                     # Shape: (total_windows,) - ALL labels (0=non-iRBD, 1=iRBD)
-#   |       ├── participant_ids.npy              # Shape: (total_windows,) - participant mapping
-#   |       └── dataset_info.json                # Processing metadata and statistics
+# Configure matplotlib and seaborn for publication-quality plots
+plt.style.use('seaborn-v0_8')
+sns.set_palette("husl")
+plt.rcParams['figure.figsize'] = (12, 8)
+plt.rcParams['font.size'] = 10
 
+# ============================================================================
+# PYTORCH AND SSL-WEARABLES MODEL LOADING
+# ============================================================================
 
-## VALIDATION
-# Feature dimension consistency : All outputs have exactly 1024 features
-# Window count validation : Expected number of windows per night (2880)
-# Data integrity : No NaN or infinite values in feature vectors
-# Model loading verification : SSL-Wearables model loads correctly
-# GPU utilization : Efficient memory usage and processing
-
-
-## PARAMETERS SUMMARY
-# Segment duration : 600 seconds (10 minutes)
-# Window size : 300 samples (10 seconds at 30Hz)
-# Windows per segment : 60 (non-overlapping)
-# Windows per night : 8 hours × 60 minutes × 10 seconds = 2880 windows per night
-# Windows per participant : Number of nights (of participant) × 2880
-# Feature dimension : 1024 (feature dimensions from SSL-Wearables ResNet output)
-# Model : 'harnet10' from 'OxWearables/ssl-wearables'
-# Batch size : 8-16 (depeding on GPU memory)
-# Input format : (batch, 3, 300) - channels first for SSL-Wearables
-# Pre-training : 700,000+ person-days of accelerometer data
-
-
-## ENVIRONMENT : env_insights
-
-
-## HPC JOB EXECUTION
-# Job script : feature_extraction_job.sh
-# Location : /work3/s184484/iRBD-detection/jobs/scripts/feature_extraction_job.sh
-# Queue : gpua10 (GPU nodes with shorter queue times)
-# Resources : 8 cores, 12GB RAM per core, 1 GPU
-# Time limit : 24 hours
-# Output logs : /work3/s184484/iRBD-detection/jobs/logs/feature_extraction/feature_extraction_output_JOBID.out
-# Error logs : /work3/s184484/iRBD-detection/jobs/logs/feature_extraction/feature_extraction_error_JOBID.err
-
-
-# In[ ]:
-
-
-# Basic Python libraries for file operations and system control
-import os                    # Operating System interface - helps us work with files and folders
-import sys                   # System-specific parameters - helps us control the program execution
-import h5py                  # HDF5 library - for reading the preprocessed .h5 files
-import numpy as np           # NumPy - for mathematical operations on arrays of numbers
-import pandas as pd          # Pandas - for working with data tables and organizing information
-from datetime import datetime, timedelta  # For working with dates and times
-import logging               # For creating detailed log files that record what the program does
-from pathlib import Path     # For easier and more reliable file path handling
-import glob                  # For finding files that match specific patterns (like all .h5 files)
-import traceback             # For showing detailed error messages when something goes wrong
-import json                  # For saving and loading JSON files (configuration and metadata)
-import gc                    # Garbage collection - for managing memory usage
-
-# Visualization libraries for creating plots and charts
-import matplotlib.pyplot as plt    # Main plotting library - like creating graphs in Excel
-import seaborn as sns             # Statistical plotting library - makes beautiful, professional plots
-
-# Configure matplotlib and seaborn for professional-looking plots
-plt.style.use('seaborn-v0_8')     # Use seaborn's visual style (makes plots look professional)
-sns.set_palette("husl")           # Set a nice color palette (colors that work well together)
-plt.rcParams['figure.figsize'] = (12, 8)  # Set default size for all plots (12 inches wide, 8 inches tall)
-plt.rcParams['font.size'] = 10    # Set default font size for all text in plots
-
-# Try to import PyTorch and SSL-Wearables - essential for feature extraction
+# Try to import PyTorch
 try:
-    import torch               # PyTorch - deep learning framework for running SSL-Wearables model
-    import torch.nn as nn      # Neural network components from PyTorch
+    import torch
+    import torch.nn as nn
     print(f"PyTorch version: {torch.__version__}")
 
-    # Check if CUDA (GPU) is available for faster processing
+    # Check for CUDA availability (GPU acceleration)
     if torch.cuda.is_available():
         print(f"CUDA available: {torch.cuda.get_device_name(0)}")
         print(f"GPU memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
@@ -130,860 +70,886 @@ try:
         print("CUDA not available - will use CPU (slower)")
 
 except ImportError as e:
-    # If PyTorch is not installed, show an error message and stop the program
     print(f"Error importing PyTorch: {e}")
     print("Please install PyTorch with: pip install torch")
     sys.exit(1)
 
-# Try to load SSL-Wearables model via torch.hub
+# Try to load SSL-Wearables HAR-Net10 model
+# This model expects 10-second windows (300 samples at 30Hz)
+# Input shape: (batch_size, 3, 300) where 3 = XYZ channels
+# Output: 1024-dimensional feature embeddings
 try:
-    print("Loading SSL-Wearables model...")
-    # This downloads and loads the pre-trained harnet10 model
-    # SSL-Wearables is trained on over 700,000 days of accelerometer data
-    ssl_model = torch.hub.load('OxWearables/ssl-wearables', 'harnet10', pretrained=True, trust_repo=True)
+    print("Loading SSL-Wearables HAR-Net10 model...")
+    print("  - Model: ResNet-based architecture")
+    print("  - Pre-training: UK Biobank (100k participants)")
+    print("  - Window size: 10 seconds (300 samples at 30Hz)")
+    print("  - Feature dimension: 1024")
+    
+    # Load model from torch.hub
+    # trust_repo=True is required for loading custom models
+    ssl_model = torch.hub.load('OxWearables/ssl-wearables', 'harnet10', 
+                                pretrained=True, trust_repo=True)
     print("SSL-Wearables model loaded successfully")
+    
 except Exception as e:
     print(f"Error loading SSL-Wearables model: {e}")
     print("Please check internet connection and torch.hub access")
+    print("If behind a firewall, you may need to set HTTP_PROXY and HTTPS_PROXY")
     sys.exit(1)
 
 
-# In[ ]:
+# ============================================================================
+# ROBUSTNESS HELPER FUNCTIONS
+# ============================================================================
+
+def validate_sampling_rate(timestamps, expected_hz=30.0, tolerance=1.0):
+    """
+    Validate that the sampling rate is close to expected value.
+    
+    Args:
+        timestamps (list/array): List of timestamp strings
+        expected_hz (float): Expected sampling rate in Hz
+        tolerance (float): Acceptable deviation in Hz
+        
+    Returns:
+        tuple: (is_valid, actual_hz, message)
+    """
+    if len(timestamps) < 2:
+        return True, None, "Insufficient timestamps for rate validation"
+    
+    try:
+        # Sample first 100 intervals to estimate sampling rate
+        sample_size = min(100, len(timestamps) - 1)
+        intervals = []
+        
+        for i in range(sample_size):
+            t1 = pd.Timestamp(timestamps[i])
+            t2 = pd.Timestamp(timestamps[i + 1])
+            intervals.append((t2 - t1).total_seconds())
+        
+        avg_interval = np.mean(intervals)
+        actual_hz = 1 / avg_interval if avg_interval > 0 else 0
+        
+        # Check if within tolerance
+        is_valid = abs(actual_hz - expected_hz) <= tolerance
+        
+        if is_valid:
+            message = f"Sampling rate OK: {actual_hz:.1f}Hz (expected {expected_hz}Hz)"
+        else:
+            message = f"Sampling rate WARNING: {actual_hz:.1f}Hz (expected {expected_hz}±{tolerance}Hz)"
+        
+        return is_valid, actual_hz, message
+        
+    except Exception as e:
+        return False, None, f"Error validating sampling rate: {e}"
 
 
-# =============================================================================
+def validate_data_consistency(accel_data, timestamps):
+    """
+    Validate consistency between accelerometer data and timestamps.
+    
+    Args:
+        accel_data (np.ndarray): Accelerometer data (N, 3)
+        timestamps (list/array): Timestamp strings (N,)
+        
+    Returns:
+        tuple: (is_valid, message)
+    """
+    issues = []
+    
+    # Check shape
+    if accel_data.ndim != 2:
+        issues.append(f"Invalid accel dimensions: {accel_data.ndim}D (expected 2D)")
+    elif accel_data.shape[1] != 3:
+        issues.append(f"Invalid accel channels: {accel_data.shape[1]} (expected 3 for XYZ)")
+    
+    # Check length match
+    if len(accel_data) != len(timestamps):
+        issues.append(
+            f"Length mismatch: {len(accel_data)} accel samples vs "
+            f"{len(timestamps)} timestamps"
+        )
+    
+    # Check for NaN or Inf
+    if np.any(np.isnan(accel_data)):
+        nan_count = np.sum(np.isnan(accel_data))
+        issues.append(f"Contains {nan_count} NaN values")
+    
+    if np.any(np.isinf(accel_data)):
+        inf_count = np.sum(np.isinf(accel_data))
+        issues.append(f"Contains {inf_count} Inf values")
+    
+    # Check for reasonable acceleration range (typically -20 to +20 g)
+    if accel_data.size > 0:
+        min_val = np.min(accel_data)
+        max_val = np.max(accel_data)
+        if min_val < -50 or max_val > 50:
+            issues.append(
+                f"Suspicious acceleration range: [{min_val:.1f}, {max_val:.1f}] "
+                f"(expected roughly -20 to +20 g)"
+            )
+    
+    if issues:
+        return False, "; ".join(issues)
+    else:
+        return True, "Data consistency OK"
+
+
+# ============================================================================
 # FEATURE EXTRACTION PIPELINE CLASS
-# =============================================================================
+# ============================================================================
 
-class FeatureExtractionPipeline:
+class RobustFeatureExtractionPipeline:
     """
-    This class handles the extraction of SSL-Wearables features from preprocessed
-    accelerometer data. It organizes features by night (not concatenated) to preserve
-    the temporal structure needed for machine learning models.
-
-    WHAT SSL-WEARABLES IS:
-    SSL-Wearables is a self-supervised learning model trained on over 700,000 days
-    of accelerometer data. It has learned to recognize a wide range of human
-    activities and movement patterns, making it perfect for our iRBD detection task.
-
-    WHAT THIS CLASS DOES:
-    1. Reads preprocessed .h5 files containing night-segmented accelerometer data
-    2. Creates 10-second windows from each night's data separately
-    3. Processes windows through SSL-Wearables to extract 1024-dimensional features
-    4. Organizes features by night: (nights, windows_per_night, 1024_features)
-    5. Saves structured feature arrays suitable for machine learning models
-
-    WHY NIGHT-BASED ORGANIZATION:
-    - Preserves temporal structure of sleep data
-    - Allows models to learn night-to-night patterns
-    - Enables proper cross-validation (participant-level splits)
-    - Supports variable-length sequences (different numbers of nights per participant)
+    Robust feature extraction pipeline with defensive checks and validation.
+    
+    ROBUSTNESS FEATURES:
+    --------------------
+    1. Version verification: Checks HDF5 preprocessing version
+    2. Defensive dataset loading: Tries multiple possible dataset names
+    3. Data quality validation: Validates sampling rate, shape, consistency
+    4. Comprehensive error reporting: Clear, actionable error messages
+    5. Graceful degradation: Skips bad nights, not entire participants
+    
+    ATTRIBUTES:
+    -----------
+    version : str
+        Preprocessing version ('v0', 'v1', 'v1t', 'vvt')
+    model : torch.nn.Module
+        SSL-Wearables HAR-Net10 model
+    device : torch.device
+        Computation device (CUDA or CPU)
+    sampling_rate : int
+        Expected sampling rate in Hz (default: 30)
+    window_size : int
+        Number of samples per window (default: 300 = 10 seconds at 30Hz)
+    batch_size : int
+        Number of windows to process in parallel (default: 16)
+    feature_dim : int
+        Dimensionality of extracted features (default: 1024)
     """
 
-    def __init__(self):
+    def __init__(self, version='v1'):
         """
-        Initialize the feature extraction pipeline with all necessary configuration.
-        This sets up directories, parameters, and the SSL-Wearables model.
+        Initialize the robust feature extraction pipeline.
+        
+        Args:
+            version (str): Preprocessing version to use ('v0', 'v1', 'v1t', 'vvt')
         """
-
-        # =================================================================
-        # CONFIGURATION SECTION - Choose between example test and full processing
-        # =================================================================
-
-        # FOR EXAMPLE FILE TESTING
-        self.base_dir = Path("/work3/s184484/iRBD-detection")  # Main project folder on HPC
-        #self.mode = "EXAMPLE_TEST"                             # Tell the script we're testing with example
-        self.example_participant = "2290025_90001_0_0"        # Example participant ID (without .h5 extension)
-
-        # FOR FULL DATASET PROCESSING 
-        self.mode = "FULL_PROCESSING"                          # Tell the script we're processing all files
-
-        # =================================================================
-        # DIRECTORY SETUP - Define where to find files and save results
-        # =================================================================
-
-        # Input directories (where the preprocessed .h5 files are stored):
-        self.preprocessed_controls_dir = self.base_dir / "data" / "preprocessed" / "controls"  # Healthy people's data
-        self.preprocessed_irbd_dir = self.base_dir / "data" / "preprocessed" / "irbd"          # iRBD patients' data
-
-        # Output directories (where to save the extracted features):
-        self.features_dir = self.base_dir / "data" / "features"                            # Main features directory
-        self.features_controls_dir = self.features_dir / "controls"                       # Individual control features
-        self.features_irbd_dir = self.features_dir / "irbd"                               # Individual iRBD features
-        self.features_combined_dir = self.features_dir / "combined"                       # Combined training datasets
-
-        # Visualization output directory (where to save plots for the report):
-        self.plots_dir = self.base_dir / "results" / "visualizations"
-        self.example_plots_dir = self.plots_dir / "example_testing"  # Specific folder for example file plots
-
-        # Only create log directory if it doesn't exist (for logging only)
+        self.version = version
+        self.base_dir = Path("/work3/s184484/iRBD-detection")
+        
+        # ====================================================================
+        # VERSION-SPECIFIC PATHS
+        # ====================================================================
+        self.preprocessed_controls_dir = self.base_dir / "data" / f"preprocessed_{version}" / "controls"
+        self.preprocessed_irbd_dir = self.base_dir / "data" / f"preprocessed_{version}" / "irbd"
+        
+        # Output: Extracted features
+        self.features_dir = self.base_dir / "data" / f"features_{version}"
+        self.features_controls_dir = self.features_dir / "controls"
+        self.features_irbd_dir = self.features_dir / "irbd"
+        
+        # Logs and visualizations
+        self.plots_dir = self.base_dir / "results" / "visualizations" / f"features_{version}"
         self.log_dir = self.base_dir / "validation" / "data_quality_reports"
-        if not self.log_dir.exists():
-            self.log_dir.mkdir(parents=True, exist_ok=True)
-
-        # =================================================================
-        # PROCESSING PARAMETERS - Settings that control feature extraction
-        # =================================================================
-
-        # Windowing parameters (how we split continuous data into chunks):
-        self.window_size_seconds = 10           # Each window is 10 seconds long
-        self.sampling_rate = 30                 # Data is sampled at 30Hz (30 samples per second)
-        self.window_size_samples = self.window_size_seconds * self.sampling_rate  # 300 samples per window
-        self.window_overlap = 0.0               # No overlap between windows (0% overlap)
-
-        # Expected windows per night calculation:
-        # 8 hours × 60 minutes/hour × 60 seconds/minute = 28,800 seconds per night
-        # 28,800 seconds ÷ 10 seconds/window = 2,880 windows per perfect 8-hour night
-        self.expected_windows_per_night = 8 * 60 * 60 // self.window_size_seconds  # 2880 windows
-
-        # WHY 10-SECOND WINDOWS:
-        # 10 seconds captures meaningful movement patterns while providing enough
-        # temporal resolution for detecting brief iRBD episodes during sleep.
-
-        # Model parameters (settings for SSL-Wearables processing):
-        self.feature_dim = 1024                 # SSL-Wearables outputs 1024-dimensional feature vectors
-        self.batch_size = 512                   # Process 512 windows at once (GPU memory dependent)
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # Use GPU if available
-
-        # WHY BATCH PROCESSING:
-        # Processing windows in batches is much faster than one-by-one processing
-        # and makes efficient use of GPU memory.
-
-        # Visualization parameters (control which plots to create):
-        self.create_individual_plots = True     # Create detailed plots for each participant
-        self.create_summary_plots = True       # Create overall summary plots
-
-        # =================================================================
-        # MODEL SETUP - Prepare SSL-Wearables for feature extraction
-        # =================================================================
-
-        # Move the SSL-Wearables model to GPU (if available) for faster processing
-        self.ssl_model = ssl_model.to(self.device)
-
-        # Set the model to evaluation mode (no training, just inference)
-        self.ssl_model.eval()
-
-        # Disable gradient computation (saves memory and speeds up processing)
-        torch.set_grad_enabled(False)
-
-        # Log model information
-        print(f"SSL-Wearables model ready on device: {self.device}")
-        print(f"Feature dimension: {self.feature_dim}")
-        print(f"Window size: {self.window_size_seconds}s ({self.window_size_samples} samples)")
-        print(f"Expected windows per night: ~{self.expected_windows_per_night}")
-
-        # Initialize the supporting systems
-        self.setup_logging()                # Set up the system to record what happens
-        self.initialize_stats()             # Set up counters to track our progress
-
-        # Print information about what mode we're running in
-        print(f"Running in {self.mode} mode")
-        print(f"Base directory: {self.base_dir}")
-
-    def initialize_stats(self):
-        """
-        Set up counters to keep track of processing statistics.
-        This helps us monitor success rates and identify any problems.
-        """
-        self.stats = {
-            'total_participants': 0,        # How many participant files we found
-            'processed_participants': 0,    # How many participants we successfully processed
-            'failed_participants': 0,       # How many participants had errors
-            'total_nights': 0,              # Total number of nights across all participants
-            'total_windows': 0,             # Total number of 10-second windows processed
-            'total_features_extracted': 0,  # Total number of feature vectors created
-            'controls_processed': 0,        # How many control participants processed
-            'irbd_processed': 0,            # How many iRBD participants processed
-            'processing_time_total': 0.0    # Total time spent on feature extraction
-        }
-
-    def setup_logging(self):
-        """
-        Set up the logging system to record everything that happens during feature extraction.
-        This creates a detailed record of the process for debugging and documentation.
-        """
-        # Create a unique log file name with current date and time
-        current_time = datetime.now().strftime('%Y%m%d_%H%M%S')
-        log_file = self.log_dir / f"feature_extraction_{self.mode.lower()}_{current_time}.log"
-
-        # Configure the logging system
+        
+        # Create necessary directories
+        for directory in [self.features_controls_dir, self.features_irbd_dir, 
+                         self.plots_dir, self.log_dir]:
+            directory.mkdir(parents=True, exist_ok=True)
+        
+        # ====================================================================
+        # PROCESSING PARAMETERS
+        # ====================================================================
+        self.sampling_rate = 30  # Hz
+        self.window_size = 300   # samples (10 seconds at 30Hz)
+        self.batch_size = 16     # windows per batch
+        self.feature_dim = 1024  # SSL-Wearables output dimension
+        
+        # Validation parameters
+        self.sampling_rate_tolerance = 1.0  # Hz
+        self.min_night_duration = 1.0  # hours
+        
+        # ====================================================================
+        # MODEL SETUP
+        # ====================================================================
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model = ssl_model.to(self.device)
+        self.model.eval()
+        
+        # Debug: Inspect model structure
+        print(f"Model device: {self.device}")
+        print(f"Batch size: {self.batch_size} windows")
+        print(f"Model type: {type(self.model)}")
+        
+        # Check for feature_extractor
+        if hasattr(self.model, 'feature_extractor'):
+            print("✓ Model has 'feature_extractor' attribute")
+            # Test the feature_extractor with a dummy input
+            with torch.no_grad():
+                dummy_input = torch.randn(1, 3, 300).to(self.device)
+                features = self.model.feature_extractor(dummy_input)
+                print(f"  Feature extractor output shape: {features.shape}")
+                flattened = features.view(1, -1)
+                print(f"  Flattened feature dimension: {flattened.shape[-1]}")
+        else:
+            print("⚠ Model does NOT have 'feature_extractor' attribute")
+            print(f"  Available attributes: {[attr for attr in dir(self.model) if not attr.startswith('_')]}")
+            raise AttributeError("SSL-Wearables model missing 'feature_extractor' attribute")
+        
+        # ====================================================================
+        # LOGGING SETUP
+        # ====================================================================
+        log_file = self.log_dir / f"feature_extraction_{version}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler(log_file),      # Save messages to log file
-                logging.StreamHandler(sys.stdout)   # Also display on screen
+                logging.FileHandler(log_file),
+                logging.StreamHandler(sys.stdout)
             ]
         )
-
-        # Create our logger object
         self.logger = logging.getLogger(__name__)
+        self.logger.info(f"=== ROBUST FEATURE EXTRACTION INITIALIZED ===")
+        self.logger.info(f"Version: {version}")
+        self.logger.info(f"Log file: {log_file}")
+        self.logger.info(f"Robustness features enabled:")
+        self.logger.info(f"  - Version verification")
+        self.logger.info(f"  - Defensive dataset loading")
+        self.logger.info(f"  - Data quality validation")
+        self.logger.info(f"  - Sampling rate checking (±{self.sampling_rate_tolerance}Hz)")
+        
+        # ====================================================================
+        # STATISTICS TRACKING
+        # ====================================================================
+        self.stats = {
+            'total_participants': 0,
+            'processed_participants': 0,
+            'failed_participants': 0,
+            'controls_processed': 0,
+            'irbd_processed': 0,
+            'total_nights': 0,
+            'skipped_nights': 0,
+            'total_windows': 0,
+            'total_features_extracted': 0,
+            'processing_time_total': 0,
+            'version_mismatches': 0,
+            'sampling_rate_warnings': 0,
+            'data_quality_issues': 0
+        }
 
-        # Write initial log messages
-        self.logger.info(f"=== Feature Extraction Pipeline Started ({self.mode}) ===")
-        self.logger.info(f"Base directory: {self.base_dir}")
-        self.logger.info(f"Device: {self.device}")
-        self.logger.info(f"Window size: {self.window_size_seconds}s ({self.window_size_samples} samples)")
-        self.logger.info(f"Expected windows per night: ~{self.expected_windows_per_night}")
-        self.logger.info(f"Batch size: {self.batch_size}")
-
-    def find_h5_files(self, directory):
+    def verify_preprocessing_version(self, h5_file):
         """
-        Look for all .h5 files in a specific directory.
-        These are the preprocessed files created by the preprocessing pipeline.
-
+        Verify that HDF5 file matches expected preprocessing version.
+        
         Args:
-            directory: The folder path where we want to search for .h5 files
-
+            h5_file (Path): Path to HDF5 file
+            
         Returns:
-            A list of file paths for all .h5 files found in the directory
+            tuple: (is_match, actual_version, message)
         """
-        # Search for .h5 files in the directory
-        h5_pattern = directory / "*.h5"
-        h5_files = glob.glob(str(h5_pattern))
+        try:
+            with h5py.File(h5_file, 'r') as f:
+                if 'preprocessing_version' in f.attrs:
+                    actual_version = f.attrs['preprocessing_version']
+                    
+                    # Decode if bytes
+                    if isinstance(actual_version, bytes):
+                        actual_version = actual_version.decode('utf-8')
+                    
+                    # Version can be 'v1t'
+                    # Check if actual version starts with expected version
+                    expected = self.version
+                    is_match = actual_version.startswith(expected)
+                    
+                    if is_match:
+                        message = f"Version verified: {actual_version}"
+                    else:
+                        message = (
+                            f"VERSION MISMATCH: HDF5 is {actual_version}, "
+                            f"but feature extraction expects {expected}"
+                        )
+                        self.stats['version_mismatches'] += 1
+                    
+                    return is_match, actual_version, message
+                else:
+                    # No version attribute - likely older preprocessing
+                    message = (
+                        f"No preprocessing_version attribute found. "
+                        f"Assuming {self.version} (cannot verify)"
+                    )
+                    return True, None, message
+                    
+        except Exception as e:
+            return False, None, f"Error checking version: {e}"
 
-        # Convert file paths from strings to Path objects
-        h5_files = [Path(f) for f in h5_files]
+    def load_dataset_defensive(self, night_group, dataset_type='accel'):
+        """
+        Defensively load dataset, trying multiple possible names.
+        
+        Args:
+            night_group (h5py.Group): HDF5 group for a night
+            dataset_type (str): Type of dataset ('accel' or 'timestamps')
+            
+        Returns:
+            np.ndarray or list: Dataset contents
+            
+        Raises:
+            ValueError: If dataset not found with any expected name
+        """
+        if dataset_type == 'accel':
+            possible_names = ['accel', 'acceleration', 'acc', 'data']
+        elif dataset_type == 'timestamps':
+            possible_names = ['timestamps', 'timestamp', 'time', 'times']
+        else:
+            raise ValueError(f"Unknown dataset type: {dataset_type}")
+        
+        # Try each possible name
+        for name in possible_names:
+            if name in night_group:
+                data = night_group[name][:]
+                
+                # Decode bytes to strings for timestamps
+                if dataset_type == 'timestamps' and len(data) > 0:
+                    if isinstance(data[0], bytes):
+                        data = [t.decode('utf-8') for t in data]
+                
+                self.logger.debug(f"Found {dataset_type} as '{name}'")
+                return data
+        
+        # If we get here, none of the names worked
+        available = list(night_group.keys())
+        raise ValueError(
+            f"Could not find {dataset_type} dataset. "
+            f"Tried: {possible_names}. "
+            f"Available: {available}"
+        )
 
-        # Sort files alphabetically for consistent processing order
-        h5_files.sort()
-
-        # Log how many files we found
-        self.logger.info(f"Found {len(h5_files)} .h5 files in {directory}")
-
-        return h5_files
+    def validate_night_data(self, night_number, accel_data, timestamps):
+        """
+        Validate night data quality and consistency.
+        
+        Args:
+            night_number (int): Night index
+            accel_data (np.ndarray): Accelerometer data
+            timestamps (list): Timestamp strings
+            
+        Returns:
+            tuple: (is_valid, issues_list)
+        """
+        issues = []
+        
+        # Check data consistency
+        is_consistent, consistency_msg = validate_data_consistency(accel_data, timestamps)
+        if not is_consistent:
+            issues.append(f"Consistency: {consistency_msg}")
+            self.stats['data_quality_issues'] += 1
+        
+        # Check sampling rate
+        is_valid_rate, actual_hz, rate_msg = validate_sampling_rate(
+            timestamps, 
+            expected_hz=self.sampling_rate,
+            tolerance=self.sampling_rate_tolerance
+        )
+        if not is_valid_rate and actual_hz is not None:
+            issues.append(f"Sampling rate: {rate_msg}")
+            self.stats['sampling_rate_warnings'] += 1
+        
+        # Check minimum duration
+        duration_hours = len(accel_data) / (self.sampling_rate * 3600)
+        if duration_hours < self.min_night_duration:
+            issues.append(
+                f"Duration too short: {duration_hours:.1f}h "
+                f"(minimum {self.min_night_duration}h)"
+            )
+        
+        # Check if enough data for at least one window
+        num_windows = len(accel_data) // self.window_size
+        if num_windows == 0:
+            issues.append(
+                f"Insufficient data: {len(accel_data)} samples < "
+                f"{self.window_size} (need at least 1 window)"
+            )
+        
+        return len(issues) == 0, issues
 
     def load_participant_data(self, h5_file):
         """
-        Load preprocessed data from an .h5 file for one participant.
-        This reads all nights separately to preserve the night structure.
-
-        IMPORTANT: Unlike the previous version, this function keeps nights SEPARATE
-        instead of concatenating them. This preserves the temporal structure needed
-        for machine learning models.
-
+        Load preprocessed data with version verification and defensive loading.
+        
         Args:
-            h5_file: Path to the .h5 file to read
-
+            h5_file (Path): Path to HDF5 file
+            
         Returns:
-            dict: Dictionary containing participant data organized by night
+            dict: Participant data with nights
         """
+        participant_id = h5_file.stem
+        self.logger.info(f"Loading data from: {h5_file.name}")
+        
+        # ROBUSTNESS: Verify preprocessing version
+        is_match, actual_version, version_msg = self.verify_preprocessing_version(h5_file)
+        self.logger.info(f"  {version_msg}")
+        if not is_match:
+            self.logger.warning(f"  Proceeding despite version mismatch")
+        
         try:
-            # Extract participant ID from filename (remove .h5 extension)
-            participant_id = h5_file.stem
-
-            self.logger.info(f"Loading participant: {participant_id}")
-
-            # Open the HDF5 file for reading
             with h5py.File(h5_file, 'r') as f:
-                # Read participant information from file attributes
-                participant_name = f.attrs['name']
-                num_nights = f.attrs['number_of_nights']
-
-                self.logger.info(f"   - Participant: {participant_name}")
-                self.logger.info(f"   - Number of nights: {num_nights}")
-
-                # Initialize list to store data for each night SEPARATELY
-                nights_data = []  # Each element will be one night's data
-
-                # Loop through all nights and collect each night's data separately
-                for night_num in range(1, num_nights + 1):
-                    night_group_name = f"night{night_num}"
-
-                    # Check if this night group exists in the file
-                    if night_group_name in f:
-                        night_group = f[night_group_name]
-
-                        # Read accelerometer data for this specific night
-                        x_data = night_group['x'][:]  # X-axis data
-                        y_data = night_group['y'][:]  # Y-axis data
-                        z_data = night_group['z'][:]  # Z-axis data
-
-                        # Read timestamps (stored as ISO format strings)
-                        timestamps_str = night_group['timestamps'][:]
-                        # Convert string timestamps back to datetime objects
-                        timestamps = [pd.Timestamp(ts.decode('utf-8')) for ts in timestamps_str]
-
-                        # Combine x, y, z data for this night
-                        night_data = np.column_stack([x_data, y_data, z_data])
-
-                        # Store this night's data as a separate entry
+                nights_data = []
+                
+                # Find all night groups
+                night_keys = [key for key in f.keys() if key.startswith('night')]
+                self.logger.info(f"  Found {len(night_keys)} nights")
+                
+                for night_key in sorted(night_keys):
+                    night_group = f[night_key]
+                    # Extract night number (e.g., 'night1' -> 1)
+                    night_number = int(night_key.replace('night', ''))
+                    
+                    try:
+                        # ROBUSTNESS: Defensive dataset loading
+                        acc_data = self.load_dataset_defensive(night_group, 'accel')
+                        time_data = self.load_dataset_defensive(night_group, 'timestamps')
+                        
+                        # ROBUSTNESS: Validate data quality
+                        is_valid, issues = self.validate_night_data(
+                            night_number, acc_data, time_data
+                        )
+                        
+                        if not is_valid:
+                            self.logger.warning(
+                                f"  Night {night_number} validation issues: "
+                                f"{'; '.join(issues)}"
+                            )
+                            self.logger.warning(f"  Skipping night {night_number}")
+                            self.stats['skipped_nights'] += 1
+                            continue
+                        
                         nights_data.append({
-                            'night_number': night_num,
-                            'data': night_data,              # Shape: (samples_this_night, 3)
-                            'timestamps': timestamps,
-                            'samples': len(night_data),
-                            'duration_hours': len(night_data) / self.sampling_rate / 3600
+                            'night_number': night_number,
+                            'accel': acc_data,
+                            'timestamps': time_data,
+                            'num_samples': len(acc_data)
                         })
-
-                        self.logger.info(f"     - Night {night_num}: {len(night_data):,} samples "
-                                       f"({len(night_data) / self.sampling_rate / 3600:.1f}h)")
-                    else:
-                        self.logger.warning(f"     - Night {night_num}: Group not found")
-
-                # Calculate total statistics
-                total_samples = sum(night['samples'] for night in nights_data)
-                total_duration_hours = sum(night['duration_hours'] for night in nights_data)
-
-                self.logger.info(f"   - Total samples across all nights: {total_samples:,}")
-                self.logger.info(f"   - Total duration: {total_duration_hours:.1f} hours")
-                self.logger.info(f"   - Valid nights loaded: {len(nights_data)}")
-
-                # Return all the participant information with nights kept separate
-                return {
-                    'participant_id': participant_id,
-                    'participant_name': participant_name,
-                    'num_nights': len(nights_data),  # Actual number of valid nights loaded
-                    'nights_data': nights_data,      # List of night data (NOT concatenated)
-                    'total_samples': total_samples,
-                    'total_duration_hours': total_duration_hours
-                }
-
+                        
+                        self.logger.info(
+                            f"  Night {night_number}: {len(acc_data):,} samples "
+                            f"({len(acc_data)/(self.sampling_rate*3600):.1f}h) - OK"
+                        )
+                        
+                    except Exception as e:
+                        self.logger.error(
+                            f"  Error loading night {night_number}: {e}"
+                        )
+                        self.logger.warning(f"  Skipping night {night_number}")
+                        self.stats['skipped_nights'] += 1
+                        continue
+                
+                if len(nights_data) == 0:
+                    raise ValueError(
+                        f"No valid nights loaded for {participant_id}. "
+                        f"All {len(night_keys)} nights failed validation."
+                    )
+                
+                self.logger.info(
+                    f"  Successfully loaded {len(nights_data)}/{len(night_keys)} nights"
+                )
+                
         except Exception as e:
-            # If anything goes wrong, log the error and re-raise it
             self.logger.error(f"Error loading {h5_file.name}: {str(e)}")
             raise
+            
+        return {
+            'participant_id': participant_id,
+            'nights': nights_data,
+            'num_nights': len(nights_data),
+            'preprocessing_version': actual_version
+        }
 
-    def create_windows_for_night(self, night_data):
-        """
-        Split one night's accelerometer data into fixed-size windows for feature extraction.
-        Each window contains 10 seconds of data (300 samples at 30Hz).
+    def find_h5_files(self, directory):
+        """Find all .h5 files in a directory."""
+        return sorted(list(Path(directory).glob("*.h5")))
 
-        This function processes ONE NIGHT at a time, preserving the night structure.
-
-        Args:
-            night_data: Accelerometer data for one night (samples × 3)
-
-        Returns:
-            numpy array: Windowed data for this night (num_windows × window_size × 3)
-        """
-        total_samples = len(night_data)
-
-        # Calculate how many complete windows we can create from this night
-        num_windows = total_samples // self.window_size_samples
-
-        # Calculate how many samples we'll actually use (might be slightly less than total)
-        samples_used = num_windows * self.window_size_samples
-
-        # ERROR CHECK: Make sure we have at least one complete window
+    def create_windows(self, acceleration_data):
+        """Create non-overlapping 10-second windows from acceleration data."""
+        num_samples = len(acceleration_data)
+        num_windows = num_samples // self.window_size
+        
         if num_windows == 0:
-            raise ValueError(f"Not enough data in this night to create even one window. "
-                           f"Need at least {self.window_size_samples} samples, got {total_samples}.")
-
-        # Reshape the data into windows
-        # Take only the samples that fit into complete windows
-        data_for_windowing = night_data[:samples_used]
-
-        # Reshape into windows: (num_windows, window_size_samples, 3)
-        windows = data_for_windowing.reshape(num_windows, self.window_size_samples, 3)
-
+            self.logger.warning(
+                f"Insufficient data: {num_samples} samples < "
+                f"{self.window_size} (window size)"
+            )
+            return np.array([])
+        
+        # Trim to exact number of windows
+        trimmed_length = num_windows * self.window_size
+        trimmed_data = acceleration_data[:trimmed_length]
+        
+        # Reshape into windows: (num_windows, window_size, 3)
+        windows = trimmed_data.reshape(num_windows, self.window_size, 3)
+        
         return windows
 
     def extract_features_batch(self, windows_batch):
         """
         Extract SSL-Wearables features from a batch of windows.
-        This is where the actual feature extraction happens using the pre-trained model.
-
+        
         Args:
-            windows_batch: Batch of windows (batch_size × window_size × 3)
-
+            windows_batch (np.ndarray): Windows of shape (batch, 300, 3)
+            
         Returns:
-            numpy array: Feature vectors (batch_size × 1024)
+            np.ndarray: Features of shape (batch, 1024)
         """
-        try:
-            # Convert numpy array to PyTorch tensor
-            # SSL-Wearables expects input in format: (batch, channels, samples)
-            # Our windows are in format: (batch, samples, channels)
-            # So we need to swap the last two dimensions
-            windows_tensor = torch.tensor(windows_batch, dtype=torch.float32).permute(0, 2, 1)
-
-            # Move tensor to GPU (if available) for faster processing
-            windows_tensor = windows_tensor.to(self.device)
-
-            # Extract features using SSL-Wearables feature extractor
-            with torch.no_grad():  # Disable gradient computation for efficiency
-                features = self.ssl_model.feature_extractor(windows_tensor).squeeze(-1)
-                feature_batch = features.detach().cpu().numpy()
-
-            return feature_batch
-
-        except Exception as e:
-            self.logger.error(f"Error in feature extraction: {str(e)}")
-            raise
-
-    def extract_features_for_night(self, night_data):
-        """
-        Extract SSL-Wearables features for one complete night.
-        This processes all windows from one night and returns the features.
-
-        Args:
-            night_data: Dictionary containing one night's accelerometer data
-
-        Returns:
-            numpy array: Feature vectors for this night (num_windows × 1024)
-        """
-        try:
-            night_num = night_data['night_number']
-            data = night_data['data']
-
-            self.logger.info(f"   Extracting features for night {night_num}")
-
-            # STEP 1: Create windows from this night's data
-            windows = self.create_windows_for_night(data)
-            num_windows = len(windows)
-
-            self.logger.info(f"       - Windows created: {num_windows:,} "
-                           f"(expected ~{self.expected_windows_per_night})")
-
-            # STEP 2: Process windows in batches for efficiency
-            all_features = []  # List to store feature vectors from all batches
-
-            # Calculate how many batches we need
-            num_batches = (num_windows + self.batch_size - 1) // self.batch_size  # Ceiling division
-
-            # Process each batch
-            for batch_idx in range(num_batches):
-                # Calculate start and end indices for this batch
-                start_idx = batch_idx * self.batch_size
-                end_idx = min(start_idx + self.batch_size, num_windows)
-
-                # Extract windows for this batch
-                batch_windows = windows[start_idx:end_idx]
-
-                # Extract features for this batch
-                batch_features = self.extract_features_batch(batch_windows)
-
-                # Add to our collection of all features
-                all_features.append(batch_features)
-
-                # Clear GPU cache to prevent memory buildup
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
-
-            # STEP 3: Combine all batch results for this night
-            night_features = np.concatenate(all_features, axis=0)
-
-            self.logger.info(f"       - Features extracted: {night_features.shape}")
-
-            return night_features
-
-        except Exception as e:
-            self.logger.error(f"Error extracting features for night {night_num}: {str(e)}")
-            raise
+        # Convert to PyTorch tensor and transpose to (batch, channels, time)
+        # From: (batch, 300, 3) → To: (batch, 3, 300)
+        windows_tensor = torch.from_numpy(windows_batch).float()
+        windows_tensor = windows_tensor.permute(0, 2, 1)  # Transpose to (batch, 3, 300)
+        windows_tensor = windows_tensor.to(self.device)
+        
+        # Extract features (no gradient computation needed)
+        with torch.no_grad():
+            # Check if model has feature_extractor attribute
+            if not hasattr(self.model, 'feature_extractor'):
+                self.logger.error("Model does not have 'feature_extractor' attribute!")
+                self.logger.error(f"Model attributes: {[attr for attr in dir(self.model) if not attr.startswith('_')]}")
+                raise AttributeError("SSL-Wearables model missing 'feature_extractor' attribute")
+            
+            # IMPORTANT: Use feature_extractor, NOT the full model!
+            # self.model(x) returns classifier output (batch, class_num=2)
+            # self.model.feature_extractor(x) returns features (batch, channels, time)
+            # We need to flatten to get (batch, feature_dim) embeddings
+            features = self.model.feature_extractor(windows_tensor)
+            
+            # Flatten features to (batch, feature_dim)
+            batch_size = windows_tensor.shape[0]
+            embeddings = features.view(batch_size, -1)
+            
+            # Validate feature dimension
+            feature_dim = embeddings.shape[-1]
+            if not hasattr(self, '_feature_dim_validated'):
+                self.logger.info(f"Feature dimension from model: {feature_dim}")
+                if feature_dim != 1024:
+                    self.logger.warning(
+                        f"Feature dimension is {feature_dim}, not 1024. "
+                        f"This is normal for some SSL-Wearables model versions."
+                    )
+                self._feature_dim_validated = True
+            
+            # Move back to CPU and convert to numpy
+            embeddings = embeddings.cpu().numpy()
+        
+        return embeddings
 
     def extract_participant_features(self, participant_data):
         """
-        Extract SSL-Wearables features for one complete participant.
-        This processes all nights for one participant and organizes features by night.
-
-        IMPORTANT: This function maintains the night structure:
-        Output shape: (nights, windows_per_night, 1024_features)
-
+        Extract features for all nights of a participant.
+        
         Args:
-            participant_data: Dictionary containing participant's accelerometer data organized by night
-
+            participant_data (dict): Participant data from load_participant_data
+            
         Returns:
-            dict: Dictionary containing extracted features organized by night
+            dict: Extracted features and metadata
         """
-        try:
-            participant_id = participant_data['participant_id']
-            nights_data = participant_data['nights_data']
+        participant_id = participant_data['participant_id']
+        nights = participant_data['nights']
+        
+        self.logger.info(f"Extracting features for {participant_id}...")
+        
+        all_nights_features = []
+        all_nights_indices = []
+        
+        for night_data in nights:
+            night_number = night_data['night_number']
+            accel = night_data['accel']
+            
+            # Create windows for this night
+            windows = self.create_windows(accel)
+            
+            if len(windows) == 0:
+                self.logger.warning(
+                    f"  Night {night_number}: No windows created (insufficient data)"
+                )
+                continue
+            
+            # Extract features in batches
+            night_features = []
+            num_windows = len(windows)
+            
+            for i in range(0, num_windows, self.batch_size):
+                batch = windows[i:i + self.batch_size]
+                batch_features = self.extract_features_batch(batch)
+                night_features.append(batch_features)
+            
+            # Concatenate all batches for this night
+            night_features = np.concatenate(night_features, axis=0)
+            
+            # Store features and night indices
+            all_nights_features.append(night_features)
+            all_nights_indices.extend([night_number] * len(night_features))
+            
+            self.logger.info(
+                f"  Night {night_number}: {len(night_features)} windows → "
+                f"{len(night_features)} feature vectors"
+            )
+            
+            self.stats['total_windows'] += len(night_features)
+        
+        # Validate we have features
+        if len(all_nights_features) == 0:
+            raise ValueError(f"No features extracted for {participant_id}")
+        
+        # Keep night-level structure (don't concatenate!)
+        # This preserves temporal information for LSTM
+        num_nights = len(all_nights_features)
+        windows_per_night = [len(night) for night in all_nights_features]
+        max_windows = max(windows_per_night)
+        total_windows = sum(windows_per_night)
+        
+        self.logger.info(
+            f"  Total: {total_windows} feature vectors from {num_nights} nights"
+        )
+        self.logger.info(
+            f"  Windows per night: min={min(windows_per_night)}, "
+            f"max={max_windows}, avg={total_windows/num_nights:.1f}"
+        )
+        
+        self.stats['total_features_extracted'] += total_windows
+        self.stats['total_nights'] += num_nights
+        
+        # Clear GPU cache
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        
+        return {
+            'participant_id': participant_id,
+            'nights_features': all_nights_features,  # List of (windows, 1024) arrays
+            'windows_per_night': windows_per_night,  # List of window counts
+            'num_nights': num_nights,
+            'max_windows': max_windows,
+            'total_windows': total_windows,
+            'preprocessing_version': participant_data.get('preprocessing_version')
+        }
 
-            # Record start time for performance tracking
-            start_time = datetime.now()
-
-            self.logger.info(f"Extracting features for {participant_id} ({len(nights_data)} nights)")
-
-            # Initialize list to store features for each night
-            all_nights_features = []  # Each element will be features for one night
-            total_windows = 0
-
-            # Process each night separately
-            for night_data in nights_data:
-                # Extract features for this specific night
-                night_features = self.extract_features_for_night(night_data)
-
-                # Add this night's features to our collection
-                all_nights_features.append(night_features)
-                total_windows += len(night_features)
-
-            # Convert list of night features to a structured numpy array
-            # We need to handle the fact that different nights might have different numbers of windows
-
-            # Find the maximum number of windows across all nights
-            max_windows_per_night = max(len(night_features) for night_features in all_nights_features)
-
-            # Create a padded array to store all nights' features
-            # Shape: (num_nights, max_windows_per_night, 1024)
-            # We'll pad shorter nights with zeros
-            num_nights = len(all_nights_features)
-            participant_features = np.zeros((num_nights, max_windows_per_night, self.feature_dim))
-
-            # Fill in the actual features for each night
-            for night_idx, night_features in enumerate(all_nights_features):
-                num_windows_this_night = len(night_features)
-                participant_features[night_idx, :num_windows_this_night, :] = night_features
-
-            # Also create a mask to indicate which windows are real vs padded
-            windows_mask = np.zeros((num_nights, max_windows_per_night), dtype=bool)
-            for night_idx, night_features in enumerate(all_nights_features):
-                num_windows_this_night = len(night_features)
-                windows_mask[night_idx, :num_windows_this_night] = True
-
-            # Calculate processing time
-            processing_time = (datetime.now() - start_time).total_seconds()
-
-            # Log final results
-            self.logger.info(f" Feature extraction completed:")
-            self.logger.info(f"   - Nights processed: {num_nights}")
-            self.logger.info(f"   - Total windows: {total_windows:,}")
-            self.logger.info(f"   - Features shape: {participant_features.shape}")
-            self.logger.info(f"   - Max windows per night: {max_windows_per_night}")
-            self.logger.info(f"   - Processing time: {processing_time:.1f} seconds")
-            self.logger.info(f"   - Speed: {total_windows/processing_time:.1f} windows/second")
-
-            # Return all the results with night structure preserved
-            return {
-                'participant_id': participant_id,
-                'features': participant_features,       # Shape: (nights, max_windows_per_night, 1024)
-                'windows_mask': windows_mask,           # Shape: (nights, max_windows_per_night) - True for real windows
-                'num_nights': num_nights,
-                'total_windows': total_windows,
-                'max_windows_per_night': max_windows_per_night,
-                'windows_per_night': [len(night_features) for night_features in all_nights_features],
-                'processing_time': processing_time,
-                'windows_per_second': total_windows / processing_time
-            }
-
-        except Exception as e:
-            self.logger.error(f"Error extracting features for {participant_id}: {str(e)}")
-            raise
-
-    def save_participant_features(self, feature_data, output_path):
+    def save_features(self, features_dict, output_dir):
         """
-        Save extracted features for one participant to a .npy file.
-        The features are saved with night structure preserved.
-
+        Save extracted features to .npz file in LSTM-compatible format.
+        
+        Creates 3D array (nights, max_windows, features) with padding and mask.
+        
         Args:
-            feature_data: Dictionary containing participant features and metadata
-            output_path: Full path where to save the feature file
+            features_dict (dict): Features from extract_participant_features
+            output_dir (Path): Output directory
         """
+        participant_id = features_dict['participant_id']
+        output_file = output_dir / f"{participant_id}.npz"
+        
+        # Extract night-level features
+        nights_features = features_dict['nights_features']  # List of (windows, 1024)
+        num_nights = features_dict['num_nights']
+        max_windows = features_dict['max_windows']
+        feature_dim = nights_features[0].shape[1]  # Should be 1024
+        
+        # Create 3D array with padding: (nights, max_windows, 1024)
+        features_3d = np.zeros((num_nights, max_windows, feature_dim), dtype=np.float32)
+        windows_mask = np.zeros((num_nights, max_windows), dtype=bool)
+        
+        # Fill in actual features and create mask
+        for night_idx, night_features in enumerate(nights_features):
+            num_windows = len(night_features)
+            features_3d[night_idx, :num_windows, :] = night_features
+            windows_mask[night_idx, :num_windows] = True  # True = valid data
+        
+        # Save in LSTM-compatible format
+        np.savez_compressed(
+            output_file,
+            features=features_3d,              # (nights, max_windows, 1024)
+            windows_mask=windows_mask,         # (nights, max_windows)
+            participant_id=participant_id,
+            num_nights=num_nights,
+            max_windows=max_windows,
+            total_windows=features_dict['total_windows'],
+            windows_per_night=np.array(features_dict['windows_per_night']),
+            preprocessing_version=features_dict.get('preprocessing_version', 'unknown')
+        )
+        
+        self.logger.info(
+            f"Saved features to: {output_file.name} "
+            f"(shape: {features_3d.shape}, mask: {windows_mask.sum()}/{windows_mask.size} valid)"
+        )
+
+    def test_feature_extraction(self):
+        """Test feature extraction with a small sample to verify dimensions."""
+        self.logger.info("Testing feature extraction...")
+        
+        # Create test windows
+        test_windows = np.random.randn(2, 300, 3).astype(np.float32)
+        
         try:
-            participant_id = feature_data['participant_id']
-            features = feature_data['features']
-            windows_mask = feature_data['windows_mask']
-
-            # Create a dictionary with all the data we want to save
-            save_data = {
-                'features': features,                    # Shape: (nights, max_windows_per_night, 1024)
-                'windows_mask': windows_mask,            # Shape: (nights, max_windows_per_night)
-                'participant_id': participant_id,
-                'num_nights': feature_data['num_nights'],
-                'total_windows': feature_data['total_windows'],
-                'max_windows_per_night': feature_data['max_windows_per_night'],
-                'windows_per_night': feature_data['windows_per_night'],
-                'extraction_date': datetime.now().isoformat()
-            }
-
-            # Save as numpy file (can store dictionaries)
-            np.save(output_path, save_data)
-
-            # Log successful save
-            self.logger.info(f" Saved features: {output_path.name}")
-            self.logger.info(f"   - Shape: {features.shape}")
-            self.logger.info(f"   - File size: {output_path.stat().st_size / 1e6:.1f} MB")
-
+            features = self.extract_features_batch(test_windows)
+            
+            # Check dimensions
+            if features.shape[0] != 2:
+                raise ValueError(f"Expected batch size 2, got {features.shape[0]}")
+            
+            feature_dim = features.shape[1]
+            self.logger.info(f"✓ Feature extraction test successful!")
+            self.logger.info(f"  Test input shape: (2, 300, 3)")
+            self.logger.info(f"  Feature output shape: {features.shape}")
+            self.logger.info(f"  Feature dimension: {feature_dim}")
+            
+            # Check for NaN or Inf
+            if np.any(np.isnan(features)):
+                raise ValueError("Features contain NaN values!")
+            if np.any(np.isinf(features)):
+                raise ValueError("Features contain Inf values!")
+            
+            self.logger.info(f"  ✓ No NaN or Inf values detected")
+            
+            # Update expected feature dimension if different
+            if feature_dim != self.feature_dim:
+                self.logger.warning(
+                    f"  Updating expected feature dimension: {self.feature_dim} → {feature_dim}"
+                )
+                self.feature_dim = feature_dim
+                
+            return True
+            
         except Exception as e:
-            self.logger.error(f"Error saving features for {feature_data['participant_id']}: {str(e)}")
-            raise
-
-    def process_participant(self, h5_file, group_type):
-        """
-        Process one participant from start to finish.
-        This is the main processing function that orchestrates all steps for one person.
-
-        Args:
-            h5_file: Path to the participant's .h5 file
-            group_type: Either 'controls' or 'irbd'
-        """
-        try:
-            # Extract participant ID from filename
-            participant_id = h5_file.stem
-
-            # Log that we're starting to process this participant
-            self.logger.info(f"\n{'='*60}")
-            self.logger.info(f"Processing {group_type.upper()}: {participant_id}")
-            self.logger.info(f"{'='*60}")
-
-            # STEP 1: Load participant data from .h5 file (keeping nights separate)
-            participant_data = self.load_participant_data(h5_file)
-
-            # STEP 2: Extract SSL-Wearables features (preserving night structure)
-            feature_data = self.extract_participant_features(participant_data)
-
-            # STEP 3: Save features to appropriate location
-            if self.mode == "EXAMPLE_TEST":
-                # For example testing, save to root of features directory
-                output_path = self.features_dir / "example_file_features.npy"
-            else:
-                # For full processing, save to appropriate group directory
-                if group_type == 'controls':
-                    output_dir = self.features_controls_dir
-                else:
-                    output_dir = self.features_irbd_dir
-                output_path = output_dir / f"{participant_id}_features.npy"
-
-            self.save_participant_features(feature_data, output_path)
-
-            # STEP 4: Update statistics
-            self.stats['processed_participants'] += 1
-            self.stats['total_nights'] += feature_data['num_nights']
-            self.stats['total_windows'] += feature_data['total_windows']
-            self.stats['total_features_extracted'] += feature_data['total_windows']
-            self.stats['processing_time_total'] += feature_data['processing_time']
-
-            if group_type == 'controls':
-                self.stats['controls_processed'] += 1
-            else:
-                self.stats['irbd_processed'] += 1
-
-            # Log success
-            self.logger.info(f"{participant_id} processed successfully:")
-            self.logger.info(f"   - {feature_data['num_nights']} nights")
-            self.logger.info(f"   - {feature_data['total_windows']:,} windows")
-            self.logger.info(f"   - Features shape: {feature_data['features'].shape}")
-
-        except Exception as e:
-            # If anything goes wrong, log the error but continue with other participants
-            self.logger.error(f"Error processing {participant_id}: {str(e)}")
+            self.logger.error(f"✗ Feature extraction test failed: {e}")
             self.logger.error(traceback.format_exc())
-            self.stats['failed_participants'] += 1
+            return False
 
-    def run_example_test(self):
-        """
-        Run feature extraction on just one example participant for testing.
-        This saves the result as 'example_file_features.npy' in the root features directory.
-        """
-        self.logger.info("EXAMPLE TEST MODE: Processing example participant")
-
-        # Look for the example participant in both directories
-        example_file = None
-        group_type = None
-
-        # Check controls directory first
-        controls_file = self.preprocessed_controls_dir / f"{self.example_participant}.h5"
-        if controls_file.exists():
-            example_file = controls_file
-            group_type = 'controls'
-        else:
-            # Check iRBD directory
-            irbd_file = self.preprocessed_irbd_dir / f"{self.example_participant}.h5"
-            if irbd_file.exists():
-                example_file = irbd_file
-                group_type = 'irbd'
-
-        # Check if we found the example file
-        if example_file is None:
-            self.logger.error(f"Example participant not found: {self.example_participant}")
-            self.logger.error(f"Checked: {controls_file}")
-            self.logger.error(f"Checked: {irbd_file}")
+    def process_all_participants(self):
+        """Process all participants (controls and iRBD)."""
+        self.logger.info("=" * 80)
+        self.logger.info("STARTING ROBUST FEATURE EXTRACTION")
+        self.logger.info("=" * 80)
+        
+        # Run a test first
+        self.logger.info("\nRunning feature extraction test...")
+        if not self.test_feature_extraction():
+            self.logger.error("Feature extraction test failed! Aborting.")
             return
-
-        # Set statistics for processing one participant
-        self.stats['total_participants'] = 1
-
-        # Process the example participant
-        self.process_participant(example_file, group_type)
-
-        # Show final results
-        self.print_final_statistics()
-
-        # Report success or failure
-        if self.stats['processed_participants'] > 0:
-            self.logger.info("EXAMPLE TEST SUCCESSFUL!")
-            self.logger.info(f"Features saved to: {self.features_dir}/example_file_features.npy")
-            self.logger.info("Ready for full dataset processing!")
-        else:
-            self.logger.error("EXAMPLE TEST FAILED!")
-
-    def run_full_processing(self):
-        """
-        Run feature extraction on all participants in the dataset.
-        This processes all .h5 files in both controls and iRBD directories.
-        """
-        self.logger.info("FULL PROCESSING MODE: Processing all participants")
-
-        # Find all .h5 files in both directories
-        controls_files = self.find_h5_files(self.preprocessed_controls_dir)
-        irbd_files = self.find_h5_files(self.preprocessed_irbd_dir)
-
-        # Calculate total number of participants
-        total_participants = len(controls_files) + len(irbd_files)
-        self.stats['total_participants'] = total_participants
-
-        # Check if we found any files
-        if total_participants == 0:
-            self.logger.error("No .h5 files found in input directories")
-            return
-
-        # Log what we found
-        self.logger.info(f"Found {total_participants} participants:")
-        self.logger.info(f"   - Controls: {len(controls_files)} participants")
-        self.logger.info(f"   - iRBD: {len(irbd_files)} participants")
-
-        # Process all control participants
-        self.logger.info(f"\n Processing CONTROLS ({len(controls_files)} participants)...")
-        for i, h5_file in enumerate(controls_files, 1):
-            self.logger.info(f"\n--- Controls Progress: {i}/{len(controls_files)} ---")
-
-            # CHECK IF ALREADY PROCESSED (RESUME FUNCTIONALITY)
-            participant_id = h5_file.stem
-            feature_file = self.features_controls_dir / f"{participant_id}_features.npy"
-            if feature_file.exists():
-                self.logger.info(f"✓ Skipping {participant_id} - features already exist")
+        self.logger.info("")
+        
+        start_time = datetime.now()
+        
+        # Process controls
+        self.logger.info("\n" + "=" * 80)
+        self.logger.info("PROCESSING CONTROLS")
+        self.logger.info("=" * 80)
+        
+        control_files = self.find_h5_files(self.preprocessed_controls_dir)
+        self.logger.info(f"Found {len(control_files)} control participants")
+        
+        for h5_file in control_files:
+            self.stats['total_participants'] += 1
+            try:
+                participant_data = self.load_participant_data(h5_file)
+                features = self.extract_participant_features(participant_data)
+                self.save_features(features, self.features_controls_dir)
                 self.stats['processed_participants'] += 1
                 self.stats['controls_processed'] += 1
-                continue
-
-            self.process_participant(h5_file, 'controls')
-
-        # Process all iRBD participants
-        self.logger.info(f"\n Processing iRBD ({len(irbd_files)} participants)...")
-        for i, h5_file in enumerate(irbd_files, 1):
-            self.logger.info(f"\n--- iRBD Progress: {i}/{len(irbd_files)} ---")
-
-            # CHECK IF ALREADY PROCESSED (RESUME FUNCTIONALITY)
-            participant_id = h5_file.stem
-            feature_file = self.features_irbd_dir / f"{participant_id}_features.npy"
-            if feature_file.exists():
-                self.logger.info(f"✓ Skipping {participant_id} - features already exist")
+            except Exception as e:
+                self.logger.error(f"Failed to process {h5_file.name}: {e}")
+                self.logger.error(traceback.format_exc())
+                self.stats['failed_participants'] += 1
+            
+            # Explicit garbage collection
+            gc.collect()
+        
+        # Process iRBD
+        self.logger.info("\n" + "=" * 80)
+        self.logger.info("PROCESSING iRBD PATIENTS")
+        self.logger.info("=" * 80)
+        
+        irbd_files = self.find_h5_files(self.preprocessed_irbd_dir)
+        self.logger.info(f"Found {len(irbd_files)} iRBD participants")
+        
+        for h5_file in irbd_files:
+            self.stats['total_participants'] += 1
+            try:
+                participant_data = self.load_participant_data(h5_file)
+                features = self.extract_participant_features(participant_data)
+                self.save_features(features, self.features_irbd_dir)
                 self.stats['processed_participants'] += 1
                 self.stats['irbd_processed'] += 1
-                continue
+            except Exception as e:
+                self.logger.error(f"Failed to process {h5_file.name}: {e}")
+                self.logger.error(traceback.format_exc())
+                self.stats['failed_participants'] += 1
+            
+            # Explicit garbage collection
+            gc.collect()
+        
+        # Calculate total time
+        end_time = datetime.now()
+        self.stats['processing_time_total'] = (end_time - start_time).total_seconds()
+        
+        # Print final summary
+        self.print_summary()
 
-            self.process_participant(h5_file, 'irbd')
-
-        # Show final statistics
-        self.print_final_statistics()
-
-    def run_feature_extraction(self):
-        """
-        Main function to run the feature extraction pipeline.
-        Decides whether to run example test or full processing based on configuration.
-        """
-        if self.mode == "EXAMPLE_TEST":
-            self.run_example_test()
-        else:
-            self.run_full_processing()
-
-    def print_final_statistics(self):
-        """
-        Print comprehensive summary of the feature extraction results.
-        Shows processing success rates, performance metrics, and dataset statistics.
-        """
-        # Print header
-        self.logger.info(f"\n{'='*60}")
-        self.logger.info(f"FEATURE EXTRACTION COMPLETED ({self.mode})")
-        self.logger.info(f"{'='*60}")
-
-        # Participant processing statistics
-        self.logger.info(f"Participant Statistics:")
-        self.logger.info(f"  - Total participants: {self.stats['total_participants']}")
-        self.logger.info(f"  - Successfully processed: {self.stats['processed_participants']}")
-        self.logger.info(f"  - Failed to process: {self.stats['failed_participants']}")
-
-        # Calculate success rate
-        if self.stats['total_participants'] > 0:
-            success_rate = self.stats['processed_participants'] / self.stats['total_participants'] * 100
-            self.logger.info(f"  - Success rate: {success_rate:.1f}%")
-
-        self.logger.info("")
-
-        # Group breakdown
-        self.logger.info(f"Group Breakdown:")
-        self.logger.info(f"  - Controls processed: {self.stats['controls_processed']}")
-        self.logger.info(f"  - iRBD processed: {self.stats['irbd_processed']}")
-        self.logger.info("")
-
-        # Data processing statistics
-        self.logger.info(f"Data Processing:")
-        self.logger.info(f"  - Total nights: {self.stats['total_nights']}")
-        self.logger.info(f"  - Total windows: {self.stats['total_windows']:,}")
-        self.logger.info(f"  - Total features extracted: {self.stats['total_features_extracted']:,}")
-
-        # Calculate averages
-        if self.stats['processed_participants'] > 0:
-            avg_nights = self.stats['total_nights'] / self.stats['processed_participants']
-            avg_windows = self.stats['total_windows'] / self.stats['processed_participants']
-            self.logger.info(f"  - Average nights per participant: {avg_nights:.1f}")
-            self.logger.info(f"  - Average windows per participant: {avg_windows:.0f}")
-
-        self.logger.info("")
-
-        # Performance statistics
-        self.logger.info(f"Performance:")
-        self.logger.info(f"  - Total processing time: {self.stats['processing_time_total']:.1f} seconds")
-
-        if self.stats['processing_time_total'] > 0:
-            windows_per_second = self.stats['total_windows'] / self.stats['processing_time_total']
-            self.logger.info(f"  - Overall speed: {windows_per_second:.1f} windows/second")
-
-        self.logger.info("")
-
-        # Final success message
-        if self.stats['processed_participants'] > 0:
-            self.logger.info("Feature extraction pipeline completed successfully!")
-            if self.mode == "EXAMPLE_TEST":
-                self.logger.info(f"Example features saved to: /data/features/example_file_features.npy")
-        else:
-            self.logger.error("Feature extraction pipeline failed!")
+    def print_summary(self):
+        """Print final processing summary."""
+        self.logger.info("\n" + "=" * 80)
+        self.logger.info("FEATURE EXTRACTION COMPLETE")
+        self.logger.info("=" * 80)
+        self.logger.info(f"Version: {self.version}")
+        self.logger.info(f"Total participants: {self.stats['total_participants']}")
+        self.logger.info(f"  Processed: {self.stats['processed_participants']}")
+        self.logger.info(f"  Failed: {self.stats['failed_participants']}")
+        self.logger.info(f"  Controls: {self.stats['controls_processed']}")
+        self.logger.info(f"  iRBD: {self.stats['irbd_processed']}")
+        self.logger.info(f"Total nights: {self.stats['total_nights']}")
+        self.logger.info(f"  Skipped nights: {self.stats['skipped_nights']}")
+        self.logger.info(f"Total windows: {self.stats['total_windows']}")
+        self.logger.info(f"Total features: {self.stats['total_features_extracted']}")
+        self.logger.info(f"Processing time: {self.stats['processing_time_total']:.1f} seconds")
+        self.logger.info(f"\nRobustness statistics:")
+        self.logger.info(f"  Version mismatches: {self.stats['version_mismatches']}")
+        self.logger.info(f"  Sampling rate warnings: {self.stats['sampling_rate_warnings']}")
+        self.logger.info(f"  Data quality issues: {self.stats['data_quality_issues']}")
+        self.logger.info("=" * 80)
 
 
-# In[ ]:
-
-
-# =============================================================================
-# MAIN EXECUTION FUNCTION
-# =============================================================================
+# ============================================================================
+# MAIN EXECUTION
+# ============================================================================
 
 def main():
-    """
-    Main function that runs when the script is executed directly.
-    Creates a FeatureExtractionPipeline object and runs the entire process.
-    """
-    try:
-        # Create and run the feature extraction pipeline
-        pipeline = FeatureExtractionPipeline()
-        pipeline.run_feature_extraction()
+    """Main execution function."""
+    parser = argparse.ArgumentParser(
+        description='Robust feature extraction for iRBD detection'
+    )
+    parser.add_argument(
+        '--version',
+        type=str,
+        required=True,
+        choices=['v0', 'v1', 'v1t', 'vvt'],
+        help='Preprocessing version to use'
+    )
+    
+    args = parser.parse_args()
+    
+    print("=" * 80)
+    print("ROBUST FEATURE EXTRACTION FOR IRBD DETECTION")
+    print("=" * 80)
+    print(f"Version: {args.version}")
+    print(f"Robustness features:")
+    print(f"  ✓ Version verification")
+    print(f"  ✓ Defensive dataset loading")
+    print(f"  ✓ Data quality validation")
+    print(f"  ✓ Sampling rate checking")
+    print("=" * 80)
+    
+    # Create pipeline and process all participants
+    pipeline = RobustFeatureExtractionPipeline(version=args.version)
+    pipeline.process_all_participants()
+    
+    print("\nFeature extraction complete!")
+    print(f"Output directory: {pipeline.features_dir}")
 
-    except KeyboardInterrupt:
-        print("\n Feature extraction interrupted by user")
-        sys.exit(1)
-
-    except Exception as e:
-        print(f"\n Feature extraction failed with error: {str(e)}")
-        print(traceback.format_exc())
-        sys.exit(1)
-
-# =============================================================================
-# SCRIPT EXECUTION ENTRY POINT
-# =============================================================================
 
 if __name__ == "__main__":
     main()
-
-
-# In[ ]:
-
-
-### FOR THE EXAMPLE FILE
-# 7 nights processed
-# 864000 samples per night (8hours at 30 Hz)
-# 48 segments per night (10-minute segments)
-# 60 windows per segment (10-second windows)
-# 2880 windows per night total
-
-# Each segment: (60, 1024) features
-# Each night: (2880, 1024) features
-# Total: 7 x 2880 = 20160 windows with 1024D features
-

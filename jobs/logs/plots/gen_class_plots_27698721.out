@@ -1,0 +1,129 @@
+==========================================
+iRBD Detection Pipeline - Classification Plots
+==========================================
+Job ID: 27698721
+Job Name: gen_class_plots
+Queue: hpc
+Cores: 4
+Host: n-62-30-23 n-62-30-23 n-62-30-23 n-62-30-23
+Started: Wed Jan 28 08:34:03 CET 2026
+
+Generating classification performance visualizations
+Versions: v0, v1, v1t, vvt
+==========================================
+Setting up environment...
+Activating conda environment: env_insights
+Python version: Python 3.10.18
+Conda environment: env_insights
+numpy version: 2.2.6
+matplotlib version: 3.10.3
+seaborn version: 0.13.2
+Setting up directories...
+Project directory: /work3/s184484/iRBD-detection
+Script path: /work3/s184484/iRBD-detection/scripts/generate_classification_plots.py
+Output directory: /work3/s184484/iRBD-detection/results/classification_plots
+Working directory: /work3/s184484/iRBD-detection
+Script verified
+
+==========================================
+Verifying input files...
+==========================================
+Checking for required log files:
+
+Version: v0
+  LSTM: Found (8210 bytes)
+  ML: Found (16920 bytes)
+
+Version: v1
+  LSTM: Found (8378 bytes)
+  ML: Found (16919 bytes)
+
+Version: v1t
+  LSTM: Found (8215 bytes)
+  ML: Found (16927 bytes)
+
+Version: vvt
+  LSTM: Found (8551 bytes)
+  ML: Found (16928 bytes)
+
+Summary: 8 files found, 0 files missing
+
+==========================================
+Generating Classification Plots
+==========================================
+Start time: Wed Jan 28 08:34:29 CET 2026
+
+======================================================================
+Generating Classification Performance Visualizations
+All Preprocessing Versions: v0, v1, v1t, vvt
+======================================================================
+
+1. Loading data from log files...
+
+   Loading v0...
+
+   Loading v1...
+
+   Loading v1t...
+
+   Loading vvt...
+
+2. Loading data from JSON result files...
+   Loading JSON for v0...
+   Loading JSON: results_20260112_230238.json
+   Loading JSON for v1...
+   Loading JSON: results_20260112_230403.json
+   Loading JSON for v1t...
+   Loading JSON: results_20260115_012429.json
+   Loading JSON for vvt...
+   Loading JSON: results_20260115_005146.json
+
+3. Generating plots...
+----------------------------------------
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/model_performance_comparison.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/confusion_matrices.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/fold_variability.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/preprocessing_impact.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/best_model_summary.png
+
+4. Generating more plots...
+----------------------------------------
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/roc_curves_by_version.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/performance_vs_nights_vvt.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_v1.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_v1t.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_vvt.png
+Saved: /work3/s184484/iRBD-detection/results/classification_plots/feature_importance_vvt.png
+
+======================================================================
+All plots generated successfully!
+Output directory: /work3/s184484/iRBD-detection/results/classification_plots
+======================================================================
+
+Plot generation completed successfully
+
+Generated plots:
+-rw-r--r-- 1 s184484 s18 235K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/best_model_summary.png
+-rw-r--r-- 1 s184484 s18 356K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/confusion_matrices.png
+-rw-r--r-- 1 s184484 s18 291K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/feature_importance_vvt.png
+-rw-r--r-- 1 s184484 s18 474K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/fold_variability.png
+-rw-r--r-- 1 s184484 s18 494K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/model_performance_comparison.png
+-rw-r--r-- 1 s184484 s18 158K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/performance_vs_nights_vvt.png
+-rw-r--r-- 1 s184484 s18 243K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_v1.png
+-rw-r--r-- 1 s184484 s18 251K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_v1t.png
+-rw-r--r-- 1 s184484 s18 245K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/prediction_scatter_v0_vs_vvt.png
+-rw-r--r-- 1 s184484 s18 232K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/preprocessing_impact.png
+-rw-r--r-- 1 s184484 s18 169K Jan 28 08:34 /work3/s184484/iRBD-detection/results/classification_plots/roc_curves_by_version.png
+
+Total plots generated: 11
+
+==========================================
+JOB SUMMARY
+==========================================
+Versions processed: v0, v1, v1t, vvt
+Input files found: 8
+Input files missing: 0
+Plots generated: 11
+Output directory: /work3/s184484/iRBD-detection/results/classification_plots
+End time: Wed Jan 28 08:34:45 CET 2026
+==========================================

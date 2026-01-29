@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
 
 
 # FEATURES STATISTICAL ANALYSIS
@@ -59,8 +58,6 @@
 # Error logs : /work3/s184484/iRBD-detection/jobs/logs/stats/stats_error_JOBID.err
 
 
-# In[ ]:
-
 
 # Basic Python libraries for file operations and system control
 import os                    # Operating System interface - helps us work with files and folders
@@ -73,6 +70,7 @@ from pathlib import Path     # For easier and more reliable file path handling
 import glob                  # For finding files that match specific patterns
 import traceback             # For showing detailed error messages when something goes wrong
 import json                  # For saving and loading JSON files (configuration and metadata)
+import argparse              # For parsing command-line arguments
 import pickle                # For saving Python objects (like statistical results)
 import gc                    # Garbage collection - for managing memory usage
 import warnings              # For controlling warning messages
@@ -115,14 +113,20 @@ import seaborn as sns             # Statistical plotting library - makes beautif
 
 # Configure matplotlib and seaborn for professional-looking plots
 plt.style.use('seaborn-v0_8')     # Use seaborn's visual style (makes plots look professional)
-sns.set_palette("husl")           # Set a nice color palette (colors that work well together)
+sns.set_palette("pastel")           # Set a nice color palette (colors that work well together)
 plt.rcParams['figure.figsize'] = (12, 8)  # Set default size for all plots (12 inches wide, 8 inches tall)
 plt.rcParams['font.size'] = 10    # Set default font size for all text in plots
 plt.rcParams['axes.grid'] = True  # Show grid lines on plots for easier reading
 
-
-# In[ ]:
-
+# =============================================================================
+# COMMAND-LINE ARGUMENT PARSING
+# =============================================================================
+parser = argparse.ArgumentParser(description='Statistical analysis of SSL-Wearables features')
+parser.add_argument('--version', type=str, default='v0', 
+                    choices=['v0', 'v1','v1t','vvt'],
+                    help='Preprocessing version to analyze (v0, v1, v1t or vvt)')
+args, unknown = parser.parse_known_args()
+VERSION = args.version
 
 # =============================================================================
 # STATISTICAL ANALYSIS PIPELINE CLASS
@@ -158,11 +162,17 @@ class FeatureStatisticalAnalysis:
     It cannot be tested with single example files like preprocessing or feature extraction.
     """
 
-    def __init__(self):
+    def __init__(self, version='v0'):  # Add version parameter
         """
         Initialize the statistical analysis pipeline with all necessary configuration.
         This sets up directories, parameters, and statistical frameworks.
         """
+        
+        # Use passed version or fall back to global VERSION
+        if version is not None:
+            self.version = version
+        else:
+            self.version = VERSION
 
         # =================================================================
         # DIRECTORY SETUP - Define where to find files and save results
@@ -171,23 +181,33 @@ class FeatureStatisticalAnalysis:
         # Main project directory on HPC
         self.base_dir = Path("/work3/s184484/iRBD-detection")
 
-        # Input directories (where the features are stored):
-        self.features_dir = self.base_dir / "data" / "features"                    # Main features directory
+        # Input directories - version-aware:
+        if self.version == 'v0':
+            self.features_dir = self.base_dir / "data" / "features_v0"
+        elif self.version == 'v1':
+            self.features_dir = self.base_dir / "data" / "features_v1"
+        elif self.version == 'v1t':
+            self.features_dir = self.base_dir / "data" / "features_v1t"
+        elif self.version == 'vvt':
+            self.features_dir = self.base_dir / "data" / "features_vvt"
+        else:
+            raise ValueError(f"Invalid version: {self.version}. Must be 'v0', 'v1','v1t' or 'vvt'")
+
+        
         self.features_controls_dir = self.features_dir / "controls"               # Individual control features
         self.features_irbd_dir = self.features_dir / "irbd"                       # Individual iRBD features
 
         # Output directories (where to save statistical analysis results):
         self.results_dir = self.base_dir / "results"                              # Main results directory
-        self.stats_results_dir = self.results_dir / "statistical_analysis"       # Statistical analysis results
-
+        self.stats_results_dir = self.results_dir / f"statistical_analysis_{self.version}"
+        
         # Visualization output directory (where to save plots for the report):
-        self.plots_dir = self.results_dir / "visualizations"
+        self.plots_dir = self.results_dir / "visualizations" / self.version
 
-        # Only create log directory if it doesn't exist (for logging only)
+        # Create results directories if they don't exist
         self.log_dir = self.base_dir / "validation" / "data_quality_reports"
-        if not self.log_dir.exists():
-            self.log_dir.mkdir(parents=True, exist_ok=True)
-
+        for directory in [self.log_dir, self.stats_results_dir, self.plots_dir]:
+            directory.mkdir(parents=True, exist_ok=True)
         # =================================================================
         # STATISTICAL PARAMETERS - Settings that control the analysis
         # =================================================================
@@ -237,6 +257,8 @@ class FeatureStatisticalAnalysis:
         # Print information about the analysis configuration
         print(f"Statistical Analysis Pipeline Initialized")
         print(f"Base directory: {self.base_dir}")
+        print(f"Preprocessing version: {self.version}")
+        print(f"Features directory: {self.features_dir}")
         print(f"Feature dimension: {self.feature_dim}")
         print(f"Bonferroni corrected alpha: {self.bonferroni_alpha:.2e}")
         print(f"Effect size threshold: {self.medium_effect} (medium)")
@@ -298,6 +320,8 @@ class FeatureStatisticalAnalysis:
         # Write initial log messages to document the start of analysis
         self.logger.info(f"=== Statistical Analysis Pipeline Started ===")
         self.logger.info(f"Base directory: {self.base_dir}")
+        self.logger.info(f"Preprocessing version: {self.version}")
+        self.logger.info(f"Features directory: {self.features_dir}")
         self.logger.info(f"Feature dimension: {self.feature_dim}")
         self.logger.info(f"Bonferroni corrected alpha: {self.bonferroni_alpha:.2e}")
         self.logger.info(f"Effect size threshold: {self.medium_effect}")
@@ -326,7 +350,7 @@ class FeatureStatisticalAnalysis:
                 - participant_info: Dictionary with participant details
         """
         try:
-            self.logger.info("📖 Loading and aggregating feature data...")
+            self.logger.info(" Loading and aggregating feature data...")
 
             controls_features = []
             irbd_features = []
@@ -339,7 +363,7 @@ class FeatureStatisticalAnalysis:
 
             # Load control participants
             self.logger.info("   Processing control participant features...")
-            control_files = list(self.features_controls_dir.glob("*_features.npy"))
+            control_files = list(self.features_controls_dir.glob("*.npz"))
 
             if len(control_files) == 0:
                 raise FileNotFoundError(f"No control feature files found in {self.features_controls_dir}")
@@ -348,12 +372,22 @@ class FeatureStatisticalAnalysis:
                 try:
                     # Load participant data
                     # Each file contains: {'features': array, 'windows_mask': array, 'participant_id': str}
-                    data = np.load(file_path, allow_pickle=True).item()
-
-                    # Extract the components
-                    features = data['features']  # Shape: (nights, max_windows_per_night, 1024)
-                    windows_mask = data['windows_mask']  # Shape: (nights, max_windows_per_night)
-                    participant_id = data['participant_id']
+                    data = np.load(file_path, allow_pickle=True)
+                    
+                    # Handle NpzFile format (named arrays)
+                    if isinstance(data, np.lib.npyio.NpzFile):
+                        features = data['features']  # Shape: (nights, max_windows_per_night, 1024)
+                        windows_mask = data['windows_mask']  # Shape: (nights, max_windows_per_night)
+                        participant_id = data['participant_id'][0] if data['participant_id'].shape else data['participant_id']
+                    # Handle old format (nested dict in 0-d array)
+                    elif isinstance(data, np.ndarray) and data.shape == ():
+                        content = data.item()
+                        features = content['features']
+                        windows_mask = content['windows_mask']
+                        participant_id = content['participant_id']
+                    else:
+                        self.logger.error(f"Unexpected data format in {file_path}")
+                        continue
 
                     # Calculate participant-level feature averages
                     # We need to aggregate across all valid windows for this participant
@@ -396,7 +430,7 @@ class FeatureStatisticalAnalysis:
 
             # Load iRBD participants
             self.logger.info("   Processing iRBD participant features...")
-            irbd_files = list(self.features_irbd_dir.glob("*_features.npy"))
+            irbd_files = list(self.features_irbd_dir.glob("*.npz"))
 
             if len(irbd_files) == 0:
                 raise FileNotFoundError(f"No iRBD feature files found in {self.features_irbd_dir}")
@@ -404,12 +438,22 @@ class FeatureStatisticalAnalysis:
             for file_path in sorted(irbd_files):
                 try:
                     # Load participant data (same structure as controls)
-                    data = np.load(file_path, allow_pickle=True).item()
-
-                    # Extract the components
-                    features = data['features']  # Shape: (nights, max_windows_per_night, 1024)
-                    windows_mask = data['windows_mask']  # Shape: (nights, max_windows_per_night)
-                    participant_id = data['participant_id']
+                    data = np.load(file_path, allow_pickle=True)
+                    
+                    # Handle NpzFile format (named arrays)
+                    if isinstance(data, np.lib.npyio.NpzFile):
+                        features = data['features']  # Shape: (nights, max_windows_per_night, 1024)
+                        windows_mask = data['windows_mask']  # Shape: (nights, max_windows_per_night)
+                        participant_id = data['participant_id'][0] if data['participant_id'].shape else data['participant_id']
+                    # Handle old format (nested dict in 0-d array)
+                    elif isinstance(data, np.ndarray) and data.shape == ():
+                        content = data.item()
+                        features = content['features']
+                        windows_mask = content['windows_mask']
+                        participant_id = content['participant_id']
+                    else:
+                        self.logger.error(f"Unexpected data format in {file_path}")
+                        continue
 
                     # Calculate participant-level feature averages (same process as controls)
                     valid_features = []
@@ -900,35 +944,40 @@ class FeatureStatisticalAnalysis:
             colors = []
             for _, row in results_df.iterrows():
                 if row['significant_and_large']:
-                    colors.append('red')  # Both significant and large effect
+                    colors.append('#E57373')  # Both significant and large effect
                 elif row['is_significant']:
-                    colors.append('orange')  # Significant only
+                    colors.append('#FFB74D')  # Significant only
                 elif row['is_large_effect']:
-                    colors.append('blue')  # Large effect only
+                    colors.append('#64B5F6')  # Large effect only
                 else:
-                    colors.append('lightgray')  # Neither
+                    colors.append('#B0BEC5')  # Neither
 
             # Create scatter plot
             plt.scatter(effect_sizes, p_values_log, c=colors, alpha=0.6, s=30)
 
             # Add significance and effect size thresholds
-            plt.axhline(y=-np.log10(self.bonferroni_alpha), color='red', linestyle='--', 
+            plt.axhline(y=-np.log10(self.bonferroni_alpha), color='#EF5350', linestyle='--', 
                        label=f'Bonferroni threshold (α={self.bonferroni_alpha:.2e})')
-            plt.axvline(x=self.medium_effect, color='blue', linestyle='--', 
+            plt.axvline(x=self.medium_effect, color='#2E7D32', linestyle='--', 
                        label=f'Effect size threshold (|d|={self.medium_effect})')
-            plt.axvline(x=-self.medium_effect, color='blue', linestyle='--')
+            plt.axvline(x=-self.medium_effect, color='#2E7D32', linestyle='--')
 
             plt.xlabel('Effect Size (Cohen\'s d or rank-biserial correlation)', fontsize=12)
-            plt.ylabel('-log₁₀(Corrected p-value)', fontsize=12)
+            plt.ylabel(r'$-\log_{10}$(Corrected p-value)', fontsize=12)
             plt.title('Feature Significance Analysis - iRBD vs Controls\nVolcano Plot', fontsize=14, fontweight='bold')
-            plt.legend()
+            # Create custom legend
+            from matplotlib.lines import Line2D
+            legend_elements = [
+                Line2D([0], [0], marker='o', color='w', markerfacecolor='#E57373', markersize=10, label='Significant + Large effect'),
+                Line2D([0], [0], marker='o', color='w', markerfacecolor='#FFB74D', markersize=10, label='Significant only'),
+                Line2D([0], [0], marker='o', color='w', markerfacecolor='#64B5F6', markersize=10, label='Large effect only'),
+                Line2D([0], [0], marker='o', color='w', markerfacecolor='#B0BEC5', markersize=10, label='Neither'),
+                Line2D([0], [0], color='#EF5350', linestyle='--', label=f'Bonferroni threshold (α={self.bonferroni_alpha:.2e})'),
+                Line2D([0], [0], color='#2E7D32', linestyle='--', label=f'Effect size threshold (|d|={self.medium_effect})'),
+            ]
+            plt.legend(handles=legend_elements, loc='upper right', fontsize=9)
             plt.grid(True, alpha=0.3)
 
-            # Add text annotations for quadrants
-            plt.text(0.7, max(p_values_log)*0.9, 'High Effect\nSignificant', 
-                    bbox=dict(boxstyle='round', facecolor='red', alpha=0.3))
-            plt.text(-0.7, max(p_values_log)*0.9, 'High Effect\nSignificant', 
-                    bbox=dict(boxstyle='round', facecolor='red', alpha=0.3))
 
             volcano_path = self.plots_dir / "feature_volcano_plot.png"
             plt.savefig(volcano_path, dpi=300, bbox_inches='tight')
@@ -942,7 +991,7 @@ class FeatureStatisticalAnalysis:
             y_pos = np.arange(len(top_features))
 
             # Create horizontal bar plot
-            colors = ['red' if both else 'orange' if sig else 'lightblue' 
+            colors = ['#E57373' if both else '#FFB74D' if sig else '#64B5F6' 
                      for both, sig in zip(top_features['significant_and_large'], 
                                          top_features['is_significant'])]
 
@@ -951,7 +1000,7 @@ class FeatureStatisticalAnalysis:
             plt.yticks(y_pos, [f'Feature {idx}' for idx in top_features['feature_index']])
             plt.xlabel('|Effect Size|', fontsize=12)
             plt.title('Top 20 Most Discriminative Features', fontsize=14, fontweight='bold')
-            plt.axvline(x=self.medium_effect, color='blue', linestyle='--', 
+            plt.axvline(x=self.medium_effect, color='#42A5F5', linestyle='--', 
                        label=f'Medium effect threshold (|d|={self.medium_effect})')
             plt.legend()
             plt.grid(True, alpha=0.3, axis='x')
@@ -981,7 +1030,7 @@ class FeatureStatisticalAnalysis:
                 self.stats['both_sig_and_large']
             ]
 
-            bars1 = ax1.bar(categories, counts, color=['lightgray', 'orange', 'lightblue', 'red'])
+            bars1 = ax1.bar(categories, counts, color=['#2E7D32', '#FFB74D', '#64B5F6', '#E57373'])
             ax1.set_title('Feature Analysis Summary', fontweight='bold')
             ax1.set_ylabel('Number of Features')
 
@@ -991,9 +1040,9 @@ class FeatureStatisticalAnalysis:
                         str(count), ha='center', va='bottom', fontweight='bold')
 
             # Subplot 2: Effect size distribution
-            ax2.hist(results_df['effect_size'].abs(), bins=50, alpha=0.7, color='skyblue', 
+            ax2.hist(results_df['effect_size'].abs(), bins=50, alpha=0.7, color='#64B5F6', 
                     edgecolor='black')
-            ax2.axvline(x=self.medium_effect, color='red', linestyle='--', 
+            ax2.axvline(x=self.medium_effect, color='#EF5350', linestyle='--', 
                        label=f'Medium effect (|d|={self.medium_effect})')
             ax2.set_title('Distribution of |Effect Sizes|', fontweight='bold')
             ax2.set_xlabel('|Effect Size|')
@@ -1003,18 +1052,18 @@ class FeatureStatisticalAnalysis:
 
             # Subplot 3: P-value distribution
             ax3.hist(-np.log10(results_df['p_value'] + 1e-300), bins=50, alpha=0.7, 
-                    color='lightcoral', edgecolor='black')
-            ax3.axvline(x=-np.log10(self.bonferroni_alpha), color='red', linestyle='--', 
+                    color='#64B5F6', edgecolor='black')
+            ax3.axvline(x=-np.log10(self.bonferroni_alpha), color='#EF5350', linestyle='--', 
                        label=f'Bonferroni threshold')
-            ax3.set_title('Distribution of -log₁₀(p-values)', fontweight='bold')
-            ax3.set_xlabel('-log₁₀(p-value)')
+            ax3.set_title(r'Distribution of $-\log_{10}$(p-values)', fontweight='bold')
+            ax3.set_xlabel(r'$-\log_{10}$(p-value)')
             ax3.set_ylabel('Frequency')
             ax3.legend()
             ax3.grid(True, alpha=0.3)
 
             # Subplot 4: Test type usage
             test_counts = results_df['test_type'].value_counts()
-            colors = ['lightgreen', 'lightcoral']
+            colors = ['#81C784', '#1565C0']
             wedges, texts, autotexts = ax4.pie(test_counts.values, labels=test_counts.index, 
                                               autopct='%1.1f%%', colors=colors, startangle=90)
             ax4.set_title('Statistical Tests Used', fontweight='bold')
@@ -1047,11 +1096,11 @@ class FeatureStatisticalAnalysis:
                     # Create box plot
                     data_to_plot = [control_values, irbd_values]
                     box_plot = axes[i].boxplot(data_to_plot, labels=['Controls', 'iRBD'], 
-                                              patch_artist=True)
+                                              patch_artist=True, showfliers=False)
 
                     # Color the boxes
-                    box_plot['boxes'][0].set_facecolor('lightblue')
-                    box_plot['boxes'][1].set_facecolor('lightcoral')
+                    box_plot['boxes'][0].set_facecolor('#64B5F6')
+                    box_plot['boxes'][1].set_facecolor('#E57373')
 
                     axes[i].set_title(f'Feature {feature_idx}\n'
                                      f'Effect size: {feature_row["effect_size"]:.3f}\n'
@@ -1093,12 +1142,12 @@ class FeatureStatisticalAnalysis:
                 # Plot controls
                 control_indices = np.array(all_labels) == 'Controls'
                 plt.scatter(features_2d[control_indices, 0], features_2d[control_indices, 1], 
-                           c='blue', alpha=0.6, s=50, label='Controls')
+                           c='#42A5F5', alpha=0.6, s=50, label='Controls')
 
                 # Plot iRBD
                 irbd_indices = np.array(all_labels) == 'iRBD'
                 plt.scatter(features_2d[irbd_indices, 0], features_2d[irbd_indices, 1], 
-                           c='red', alpha=0.6, s=50, label='iRBD')
+                           c='#EF5350', alpha=0.6, s=50, label='iRBD')
 
                 plt.xlabel('t-SNE Component 1')
                 plt.ylabel('t-SNE Component 2')
@@ -1232,9 +1281,6 @@ class FeatureStatisticalAnalysis:
             self.logger.error("Statistical analysis pipeline failed!")
 
 
-# In[ ]:
-
-
 # =============================================================================
 # MAIN EXECUTION FUNCTION
 # =============================================================================
@@ -1246,7 +1292,7 @@ def main():
     """
     try:
         # Create and run the statistical analysis pipeline
-        pipeline = FeatureStatisticalAnalysis()
+        pipeline = FeatureStatisticalAnalysis(version=VERSION)
         pipeline.run_statistical_analysis()
 
     except KeyboardInterrupt:
@@ -1264,4 +1310,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

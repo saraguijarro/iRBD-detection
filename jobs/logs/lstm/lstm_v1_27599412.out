@@ -1,0 +1,80 @@
+==========================================
+iRBD Detection Pipeline - LSTM Training
+==========================================
+Job ID: 27599412
+Job Name: lstm_v1
+Queue: gpuv100
+Cores: 8
+GPU: 
+Host: n-62-20-4 n-62-20-4 n-62-20-4 n-62-20-4 n-62-20-4 n-62-20-4 n-62-20-4 n-62-20-4
+Started: Mon Jan 12 22:27:14 CET 2026
+
+Preprocessing version: v1 (Fixed nights + temp filter)
+==========================================
+Setting up environment...
+Activating conda environment: env_insights
+Python version: Python 3.10.18
+Conda environment: env_insights
+PyTorch version: 2.7.1+cu118
+CUDA available: True
+scikit-learn version: 1.7.1
+numpy version: 2.2.6
+Verifying GPU setup...
+Mon Jan 12 22:27:33 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-PCIE-16GB           On  |   00000000:37:00.0 Off |                    0 |
+| N/A   34C    P0             25W /  250W |       0MiB /  16384MiB |      0%   E. Process |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CUDA available: True
+GPU count: 1
+Current GPU: 0
+GPU name: Tesla V100-PCIE-16GB
+GPU memory: 16.9 GB
+Setting up directories...
+Project directory: /work3/s184484/iRBD-detection
+Features directory: data/features_v1
+Working directory: /work3/s184484/iRBD-detection
+✓ All required directories verified/created
+Verifying input data...
+Feature files found:
+  Controls: 42
+  iRBD: 42
+  Total: 84
+Starting LSTM training pipeline...
+Timestamp: Mon Jan 12 22:27:36 CET 2026
+Executing: python scripts/lstm.py --version v1
+LSTM training completed with exit code: 0
+Total training time: 2189 seconds (36 minutes)
+Verifying LSTM training outputs...
+Model files: 0
+Prediction files: 0
+Evaluation files: 0
+Interpretability files: 0
+Total output files: 0
+WARNING: No output files generated
+==========================================
+JOB SUMMARY
+==========================================
+Version: v1 (Fixed nights + temp filter)
+Input features: data/features_v1
+Participants: 84 (42 controls + 42 iRBD)
+Training time: 36 minutes
+Exit code: 0
+Output files: 0
+Completed: Mon Jan 12 23:04:05 CET 2026
+==========================================
