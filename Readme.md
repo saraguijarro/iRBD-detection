@@ -1,5 +1,6 @@
 # Project : MSc Thesis - Large-scale accelerometer data analysis for iRBD classification
 Author : Sara Maria Guijarro-Heeb (s184484)
+
 Supervisor : Dr. Andreas Brink-Kjaer (DTU Health Tech)
 
 ## Overview
